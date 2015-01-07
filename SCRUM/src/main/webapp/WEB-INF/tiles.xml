@@ -29,6 +29,11 @@
       <put-attribute name="title"  value="startside"/>
       <put-attribute name="body"   value="/WEB-INF/JSP/RegistreringSide.jsp"/>      
   </definition>
+  
+  <definition name="login" extends="baseLayout">
+      <put-attribute name="title"  value="Login"/>
+      <put-attribute name="body"   value="/WEB-INF/JSP/login.jsp"/>      
+  </definition>
  
   
   

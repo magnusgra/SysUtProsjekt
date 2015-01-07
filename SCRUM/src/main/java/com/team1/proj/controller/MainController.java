@@ -29,7 +29,7 @@ public class MainController {
     }
     @RequestMapping(value="/*")
     public String index(){
-        return "index";
+        return "login";
     }
     @RequestMapping(value = "Startside")
     public String showStartside(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
