@@ -22,8 +22,8 @@
         <form:form method="GET" modelAttribute="getUserBean">
         </form:form>
         
-                <input class= button type="button" value="Start nytt spill"/>
-                <input class = button type="button" value="Se highscore"/>
+                <input class="button" type="button" value="Start nytt spill"/>
+                <input class="button" type="button" value="Se highscore"/>
             
     </body>
 </html>

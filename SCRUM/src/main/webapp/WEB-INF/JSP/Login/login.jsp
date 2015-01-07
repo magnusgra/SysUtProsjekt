@@ -23,7 +23,7 @@
 
   <span href="#" class="button" id="toggle-login">Log in</span>
   
-<center>
+
 <div id="login">
   <div id="triangle"></div>
   <h1>Log in</h1>
@@ -33,7 +33,7 @@
     <input type="submit" value="Log in" />
   </form>
 </div>
-</center>
+
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
