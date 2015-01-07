@@ -42,7 +42,7 @@ public class MainController {
     
     @RequestMapping(value="RegistreringSide")
     public String registreringSide(){
-        return "RegistreringSide";
+        return "login";
     }
     
     

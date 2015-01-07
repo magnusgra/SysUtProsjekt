@@ -18,20 +18,23 @@
     <context:component-scan base-package="com.team1.proj.controller"/>
     <mvc:annotation-driven/>
     
-    <!--
+    
         <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
           <property name="prefix">
-              <value>/WEB-INF/JSP/</value>
+              <value>/WEB-INF/JSP/Login/</value>
            </property>
           <property name="suffix">
              <value>.jsp</value>
           </property>
+          <property name="order" value="2" />
     </bean>
-    -->     
+       
                
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"/>            
-    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" >
+        <property name="order" value="1" />
+    </bean>
     
          
 </beans>
