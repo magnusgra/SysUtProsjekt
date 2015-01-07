@@ -1,4 +1,4 @@
-package ProsjektKlasser;
+package com.team1.proj.brukerklasser;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

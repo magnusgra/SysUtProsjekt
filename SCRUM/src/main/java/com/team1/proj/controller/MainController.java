@@ -5,7 +5,7 @@
  */
 package com.team1.proj.controller;
 
-import com.team1.proj.; 
+import com.team1.proj.brukerklasser.Brukerdata; 
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
