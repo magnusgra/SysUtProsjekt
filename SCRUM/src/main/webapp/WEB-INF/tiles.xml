@@ -20,7 +20,7 @@
   </definition>
   
   <definition name="Startside" extends="baseLayout">
-      <put-attribute name="title"  value="Startside"/>
+      <put-attribute name="title"  value="startside"/>
       <put-attribute name="body"   value="/WEB-INF/JSP/Startside.jsp"/>      
   </definition>
  
