@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  *
@@ -19,14 +20,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@SessionAttributes("getUserBean")
 public class MainController {
     
+    @ModelAttribute("getPersonBean")
+    public Brukerdata getUserForm() {
+        return new Brukerdata();
+    }
     @RequestMapping(value="/*")
     public String index(){
         return "index";
     }
     @RequestMapping(value = "Startside")
-    public String showSpam(@Valid @ModelAttribute(value = "getPersonBean") Brukerdata userForm, BindingResult result) {
+    public String showSpam(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
         System.out.println("******************     UserController.showSpam   ************************");
         if (result.hasErrors()) {
             return "index";
