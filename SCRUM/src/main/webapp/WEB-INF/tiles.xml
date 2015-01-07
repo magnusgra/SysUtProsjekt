@@ -14,13 +14,13 @@
       <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
   </definition>
   
-  <definition name="Startside" extends="baseLayout">
-      <put-attribute name="title"  value="Index"/>
-      <put-attribute name="body"   value="/WEB-INF/jsp/Startsie.jsp"/>      
-  </definition>
   <definition name="index" extends="baseLayout">
-      <put-attribute name="title"  value="Index2"/>
+      <put-attribute name="title"  value="Index"/>
       <put-attribute name="body"   value="/WEB-INF/jsp/index.jsp"/>      
+  </definition>
+  <definition name="Startside" extends="baseLayout">
+      <put-attribute name="title"  value="Index2"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/Startside.jsp"/>      
   </definition>
   <definition name="Oppsummering" extends="baseLayout">
       <put-attribute name="title"  value="Index3"/>
