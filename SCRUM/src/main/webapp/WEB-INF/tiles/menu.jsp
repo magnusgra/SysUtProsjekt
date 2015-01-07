@@ -1,4 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
-<a href="<c:url value="Person.htm"/>" >Personinfo</a><br>
-<a href="<c:url value="Spam.htm"/>" >Spam</a><br>
-<a href="<c:url value="Oppsummering.htm"/>" >Oppsummering</a>
+
+&lt;Brukernavn&gt;
+<center>
+    <br><br>
+    <a href="<c:url value="#"/>" >Kul</a><br><br>
+    <a href="<c:url value="#"/>" >Spam</a><br><br>
+    <a href="<c:url value="#"/>" >Endre Passord</a><br><br>
+    <a href="<c:url value="#"/>" >Logg ut</a>
+</center>

@@ -5,28 +5,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title><tiles:insertAttribute name="title" ignore="true" /></title>
+        <title><tiles:insertAttribute name="title" ignore="true" /></title>        
+        <style>
+           body {
+                margin: 0em;
+                padding: 0em;
+                height: 40em;
+            }
+
+            #menu {
+                position: absolute;
+                border-right: 1px solid black;
+                background:rgba(142,142,142,0.2);
+                height: 100%;
+
+                width: 15em;
+                top: 0em;
+                left: 0em;
+                bottom: 0em;
+            }
+
+            #content {
+                position: absolute;
+                left: 15em;
+                top: 0em;
+                height: 100%;
+                right: 0em;
+                min-width: 35em;		
+            } 
+        </style>
     </head>
     <body>
-        <table border="1" cellpadding="2" cellspacing="2" width="600" align="center">
-            <tr>
-                <td height="30" colspan="2">
-                    <tiles:insertAttribute name="header" />
-                </td>
-            </tr>
-            <tr>
-                <td width="80" valign="top">
-                     <tiles:insertAttribute name="menu" />
-                </td>
-                <td width="520" height="600" valign="top">
-                    <tiles:insertAttribute name="body" />
-                </td>
-            </tr>
-            <tr>
-                <td height="30" colspan="2">
-                    <tiles:insertAttribute name="footer" />
-                </td>
-            </tr>
-        </table>
+        <aside id="menu">
+            <tiles:insertAttribute name="menu" />
+	</aside>
+	<div id="content">
+            <tiles:insertAttribute name="body" />
+	</div>
     </body>
 </html>
