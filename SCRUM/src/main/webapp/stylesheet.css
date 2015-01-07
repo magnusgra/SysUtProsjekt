@@ -11,7 +11,7 @@ body {
 	font: 75% georgia, sans-serif;
 	line-height: 1.88889;
 	color: #555753; 
-	background: #fff url(blossoms.jpg) no-repeat bottom right; 
+	background: #fff url(betong.jpg) no-repeat bottom right; 
 	margin: 0; 
 	padding: 0;
 	}
@@ -46,7 +46,7 @@ abbr {
 
 /* specific divs no-repeat top left*/
 .page-wrapper { 
-	background: url('tre.jpg'); 
+	background: url(betong2.jpg); 
         padding: 0 175px 0 110px;  
 	margin: 0; 
 	position: relative;
@@ -58,7 +58,7 @@ abbr {
 	}
 
 header h1 { 
-	background: transparent url(h1.gif) no-repeat top left;
+	background: transparent url(skyline.gif) no-repeat top left;
 	margin-top: 10px;
 	display: block;
 	width: 219px;
@@ -70,7 +70,7 @@ header h1 {
 	overflow: hidden;
 	}
 header h2 { 
-	background: transparent url(h2.gif) no-repeat top left; 
+	background: transparent url(by.gif) no-repeat top left; 
 	margin-top: 58px; 
 	margin-bottom: 40px; 
 	width: 200px; 
@@ -121,13 +121,13 @@ footer a:link, footer a:visited {
 	}
 .sidebar .wrapper { 
 	font: 10px verdana, sans-serif; 
-	background: transparent url(paper-bg.jpg) top left repeat-y; 
+	background: transparent url(by.jpg) top left repeat-y; 
 	padding: 10px; 
 	margin-top: 150px; 
 	width: 130px; 
 	}
 .sidebar h3.select { 
-	background: transparent url(h3.gif) no-repeat top left; 
+	background: transparent url(betong3.jpg) no-repeat top left; 
 	margin: 10px 0 5px 0; 
 	width: 97px; 
 	height: 16px; 
@@ -137,7 +137,7 @@ footer a:link, footer a:visited {
 	overflow: hidden;
 	}
 .sidebar h3.archives { 
-	background: transparent url(h5.gif) no-repeat top left; 
+	background: transparent url(betong.jpg) no-repeat top left; 
 	margin: 25px 0 5px 0; 
 	width:57px; 
 	height: 14px; 
@@ -147,7 +147,7 @@ footer a:link, footer a:visited {
 	overflow: hidden;
 	}
 .sidebar h3.resources { 
-	background: transparent url(h6.gif) no-repeat top left; 
+	background: transparent url(betong3.jpg) no-repeat top left; 
 	margin: 25px 0 5px 0; 
 	width:63px; 
 	height: 10px; 
@@ -164,7 +164,7 @@ footer a:link, footer a:visited {
 	}
 .sidebar li {
 	line-height: 1.3em; 
-	background: transparent url(cr1.gif) no-repeat top center; 
+	background: transparent url(by2.jpg) no-repeat top center; 
 	display: block; 
 	padding-top: 5px; 
 	margin-bottom: 5px;
@@ -179,7 +179,7 @@ footer a:link, footer a:visited {
 
 
 .extra1 {
-	background: transparent url(cr2.gif) top left no-repeat; 
+	background: transparent url(betong.jpg) top left no-repeat; 
 	position: absolute; 
 	top: 40px; 
 	right: 0; 

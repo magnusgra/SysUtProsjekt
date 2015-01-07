@@ -11,9 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="page-wrapper">
     <center>
-        <h1>Jello World!</h1>
+        <h3>Jello World!</h3>
+        <p> Lisa gikk til skolen. trippetrippesa. I den nye kjoooolen, trippet hun så glad </p>
     </center>
     </body>
 </html>
