@@ -28,7 +28,7 @@
   <form>
     <input type="email" placeholder="Email" />
     <input type="password" placeholder="Password" />
-    <input type="submit" value="Log in" />
+    <input type="submit" value="Log in sjø" />
   </form>
 </div>
 
