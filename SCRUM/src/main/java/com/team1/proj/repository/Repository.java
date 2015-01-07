@@ -5,11 +5,19 @@
  */
 package com.team1.proj.repository;
 
+import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.Resultat;
+
 /**
  *
  * @author arnecs
  */
 public interface Repository {
     
-  //  public void leggTilBruker(Brukerdata bd);
+    public void leggTilBruker(Brukerdata bd);
+    public void leggTilResultat(Resultat res);
+    
+    
+    
+    
 }
