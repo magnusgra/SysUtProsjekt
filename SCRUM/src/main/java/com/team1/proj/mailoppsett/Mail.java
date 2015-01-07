@@ -7,10 +7,11 @@
  *
  * @author Ingrid
  */
+package com.team1.proj.mailoppsett;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import prosjekt.Passord;
+import com.team1.proj.mailoppsett.Passord;
 
 public class Mail {
 

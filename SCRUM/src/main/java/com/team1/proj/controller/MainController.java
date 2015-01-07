@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("getUserBean")
 public class MainController {
     
-    @ModelAttribute("getPersonBean")
+    @ModelAttribute("getUserBean")
     public Brukerdata getUserForm() {
         return new Brukerdata();
     }
@@ -32,8 +32,8 @@ public class MainController {
         return "index";
     }
     @RequestMapping(value = "Startside")
-    public String showSpam(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
-        System.out.println("******************     UserController.showSpam   ************************");
+    public String showStartside(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+        System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
             return "index";
         }
