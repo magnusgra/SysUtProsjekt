@@ -40,4 +40,10 @@ public class MainController {
         return "Startside";
     }
     
+    @RequestMapping(value="RegistreringSide")
+    public String registreringSide(){
+        return "RegistreringSide";
+    }
+    
+    
 }
