@@ -11,14 +11,17 @@
                 margin: 0em;
                 padding: 0em;
                 height: 40em;
+                background:#567;
+                font-family:'Open Sans',sans-serif;
             }
 
             #menu {
                 position: absolute;
                 border-right: 1px solid black;
-                background:rgba(142,142,142,0.2);
+                background:#f0f0f0;
                 height: 100%;
 
+               
                 width: 15em;
                 top: 0em;
                 left: 0em;

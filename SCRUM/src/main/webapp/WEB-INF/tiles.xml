@@ -25,10 +25,9 @@
   </definition>
  
  
- <definition name="RegistreringSide" extends="baseLayout">
-      <put-attribute name="title"  value="startside"/>
-      <put-attribute name="body"   value="/WEB-INF/JSP/RegistreringSide.jsp"/>      
-  </definition>
+
+  
+
  
   
   
