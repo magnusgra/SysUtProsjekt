@@ -23,7 +23,7 @@ h3 {
 	font: italic normal 1.4em georgia, sans-serif;
 	letter-spacing: 1px; 
 	margin-bottom: 0; 
-	color: #7D775C;
+	color: #7D770C;
 	}
 a:link { 
 	font-weight: bold; 
@@ -44,10 +44,10 @@ abbr {
 	}
 
 
-/* specific divs */
+/* specific divs no-repeat top left*/
 .page-wrapper { 
-	background: url(zen-bg.jpg) no-repeat top left; 
-	padding: 0 175px 0 110px;  
+	background: url('tre.jpg'); 
+        padding: 0 175px 0 110px;  
 	margin: 0; 
 	position: relative;
 	}
