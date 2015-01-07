@@ -14,11 +14,18 @@ public class Brukerdata {
     private String email; 
     private String userName; 
     private String password; 
-
-    public Brukerdata(String email, String password){
-        this.email; 
-        this.password; 
+    
+    public Brukerdata(){ 
     }
+    public Brukerdata(String email, String password){
+        this.email = email; 
+        this.password = password; 
+    }
+    /*public Brukerdata(String userName, String password){
+        this.userName = userName; 
+        this.password = password; 
+    }*/
+    
     public String getEmail() {
         return email;
     }
