@@ -21,29 +21,29 @@
 
     <body>
 
-        <span href="#" class="button" id="toggle-login">Logg inn</span>
+        <span href="#" class="button" id="toggle-login" style="width: 125px;" >Nic and Steven</span>
 
         <div id="login">
             <div id="triangle"></div>
-            <h1>Logg in</h1>
-            <form:form method="POST" modelAttribute="getUserBean" action = "Startside">
-                <form:input type= "email" placeholder="E-post" path="userName" /><br>
-                <%--<input type="email" placeholder="E-post" /><br>--%>
-                <form:input type= "password" placeholder="Passord" path="password" /><br>
+            <h1>Brukerkonto</h1>
+            <form:form method="POST" modelAttribute="brukerService" action = "Startside">
+                <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
+                <%--<input type="email" placeholder="Epost" /><br>--%>
+                <form:input type= "password" placeholder="Passord" path="brukerdata.passord" /><br>
                 <%--<input type="password" placeholder="Passord" /><br>--%>
-                <input type="submit" value="Logg in" />
+                <input type="submit" value="Logg inn" />
                 <br>
                 <br>
                 <center>
-                    <p>Ny bruker? <a href="RegistreringSide"> <br> Registrer deg her!</a>
+                    <span> Ny bruker? <a href="RegistreringSide">Registrer deg her!</a></span>
                 </center>
             </form:form>
         </div>
 
 
-        <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+        <script src='<c:url value="http://codepen.io/assets/libs/fullpage/jquery.js" />'></script>
 
-        <script src="js/index.js"></script>
+        <script src='<c:url value="/resources/js/index.js" />'></script>
 
     </body>
 

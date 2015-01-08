@@ -8,22 +8,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.RegistreringsForm;
+import com.team1.proj.mailoppsett.Mail;
 import com.team1.proj.repository.BrukerRepository;
 
 //@Service
-public class BrukerServiceImpl implements BrukerService{
+public class BrukerServiceImpl implements BrukerService {
      
     private BrukerRepository repo;
-
+    private Brukerdata brukerdata;
+    
      @Autowired
      public void setRepository(BrukerRepository repo){
          System.out.println("BrukerServiceImpl.setDatabase2   " + repo);
          this.repo = repo;
      }
    
-    public Brukerdata getBruker(String brukernavn){
+    public Brukerdata getBrukerdata(){
         System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
-        return repo.getBruker(brukernavn);
+        if (brukerdata == null){
+            brukerdata = new Brukerdata();
+        }
+        return brukerdata;
     }
      
     public List<Brukerdata> getAlleBrukere(){
@@ -44,6 +50,8 @@ public class BrukerServiceImpl implements BrukerService{
     
     public boolean registrerBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
+        Mail mail = new Mail();
+        bd.setPassord(mail.sendMailMedPassord(bd));
         return repo.registrerBruker(bd);
     }
     
@@ -61,6 +69,19 @@ public class BrukerServiceImpl implements BrukerService{
     public boolean oppdaterBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.oppdaterBruker()  *** ");
         return repo.oppdaterBruker(bd);
+    }
+    public RegistreringsForm getRegistreringsForm(){
+        return new RegistreringsForm();
+    }
+
+    @Override
+    public void setBrukerdata(Brukerdata bd) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean loggInn(Brukerdata bd) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

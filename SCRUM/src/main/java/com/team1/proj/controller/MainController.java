@@ -6,11 +6,16 @@
 package com.team1.proj.controller;
 
 import com.team1.proj.brukerklasser.Brukerdata; 
+import com.team1.proj.brukerklasser.RegistreringsForm;
+import com.team1.proj.service.BrukerService;
+import com.team1.proj.service.BrukerServiceImpl;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -20,12 +25,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-@SessionAttributes("getUserBean")
+@SessionAttributes("brukerService")
 public class MainController {
     
-    @ModelAttribute("getUserBean")
-    public Brukerdata getUserForm() {
-        return new Brukerdata();
+    @ModelAttribute("brukerService")
+    public BrukerService getBrukerService() {
+        return new BrukerServiceImpl();
     }
     @RequestMapping(value="/*")
     public String index(){
@@ -33,7 +38,7 @@ public class MainController {
         return "login";
     }
     @RequestMapping(value = "Startside")
-    public String showStartside(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+    public String showStartside(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
             return "login";
@@ -42,7 +47,7 @@ public class MainController {
     }
     
     @RequestMapping(value = "EndrePassord")
-    public String showEndrePassord(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+    public String showEndrePassord(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
             return "startside";
@@ -51,7 +56,7 @@ public class MainController {
     }
     
     @RequestMapping(value = "Highscore")
-    public String showHighscore(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+    public String showHighscore(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
             return "startside";
@@ -60,9 +65,29 @@ public class MainController {
     }
     
     @RequestMapping(value="RegistreringSide")
-    public String registreringSide(){
+    public String registreringSide(@ModelAttribute(value = "brukerService") BrukerService brukerService, Model model){
         System.out.println("******************     UserController.showRegistreringSide   ************************");
+        model.addAttribute(brukerService.getRegistreringsForm());
         return "RegistreringSide";
+    }
+    
+    
+    @RequestMapping(value="RegistrerBruker", method=RequestMethod.POST)
+    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, @ModelAttribute(value = "brukerService") BrukerService brukerService){
+        
+        if (!regForm.isGodtarBrukervilkar()){
+            //Godtar ikke brukervilkår
+            return "RegistreringSide";
+        } 
+        String email = regForm.getBrukerdata().getEpost();
+        String navn = regForm.getBrukerdata().getBrukernavn();    
+        if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
+            return "RegistreringSide";
+        }
+        
+        brukerService.registrerBruker(regForm.getBrukerdata());
+        
+        return "login";
     }
     
     
