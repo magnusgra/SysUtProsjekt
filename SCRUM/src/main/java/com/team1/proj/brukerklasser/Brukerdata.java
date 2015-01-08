@@ -8,47 +8,46 @@ package com.team1.proj.brukerklasser;
 
 /**
  *
- * @author Mari
+ * @author Mari/Kai :P
  */
 public class Brukerdata {
-    
-    private String email; 
-    private String userName; 
-    private String password; 
+    private String brukernavn;
+    private int rettigheter;
+    private String passord; 
     
     public Brukerdata(){ 
     }
-    public Brukerdata(String email, String password){
-        this.email = email; 
-        this.password = password; 
+    public Brukerdata(String brukernavn, String passord){
+        this.brukernavn = brukernavn; 
+        this.passord = passord; 
     }
     /*public Brukerdata(String userName, String password){
         this.userName = userName; 
         this.password = password; 
     }*/
     
-    public String getEmail() {
-        return email;
+    public String getBrukernavn() {
+        return brukernavn;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setBrukernavn(String brukernavn) {
+        this.brukernavn = brukernavn;
+    }
+    
+    public int getRettigheter() {
+        return rettigheter;
     }
 
-    public String getUserName() {
-        return userName;
+    public void setRettigheter(int ret) {
+        this.rettigheter = ret;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getPassord() {
+        return passord;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassord(String passord) {
+        this.passord = passord;
     }
     
     
