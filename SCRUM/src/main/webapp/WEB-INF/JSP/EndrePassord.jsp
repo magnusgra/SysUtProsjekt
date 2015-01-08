@@ -19,14 +19,16 @@
                 color:white;
             }
             #tekst{
-                font-size: 1.7em;
+                font-size: 1.4em;
                 
-                margin-top: 15px;
+                margin-top: 18px;
+                margin-bottom: 0px;
             }
             .innhold{
                 float: left;
                 padding-left: 15px;
                 margin-left: 37%;
+                
                 
             }
             .passord{
@@ -34,9 +36,26 @@
                 width: 200px;
                 margin-bottom:5px;
                 margin-top: 10px;
+                font-size: 1em;
             }
-            #knapp{
-                width: 200px;  
+            .button2{
+                width:205px;
+                background:#3399cc;
+                display:block;
+                margin:0 auto;
+                margin-top:10px;
+                padding:10px;
+                text-align:center;
+                text-decoration:none;
+                color:#fff;
+                cursor:pointer;
+                transition:background .3s;
+                -webkit-transition:background .3s;
+                font-size: 1em;
+            }
+
+            .button2:hover{
+                background:#2288bb;
             }
         </style>
     </head>
@@ -52,7 +71,7 @@
                 <div class="break"></div>
                 <input class="passord" type="password" placeholder="Bekreft nytt passord" />
                 <div class="break"></div>
-                <input id="knapp" type="submit" value="Endre" />
+                <input class="button2" type="submit" value="Endre" />
             </form>
             
         </div>
