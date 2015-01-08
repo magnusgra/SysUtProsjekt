@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/SCRUM"/>
+<Context antiJARLocking="true" path="/database">
+
+<Resource name="jdbc/sysdbtest" auth="Container"
+          type="javax.sql.DataSource" username="brukernavn" password="passord"
+          driverClassName="org.apache.derby.jdbc.ClientDriver" 
+          url="jdbc:derby://localhost:1527/sysdbtest"
+          maxActive="8" maxIdle="4"/>   
+ 
+</Context>
