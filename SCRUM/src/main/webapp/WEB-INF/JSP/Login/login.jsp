@@ -15,7 +15,7 @@
 
         <title>Login Form</title>
 
-        
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
 
     </head>
 

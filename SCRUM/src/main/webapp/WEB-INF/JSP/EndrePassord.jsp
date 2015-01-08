@@ -65,7 +65,7 @@
         <div id="EndrePassord">
             <div id="triangle"></div>
             <h1>Endre passord</h1>
-            <form:form method="POST" modelAttribute="userBean" action="EndrePassord">
+            <form:form method="POST" modelAttribute="brukerService" action="EndrePassord">
                 <form:input type= "passord" placeholder="Gammelt passord" path="brukerdata.passord" /><br>
                 <form:input type= "passord" placeholder="Nytt passord" path="brukerdata.passord" /><br>
                 <form:input type= "passord" placeholder="Bekreft nytt passord" path="brukerdata.passord" /><br>
