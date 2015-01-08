@@ -70,8 +70,8 @@ public class Mail {
         String fra = "nicandsteven@yahoo.com";
         String passord = "scrumteam1";
         //Mottaker:
-        String brukernavnet = brukerdata.getUserName();
-        String til = brukerdata.getEmail();
+        String brukernavnet = brukerdata.getBrukernavn();
+        String til = brukerdata.getEpost();
         String host = "smtp.mail.yahoo.com";
 
         Properties properties = System.getProperties();

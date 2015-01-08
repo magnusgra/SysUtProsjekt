@@ -27,9 +27,9 @@
             <div id="triangle"></div>
             <h1>Brukerkonto</h1>
             <form:form method="POST" modelAttribute="userBean" action = "Startside">
-                <form:input type= "email" placeholder="Epost" path="email" /><br>
+                <form:input type= "email" placeholder="Epost" path="epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
-                <form:input type= "password" placeholder="Passord" path="password" /><br>
+                <form:input type= "password" placeholder="Passord" path="passord" /><br>
                 <%--<input type="password" placeholder="Passord" /><br>--%>
                 <input type="submit" value="Logg inn" />
                 <br>

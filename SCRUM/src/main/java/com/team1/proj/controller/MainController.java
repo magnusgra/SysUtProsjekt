@@ -77,8 +77,8 @@ public class MainController {
             //Godtar ikke brukervilkår
             return "RegistreringSide";
         } 
-        String email = regForm.getBrukerdata().getEmail();
-        String navn = regForm.getBrukerdata().getUserName();    
+        String email = regForm.getBrukerdata().getEpost();
+        String navn = regForm.getBrukerdata().getBrukernavn();    
         if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
             return "RegistreringSide";
         }

@@ -20,7 +20,7 @@ public class Service {
     
     public void registrerBruker(Brukerdata brukerdata){
         Mail mail = new Mail();
-        brukerdata.setPassword(mail.sendMailMedPassord(brukerdata));
+        brukerdata.setPassord(mail.sendMailMedPassord(brukerdata));
         
     }
     
