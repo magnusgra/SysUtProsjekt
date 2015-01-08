@@ -14,6 +14,7 @@ public class Brukerdata {
     private String brukernavn;
     private int rettigheter;
     private String passord; 
+    private String epost;
     
     public Brukerdata(){ 
     }
@@ -48,6 +49,14 @@ public class Brukerdata {
 
     public void setPassord(String passord) {
         this.passord = passord;
+    }
+    
+    public String getEpost(){
+        return epost;
+    }
+    
+    public void setEpost(String epost){
+        this.epost = epost;
     }
     
     
