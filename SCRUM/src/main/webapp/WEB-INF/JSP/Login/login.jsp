@@ -28,9 +28,20 @@
   <div id="triangle"></div>
   <h1>Logg Inn</h1>
   <form action="Startside" >
+<<<<<<< HEAD
       <input type="email" placeholder="E-post" /><br>
       <input type="password" placeholder="Passord" /><br>
     <input type="submit" value="Logg inn" />
+=======
+      <input type="email" placeholder="Epost" /><br>
+      <input type="password" placeholder="Passord" /><br>
+    <input type="submit" value="Log in" />
+    <br>
+    <br>
+    <center>
+    <a href="RegistreringSide.jsp">Ny bruker? registrer deg her!</a>
+    </center>
+>>>>>>> 8fbb2f8aabfda2ceb50a4adf87cf8b4b187f481e
   </form>
 </div>
 

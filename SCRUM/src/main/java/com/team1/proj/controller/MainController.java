@@ -35,14 +35,14 @@ public class MainController {
     public String showStartside(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
-            return "index";
+            return "login";
         }
         return "Startside";
     }
     
     @RequestMapping(value="RegistreringSide")
     public String registreringSide(){
-        return "login";
+        return "RSegistreringSide";
     }
     
     
