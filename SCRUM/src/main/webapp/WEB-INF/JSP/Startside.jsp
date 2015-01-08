@@ -20,8 +20,8 @@
     </head>
     <body>
     <center>
-        <h1>Velkommen (brukernavn)</h1>
-        <c:set var="user" value="${getPersonBean}" />
+        <c:set var="user" value="${getUserBean}" />
+        <h1>Velkommen ${user.userName}</h1>
         </center>     
     </body>
 </html>

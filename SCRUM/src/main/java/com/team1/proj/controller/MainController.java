@@ -29,6 +29,7 @@ public class MainController {
     }
     @RequestMapping(value="/*")
     public String index(){
+        System.out.println("******************     UserController.showLogin   ************************");
         return "login";
     }
     @RequestMapping(value = "Startside")
