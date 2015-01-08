@@ -23,8 +23,8 @@ public class Mail {
         String fra = "nicandsteven@yahoo.com";
         String passord = "scrumteam1";
         //Mottaker:
-        String brukernavnet = "ingrid";
-        String til = "ingrid.horten@gmail.com";
+        String brukernavnet = "ACS";
+        String til = "achrs@hotmail.com";
         String host = "smtp.mail.yahoo.com";
 
         Properties properties = System.getProperties();

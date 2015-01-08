@@ -15,7 +15,7 @@
 
         <title>Login Form</title>
 
-        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
+        
 
     </head>
 
@@ -26,10 +26,10 @@
         <div id="login">
             <div id="triangle"></div>
             <h1>Brukerkonto</h1>
-            <form:form method="POST" modelAttribute="userBean" action = "Startside">
-                <form:input type= "email" placeholder="Epost" path="epost" /><br>
+            <form:form method="POST" modelAttribute="brukerService" action = "Startside">
+                <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
-                <form:input type= "password" placeholder="Passord" path="passord" /><br>
+                <form:input type= "password" placeholder="Passord" path="brukerdata.passord" /><br>
                 <%--<input type="password" placeholder="Passord" /><br>--%>
                 <input type="submit" value="Logg inn" />
                 <br>
