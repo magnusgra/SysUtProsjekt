@@ -25,17 +25,17 @@
 
         <div id="login">
             <div id="triangle"></div>
-            <h1>Log in</h1>
+            <h1>Logg in</h1>
             <form:form method="POST" modelAttribute="getUserBean" action = "Startside">
-                <form:input type= "email" placeholder="Epost" path="userName" /><br>
-                <%--<input type="email" placeholder="Epost" /><br>--%>
+                <form:input type= "email" placeholder="E-post" path="userName" /><br>
+                <%--<input type="email" placeholder="E-post" /><br>--%>
                 <form:input type= "password" placeholder="Passord" path="password" /><br>
                 <%--<input type="password" placeholder="Passord" /><br>--%>
-                <input type="submit" value="Log in" />
+                <input type="submit" value="Logg in" />
                 <br>
                 <br>
                 <center>
-                    <a href="RegistreringSide">Ny bruker? Registrer deg her!</a>
+                    <p>Ny bruker? <a href="RegistreringSide"> <br> Registrer deg her!</a>
                 </center>
             </form:form>
         </div>

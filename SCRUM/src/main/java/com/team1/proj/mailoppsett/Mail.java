@@ -8,11 +8,13 @@
  * @author Ingrid
  */
 package com.team1.proj.mailoppsett;
+import com.sun.javafx.font.FontFactory;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import com.team1.proj.mailoppsett.Passord;
 import java.awt.Font;
+import javafx.scene.paint.Color;
 
 public class Mail {
 
@@ -49,9 +51,8 @@ public class Mail {
             //Melding
             Passord p = new Passord();
             String sendt = p.autogenererPassord();
-            message.setText("Er du klar for å spille Nic And Steven og samtidig lære CSS og HTML5?"
-                    + "\n\n Her er det du trenger for å komme igang.\n Brukernavn: "+brukernavnet+" \n Passord: "+sendt+"  \n\n Du kan endre passord på nettsiden etter å ha logget inn");
-
+            message.setText("Er du klar for å spille Nic And Steven og samtidig lære CSS og HTML5?"+"\n\n Her er det du trenger for å komme igang.\n\n Brukernavn: "+brukernavnet+" \n Passord: "+sendt+"  \n\n Du kan endre passord på nettsiden etter å ha logget inn");
+           
             //Send meldingen
             Transport transport = session.getTransport("smtp");
             transport.connect(host, fra, passord);
