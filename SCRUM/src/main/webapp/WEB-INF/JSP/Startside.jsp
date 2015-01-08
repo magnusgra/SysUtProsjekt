@@ -18,12 +18,14 @@
         <link rel="stylesheet" href="../../stylesheet.css" type="text/css"/>
     </head>
     <body>
-        <h1>Velkommen</h1>
-        <form:form method="GET" modelAttribute="getUserBean">
-        </form:form>
-        
+    <center>
+        <h1>Velkommen (brukernavn)</h1>
+        <form:form method="GET" modelAttribute="getUserBean"></form:form>
+    
                 <input class="button" type="button" value="Start nytt spill"/>
+                <br>
+                <br>
                 <input class="button" type="button" value="Se highscore"/>
-            
+       </center>     
     </body>
 </html>
