@@ -23,6 +23,31 @@
 
         <span href="#" class="button" id="toggle-login">Log in</span>
 
+<<<<<<< HEAD
+  <span href="#" class="button" id="toggle-login">Logg inn</span>
+  
+
+<div id="login">
+  <div id="triangle"></div>
+  <h1>Logg Inn</h1>
+  <form action="Startside" >
+<<<<<<< HEAD
+      <input type="email" placeholder="E-post" /><br>
+      <input type="password" placeholder="Passord" /><br>
+    <input type="submit" value="Logg inn" />
+=======
+      <input type="email" placeholder="Epost" /><br>
+      <input type="password" placeholder="Passord" /><br>
+    <input type="submit" value="Log in" />
+    <br>
+    <br>
+    <center>
+    <a href="RegistreringSide.jsp">Ny bruker? registrer deg her!</a>
+    </center>
+>>>>>>> 8fbb2f8aabfda2ceb50a4adf87cf8b4b187f481e
+  </form>
+</div>
+=======
 
         <div id="login">
             <div id="triangle"></div>
@@ -40,6 +65,7 @@
                 </center>
             </form:form>
         </div>
+>>>>>>> 3ba9d06ad3cd559799b258ad76afa13fcd145911
 
 
         <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>

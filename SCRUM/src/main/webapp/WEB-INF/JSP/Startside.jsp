@@ -22,6 +22,12 @@
     <center>
         <c:set var="user" value="${getUserBean}" />
         <h1>Velkommen ${user.userName}</h1>
-        </center>     
+        <form:form method="GET" modelAttribute="getUserBean"></form:form>
+    
+                <input class="button" type="button" value="Start nytt spill"/>
+                <br>
+                <br>
+                <input class="button" type="button" value="Se highscore"/>
+       </center>  
     </body>
 </html>

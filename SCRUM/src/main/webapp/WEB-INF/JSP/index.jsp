@@ -12,8 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-    <center>
-        <h1>Jello World!</h1>
+    <center class="page-wrapper">
+        <h3> Hallo Verden! </h3>
+        <p> Lisa gikk til skolen. trippetrippesa. I den nye kjoooolen, trippet hun så glad </p>
     </center>
     </body>
 </html>
