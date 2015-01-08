@@ -21,16 +21,16 @@
 
 <body>
 
-  <span href="#" class="button" id="toggle-login">Log in</span>
+  <span href="#" class="button" id="toggle-login">Logg inn</span>
   
 
 <div id="login">
   <div id="triangle"></div>
-  <h1>Log in</h1>
+  <h1>Logg Inn</h1>
   <form action="Startside" >
-      <input type="email" placeholder="Email" /><br>
-      <input type="password" placeholder="Password" /><br>
-    <input type="submit" value="Log in" />
+      <input type="email" placeholder="E-post" /><br>
+      <input type="password" placeholder="Passord" /><br>
+    <input type="submit" value="Logg inn" />
   </form>
 </div>
 
