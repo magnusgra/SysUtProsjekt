@@ -41,6 +41,24 @@ public class MainController {
         return "Startside";
     }
     
+    @RequestMapping(value = "endrepassord")
+    public String showEndrePassord(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+        System.out.println("******************     UserController.showStartside   ************************");
+        if (result.hasErrors()) {
+            return "startside";
+        }
+        return "endrepassord";
+    }
+    
+    @RequestMapping(value = "highscore")
+    public String showHighscore(@Valid @ModelAttribute(value = "getUserBean") Brukerdata userForm, BindingResult result) {
+        System.out.println("******************     UserController.showStartside   ************************");
+        if (result.hasErrors()) {
+            return "startside";
+        }
+        return "highscore";
+    }
+    
     @RequestMapping(value="RegistreringSide")
     public String registreringSide(){
         System.out.println("******************     UserController.showRegistreringSide   ************************");

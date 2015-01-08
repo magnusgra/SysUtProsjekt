@@ -23,6 +23,16 @@
       <put-attribute name="title"  value="startside"/>
       <put-attribute name="body"   value="/WEB-INF/JSP/Startside.jsp"/>      
   </definition>
+  
+  <definition name="EndrePassord" extends="baseLayout">
+      <put-attribute name="title"  value="endrepassord"/>
+      <put-attribute name="body"   value="/WEB-INF/JSP/EndrePassord.jsp"/>      
+  </definition>
+  
+  <definition name="Highscore" extends="baseLayout">
+      <put-attribute name="title"  value="highscore"/>
+      <put-attribute name="body"   value="/WEB-INF/JSP/Highscore.jsp"/>      
+  </definition>
  
  
 
