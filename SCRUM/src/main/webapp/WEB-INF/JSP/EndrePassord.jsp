@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Endre passord</title>
         <style type="text/css">
@@ -60,20 +61,21 @@
         </style>
     </head>
     <body>
-    
-        <div class="innhold">
-            
-            <p id="tekst">Endre passord</p>
-            <form>
-                <input class="passord" type="password" placeholder="Gammelt passord" />
-                <div class="break"></div>
-                <input class="passord" type="password" placeholder="Nytt passord" />
-                <div class="break"></div>
-                <input class="passord" type="password" placeholder="Bekreft nytt passord" />
-                <div class="break"></div>
-                <input class="button2" type="submit" value="Endre" />
-            </form>
-            
-        </div>
+    <center>
+        <div id="EndrePassord">
+            <div id="triangle"></div>
+            <h1>Endre passord</h1>
+            <form:form method="POST" modelAttribute="userBean" action="EndrePassord">
+                <form:input type= "passord" placeholder="Gammelt passord" path="brukerdata.passord" /><br>
+                <form:input type= "passord" placeholder="Nytt passord" path="brukerdata.passord" /><br>
+                <form:input type= "passord" placeholder="Bekreft nytt passord" path="brukerdata.passord" /><br>
+                <input type="submit" value="Endre" />
+                <br>
+                <br>
+            </form:form>
+            </div>
+        </center>
+        <script src='<c:url value="http://codepen.io/assets/libs/fullpage/jquery.js" />'></script>
+
     </body>
 </html>
