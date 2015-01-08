@@ -42,7 +42,12 @@ public class MainController {
     
     @RequestMapping(value="RegistreringSide")
     public String registreringSide(){
+<<<<<<< HEAD
         return "RSegistreringSide";
+=======
+        System.out.println("******************     UserController.showRegistreringSide   ************************");
+        return "RegistreringSide";
+>>>>>>> 3ba9d06ad3cd559799b258ad76afa13fcd145911
     }
     
     
