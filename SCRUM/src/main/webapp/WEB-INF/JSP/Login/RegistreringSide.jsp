@@ -12,6 +12,6 @@
         <title>Registrering</title>
     </head>
     <body>
-        <h1>Registerer deg her:</h1>
+        <h3>Registrer deg som ny bruker:</h3>
     </body>
 </html>
