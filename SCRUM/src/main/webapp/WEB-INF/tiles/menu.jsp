@@ -9,8 +9,8 @@
         <center>
             <br><br>
             <a class="button" href="<c:url value="#"/>" >Start spill</a><br>
-            <a class="button" href="<c:url value="#"/>" >Se highscore</a><br>
-            <a class="button" href="<c:url value="#"/>" >Endre Passord</a><br>
+            <a class="button" href="<c:url value="Highscore"/>" >Se highscore</a><br>
+            <a class="button" href="<c:url value="EndrePassord"/>" >Endre Passord</a><br>
             <a class="button" href="<c:url value="login"/>" >Logg ut</a>
         </center>
 
