@@ -11,6 +11,7 @@ package com.team1.proj.brukerklasser;
  * @author Mari
  */
 public class Brukerdata {
+    
     private String email; 
     private String userName; 
     private String password; 
