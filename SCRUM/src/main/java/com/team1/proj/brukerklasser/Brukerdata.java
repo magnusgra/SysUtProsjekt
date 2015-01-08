@@ -18,8 +18,9 @@ public class Brukerdata {
     
     public Brukerdata(){ 
     }
-    public Brukerdata(String brukernavn, String passord){
+    public Brukerdata(String brukernavn,int rettigheter, String passord){
         this.brukernavn = brukernavn; 
+        this.rettigheter = rettigheter;
         this.passord = passord; 
     }
     /*public Brukerdata(String userName, String password){
