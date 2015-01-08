@@ -15,7 +15,7 @@
         <title>Endre passord</title>
         <style type="text/css">
             body{
-                font-family: arial, sans-serif;
+                font-family: 'Open Sans',sans-serif;
                 color:white;
             }
             #tekst{
