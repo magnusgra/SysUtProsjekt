@@ -8,7 +8,7 @@ package com.team1.proj.brukerklasser;
 
 /**
  *
- * @author Mari/Kai :P
+ * @author Mari/Kai :P - øy! don't take my fame Kai!
  */
 public class Brukerdata {
     private String brukernavn;

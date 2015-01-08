@@ -14,7 +14,6 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import com.team1.proj.mailoppsett.Passord;
 import java.awt.Font;
-import javafx.scene.paint.Color;
 
 public class Mail {
 
