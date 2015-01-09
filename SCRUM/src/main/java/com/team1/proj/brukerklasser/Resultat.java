@@ -11,6 +11,7 @@ package com.team1.proj.brukerklasser;
  */
 public class Resultat {
     private Brukerdata brukerdata;
+    private int forsoknr;
     private int oppgavenr;
     private int poeng;
     private String status;
@@ -50,6 +51,14 @@ public class Resultat {
     public void setPoeng(int poeng) {
         this.poeng = poeng;
     } 
+    
+    public int getForsoknr() {
+        return forsoknr;
+    }
+
+    public void setForsoknr(int forsoknr) {
+        this.forsoknr = forsoknr;
+    }
        
     public String getStatus() {
         return status;
