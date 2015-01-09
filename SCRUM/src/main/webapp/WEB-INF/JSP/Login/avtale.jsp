@@ -16,11 +16,12 @@
 
         <title>Lisensavtale</title>
 
-        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
+
 
     </head>
     <body>
         <h3>LISENSAVTALE FOR WEBAPPLIKASJON</h3>
+        <hr>
         <p>
 Les denne lisensavtalen for applikasjonen nøye før du registrerer deg som bruker. Når du registrerer deg, samtykker du i å 
 bli bundet av og bli en part i denne avtalen. Forutsatt at du samtykker i betingelsene som er framsatt i avtalen, 
@@ -90,13 +91,12 @@ Opphør av avtalen medfører at tilgangen til webapplikasjonen blir sperret. På
 <br>
 <h5>VARIGHET OG OPPSIGELSE</h5>
 Avtalen trer i kraft fra det tidspunkt registreringen blir foretatt og løper inntil avtalen sies opp skriftlig av en av partene.
-
+<br>
+<br>
 TEAM1 består av: Andreas Lersveen Fauske, Mary-Louise Lersveen Fauske, Magnus Dyrhaug Grande, Ingrid Horten, 
 Ken Are Meisler, Arne Christian Skarpnes, Kai Ivar Skyttä og Mari Andrine Thorsteinsen
 <br>
 Trondheim 08.01.2015
     </p>
-        <script src='<c:url value="http://codepen.io/assets/libs/fullpage/jquery.js" />'></script>
-        <script src='<c:url value="/resources/js/index.js" />'></script>    
 </body>
 </html>

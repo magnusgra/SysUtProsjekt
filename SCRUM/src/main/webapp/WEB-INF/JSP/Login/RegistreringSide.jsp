@@ -30,7 +30,7 @@
                 <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "text" placeholder="Navn" path="brukerdata.brukernavn" /><br>
-                <center><form:checkbox path="godtarBrukervilkar"/> <form:label path="godtarBrukervilkar" >  Ja, jeg godtar <a href="avtale">brukervilkårene</a>.</form:label></center><br>
+                <center><form:checkbox path="godtarBrukervilkar"/> <form:label path="godtarBrukervilkar" >  Ja, jeg godtar <a href="avtale" target="popup" onclick="window.open('avtale','avtale','width=600,height=400')">brukervilkårene</a>.</form:label></center><br>
            
                 <%--<input type="password" placeholder="Passord" /><br>--%>
                 <input type="submit" value="Registrer bruker" />

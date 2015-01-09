@@ -90,5 +90,9 @@ public class MainController {
         return "login";
     }
     
-    
+@RequestMapping(value="/avtale")
+    public String avtale(){
+        System.out.println("******************     UserController.showLogin   ************************");
+        return "avtale";
+    }    
 }
