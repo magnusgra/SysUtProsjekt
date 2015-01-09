@@ -14,7 +14,7 @@ body {
     padding: 0px;
 }
 
-.button{
+.menu-button{
   width:190px;
   background:#3399cc;
   display:block;
@@ -27,9 +27,11 @@ body {
   cursor:pointer;
   transition:background .3s;
   -webkit-transition:background .3s;
+  
+  border-radius: 10px
 }
 
-.button:hover{
+.menu-button:hover{
   background:#2288bb;
 }
 

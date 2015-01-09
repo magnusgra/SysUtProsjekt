@@ -17,11 +17,9 @@
 
             #menu {
                 position: absolute;
-                border-right: 1px solid black;
+               
                 background:#f0f0f0;
                 height: 100%;
-
-               
                 width: 15em;
                 top: 0em;
                 left: 0em;

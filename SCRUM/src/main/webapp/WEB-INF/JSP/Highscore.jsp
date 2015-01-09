@@ -39,7 +39,8 @@
             </tr>
         </c:forEach>
     </table>
-    <input type="submit" value="Oppdater highscore" name="oppdaterResultat"/>
+  
+    <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
 </form:form>
     <hr>
 </html>
