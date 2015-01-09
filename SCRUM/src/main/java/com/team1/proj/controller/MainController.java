@@ -85,7 +85,7 @@ public class MainController {
             return "RegistreringSide";
         }
         
-        brukerService.registrerBruker(regForm.getBrukerdata());
+        brukerService.leggTilBruker(regForm.getBrukerdata());
         
         return "login";
     }

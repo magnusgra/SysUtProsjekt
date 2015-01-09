@@ -11,20 +11,22 @@ import java.sql.Connection;
 import java.util.List;
 import javax.sql.DataSource;
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.Resultat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
 
-public class BrukerTemplateRepositoryImpl implements BrukerRepository{
+public class BrukerTemplateRepositoryImpl implements Repository{
     
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
-    private final String sqlInsertBruker = "insert into bruker values(?,?,?)";
-    private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ? where brukernavn = ?";
+    private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
+    private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
+    private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
 
     
     private DataSource dataSource;
@@ -38,37 +40,39 @@ public class BrukerTemplateRepositoryImpl implements BrukerRepository{
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
+   
     @Override
-    public Brukerdata getBruker(String brukernavn ){
-        return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBruker, new Object[]{brukernavn}, new BrukerMapper());
-    }
-    @Override
-    public List<Brukerdata> getAlleBrukere(){
-        return jdbcTemplateObject.query(sqlSelectAlleBrukere, new BrukerMapper());
-    }
-    @Override
-    public boolean slettBruker(Brukerdata bd) {
-        jdbcTemplateObject.update(sqlDeleteBruker, bd.getBrukernavn() );
-        return true;
-    }
-    @Override
-    public boolean oppdaterBruker(Brukerdata bd){
-        jdbcTemplateObject.update(sqlUpdateBruker, new Object[]{
-            bd.getBrukernavn(),
-            bd.getRettigheter(),
-            bd.getPassord()
-        });
-        return true;
-    }
-    @Override
-    public boolean registrerBruker(Brukerdata bd){
+    public void leggTilBruker(Brukerdata bd){
         jdbcTemplateObject.update(sqlInsertBruker, 
             new Object[]{
                 bd.getBrukernavn(), 
                 bd.getRettigheter(), 
-                bd.getPassord()
+                bd.getPassord(),
+                bd.getEpost()
         });
+    }
+    
+    public void leggTilResultat(Resultat res){
+        jdbcTemplateObject.update(sqlInsertResultat,
+                new Object[]{
+                res.getBrukerdata(), 
+                res.getForsoknr(), 
+                res.getOppgavenr(),
+                res.getPoeng(),
+                res.getStatus()
+        });
+    }
+        
+    @Override
+    public boolean endrePassord(Brukerdata bd, String nyttPassord){
         return true;
+    }
+    
+    @Override
+    public boolean loggInn(String brukernavn, String passord){
+        return true;
+    
+        
     }
 }
 

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 import com.team1.proj.repository.BrukerTemplateRepositoryImpl;
-import com.team1.proj.repository.BrukerRepository;
+import com.team1.proj.repository.Repository;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -86,7 +86,7 @@ public class Konfig extends WebMvcConfigurationSupport {
     }
     
     @Bean 
-    public BrukerRepository repository(){
+    public Repository repository(){
         return new BrukerTemplateRepositoryImpl();
         //return new PersonDatabaseRepositoryImpl();
     } 

@@ -14,20 +14,21 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.repository.utils.Opprydder;
 
 /*
  * @Kai
  */
 
-public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
+public class BrukerDatabaseRepositoryImpl implements Repository{
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select brukernavn from bruker where brukernavn = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
-    private final String sqlInsertBruker = "insert into bruker values(?,?,?)";
-    private final String sqlUpdateBruker = "update bruker set brukernavn=?, rettigheter = ? where passord = ?";
+    private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
+    private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
 
     
     private DataSource dataSource;
@@ -127,6 +128,7 @@ public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
             psInsertBruker.setString(1, bd.getBrukernavn());
             psInsertBruker.setInt(2, bd.getRettigheter());
             psInsertBruker.setString(3, bd.getPassord());
+            psInsertBruker.setString(4, bd.getEpost());
 
             int i = psInsertBruker.executeUpdate();
             if (i > 0) {
@@ -156,6 +158,7 @@ public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
             psUpdateBruker.setString(1, bd.getBrukernavn());
             psUpdateBruker.setInt(2, bd.getRettigheter());
             psUpdateBruker.setString(3, bd.getPassord());
+            psUpdateBruker.setString(4, bd.getEpost());
 
             int i = psUpdateBruker.executeUpdate();
             if (i > 0) {
@@ -200,5 +203,25 @@ public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
         lukkForbindelse();
         return ok;
 
+    }
+
+    @Override
+    public void leggTilBruker(Brukerdata bd) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void leggTilResultat(Resultat res) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean endrePassord(Brukerdata bd, String nyttPassord) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean loggInn(String brukernavn, String passord) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

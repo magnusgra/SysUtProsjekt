@@ -21,8 +21,9 @@ public class Resultat {
     public Resultat(){    
     }
 
-    public Resultat(Brukerdata brukerdata, int oppgavenr, int poeng, String status) {
+    public Resultat(Brukerdata brukerdata, int forsoknr, int oppgavenr, int poeng, String status) {
         this.brukerdata = brukerdata;
+        this.forsoknr = forsoknr;
         this.oppgavenr = oppgavenr;
         this.poeng = poeng;
         this.status = status;

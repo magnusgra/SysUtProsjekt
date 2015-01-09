@@ -9,21 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.RegistreringsForm;
+import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.mailoppsett.Mail;
-import com.team1.proj.repository.BrukerRepository;
+import com.team1.proj.repository.Repository;
 
 //@Service
 public class BrukerServiceImpl implements BrukerService {
      
-    private BrukerRepository repo;
+    private Repository repo;
     private Brukerdata brukerdata;
     
-     @Autowired
-     public void setRepository(BrukerRepository repo){
-         System.out.println("BrukerServiceImpl.setDatabase2   " + repo);
-         this.repo = repo;
-     }
-   
     public Brukerdata getBrukerdata(){
         System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
         if (brukerdata == null){
@@ -31,57 +26,49 @@ public class BrukerServiceImpl implements BrukerService {
         }
         return brukerdata;
     }
-     
-    public List<Brukerdata> getAlleBrukere(){
-        System.out.println("**** BrukerServiceImpl.getAlleBruker()  *** ");
-        return repo.getAlleBrukere();
-    }
     
-    public boolean oppdaterBruker(List<Brukerdata> brukerListe){
-        System.out.println("**** BrukerServiceImpl.oppdaterBruker()  *** ");
-        if (brukerListe == null || brukerListe.size() == 0) return true;
-            
-        boolean erOppdateringOk = true;
-        for (Brukerdata b : brukerListe){
-            if (!repo.oppdaterBruker(b)) erOppdateringOk=false;
-        }
-        return erOppdateringOk;
-    }
-    
-    public boolean registrerBruker(Brukerdata bd){
+     @Autowired
+     public void setRepository(Repository repo){
+         System.out.println("BrukerServiceImpl.setDatabase2   " + repo);
+         this.repo = repo;
+     }
+    @Override
+    public void leggTilBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
         Mail mail = new Mail();
         bd.setPassord(mail.sendMailMedPassord(bd));
-        return repo.registrerBruker(bd);
     }
     
-    public boolean slettBruker(List<Brukerdata> brukerListe){
-        System.out.println("**** BrukerServiceImpl.slettBruker()  *** ");
-        if (brukerListe == null || brukerListe.size() == 0) return true;
-               
-        boolean erSlettingOk = true;
-        for (Brukerdata bd : brukerListe){
-            if (!repo.slettBruker(bd)) erSlettingOk = false;
-        }
-        return erSlettingOk;
-    }
-    
-    public boolean oppdaterBruker(Brukerdata bd){
-        System.out.println("**** BrukerServiceImpl.oppdaterBruker()  *** ");
-        return repo.oppdaterBruker(bd);
-    }
+    @Override
     public RegistreringsForm getRegistreringsForm(){
         return new RegistreringsForm();
     }
 
-    @Override
+    
     public void setBrukerdata(Brukerdata bd) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public boolean loggInn(Brukerdata bd) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void leggTilResultat(Resultat res) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean endrePassord(Brukerdata bd, String nyttPassord) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean loggInn(String brukernavn, String passord) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+    
 }
 

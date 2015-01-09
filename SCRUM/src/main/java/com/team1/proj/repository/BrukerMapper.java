@@ -19,6 +19,7 @@ public class BrukerMapper implements RowMapper<Brukerdata> {
         bruker.setBrukernavn(rs.getString("brukernavn"));
         bruker.setRettigheter(rs.getInt("rettigheter"));
         bruker.setPassord(rs.getString("passord"));
+        bruker.setEpost(rs.getString("epost"));
         return bruker;
     }
 }

@@ -1,18 +1,22 @@
 package com.team1.proj.brukerklasser;
 
+import javax.validation.constraints.NotNull;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-/**
- *
+/*
  * @author Mari/Kai :P - øy! don't take my fame Kai!
  */
+
 public class Brukerdata {
+    @NotNull
     private String brukernavn;
     private int rettigheter;
+    @NotNull
     private String passord; 
     private String epost;
     
