@@ -70,7 +70,7 @@ public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
             stmt.setString(1, brukernavn);
             res = stmt.executeQuery();
             if (res.next()) {
-                bd = new Brukerdata(res.getString("brukernavn"),res.getInt("rettigheter"), res.getString("passord"));
+                bd = new Brukerdata(res.getString("brukernavn"),res.getInt("rettigheter"), res.getString("passord"), res.getString("epost"));
             }
         } catch (SQLException e) {
             Opprydder.rullTilbake(forbindelse);
@@ -96,7 +96,7 @@ public class BrukerDatabaseRepositoryImpl implements BrukerRepository{
             psSelectAlle = forbindelse.prepareStatement(sqlSelectAlleBrukere);
             res = psSelectAlle.executeQuery();
             while (res.next()) {
-                Brukerdata bd = new Brukerdata(res.getString("brukernavn"), res.getInt("rettigheter"), res.getString("passord"));
+                Brukerdata bd = new Brukerdata(res.getString("brukernavn"), res.getInt("rettigheter"), res.getString("passord"), res.getString("epost"));
                 if (brukerListe == null) {
                     brukerListe = new ArrayList<Brukerdata>();
                 }

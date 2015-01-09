@@ -18,10 +18,11 @@ public class Brukerdata {
     
     public Brukerdata(){ 
     }
-    public Brukerdata(String brukernavn,int rettigheter, String passord){
+    public Brukerdata(String brukernavn,int rettigheter, String passord, String epost){
         this.brukernavn = brukernavn; 
         this.rettigheter = rettigheter;
         this.passord = passord; 
+        this.epost = epost;
     }
     /*public Brukerdata(String userName, String password){
         this.userName = userName; 
