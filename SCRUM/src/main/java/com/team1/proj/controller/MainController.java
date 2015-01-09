@@ -41,9 +41,9 @@ public class MainController {
     public String showStartside(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
-            return "Startside";
+            return "login";
         }
-        return "login";
+        return "Startside";
     }
     
     @RequestMapping(value = "EndrePassord")
