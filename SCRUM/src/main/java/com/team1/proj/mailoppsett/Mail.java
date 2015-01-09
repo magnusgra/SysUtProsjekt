@@ -16,7 +16,6 @@ import com.team1.proj.mailoppsett.Passord;
 import java.awt.Font;
 
 public class Mail {
-
     public static void main(String[] args) {
         //Sendt fra bruker og passord
         String fra = "nicandsteven@yahoo.com";
