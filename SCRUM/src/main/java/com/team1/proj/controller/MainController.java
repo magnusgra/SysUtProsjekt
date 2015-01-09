@@ -91,9 +91,14 @@ public class MainController {
             return "Login/RegistreringSide";
         }
         
-        brukerService.leggTilBruker(regForm.getBrukerdata());
+        if (brukerService.leggTilBruker(regForm.getBrukerdata())){
+            
+            return "Login/login";
+        }
         
-        return "Login/login";
+        return "Login/RegistreringSide";
+        
+        
     }
     
 @RequestMapping(value="/avtale")

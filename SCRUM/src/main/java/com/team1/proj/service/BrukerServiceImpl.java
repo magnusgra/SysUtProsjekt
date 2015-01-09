@@ -33,10 +33,22 @@ public class BrukerServiceImpl implements BrukerService {
          this.repo = repo;
      }
     @Override
-    public void leggTilBruker(Brukerdata bd){
+    public boolean leggTilBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
         Mail mail = new Mail();
-        bd.setPassord(mail.sendMailMedPassord(bd));
+        String passord = mail.sendMailMedPassord(bd);
+        if (passord != null){
+            bd.setPassord(passord);
+            
+            if (repo != null){
+                repo.leggTilBruker(bd);
+            } else {
+                System.out.println("REPO == NULL");;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
     
     @Override

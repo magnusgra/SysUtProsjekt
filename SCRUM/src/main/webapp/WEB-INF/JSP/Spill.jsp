@@ -14,7 +14,7 @@
         
          <!-- Bootstrap -->
         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
-    
+    <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
     </head>
     <body>
     <div class="navbar navbar-default">
