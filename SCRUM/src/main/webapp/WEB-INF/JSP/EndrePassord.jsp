@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
+        <link rel="stylesheet" href="<c:url value="/resources/css/login.css"/>" media="screen" type="text/css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
     </head>

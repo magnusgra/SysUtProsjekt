@@ -13,20 +13,19 @@
 
         <meta charset="UTF-8">
 
-        <title>Login Form</title>
+        <title>Nic and Steven</title>
 
-        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
+        <link rel="stylesheet" href="<c:url value='/resources/css/login.css'/>" media="screen" type="text/css" />
 
     </head>
 
     <body>
 
-        <span href="#" class="button" id="toggle-login" style="width: 125px;" >Nic and Steven</span>
-
+        
         <div id="login">
-            <div id="triangle"></div>
+     
             <h1>Brukerkonto</h1>
-            <form:form method="POST" modelAttribute="brukerService" action = "Startside">
+            <form:form method="POST" modelAttribute="brukerService" action = "Home">
                 <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "password" placeholder="Passord" path="brukerdata.passord" /><br>

@@ -22,7 +22,7 @@
         <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
           <property name="prefix">
-              <value>/WEB-INF/JSP/Login/</value>
+              <value>/WEB-INF/JSP/</value>
            </property>
           <property name="suffix">
              <value>.jsp</value>
@@ -30,11 +30,7 @@
           <property name="order" value="2" />
     </bean>
        
-               
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"/>            
-    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" >
-        <property name="order" value="1" />
-    </bean>
+
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
     

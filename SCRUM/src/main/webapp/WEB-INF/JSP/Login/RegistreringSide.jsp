@@ -15,16 +15,16 @@
 
         <title>Registrer deg!</title>
 
-        <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" media="screen" type="text/css" />
+        <link rel="stylesheet" href="<c:url value="/resources/css/login.css"/>" media="screen" type="text/css" />
 
     </head>
 
     <body>
 
-        <span href="#" class="button" id="toggle-login" style="width: 125px;" >Nic and Steven</span>
+        
 
         <div id="login">
-            <div id="triangle"></div>
+            
             <h1>Registrer deg</h1>
             <form:form method="POST" modelAttribute="registreringsForm" action = "RegistrerBruker">
                 <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>

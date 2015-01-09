@@ -35,13 +35,19 @@ public class MainController {
     @RequestMapping(value="/*")
     public String index(){
         System.out.println("******************     UserController.showLogin   ************************");
-        return "login";
+        //hvis logget inn
+        if (true) {
+            return "index";
+        }
+        
+        return "Login/login";
     }
+
     @RequestMapping(value = "Startside")
     public String showStartside(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
         System.out.println("******************     UserController.showStartside   ************************");
         if (result.hasErrors()) {
-            return "login";
+            return "Login/login";
         }
         return "Startside";
     }
@@ -68,7 +74,7 @@ public class MainController {
     public String registreringSide(@ModelAttribute(value = "brukerService") BrukerService brukerService, Model model){
         System.out.println("******************     UserController.showRegistreringSide   ************************");
         model.addAttribute(brukerService.getRegistreringsForm());
-        return "RegistreringSide";
+        return "Login/RegistreringSide";
     }
     
     
@@ -77,22 +83,45 @@ public class MainController {
         
         if (!regForm.isGodtarBrukervilkar()){
             //Godtar ikke brukervilkår
-            return "RegistreringSide";
+            return "Login/RegistreringSide";
         } 
         String email = regForm.getBrukerdata().getEpost();
         String navn = regForm.getBrukerdata().getBrukernavn();    
         if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
-            return "RegistreringSide";
+            return "Login/RegistreringSide";
         }
         
         brukerService.leggTilBruker(regForm.getBrukerdata());
         
-        return "login";
+        return "Login/login";
     }
     
 @RequestMapping(value="/avtale")
     public String avtale(){
         System.out.println("******************     UserController.showLogin   ************************");
-        return "avtale";
-    }    
+        return "Login/avtale";
+    }   
+    
+    
+    @RequestMapping(value="/MinSide")
+    public String minSide(){
+        System.out.println("******************     UserController.showLogin   ************************");
+        return "MinSide";
+    }
+    
+    @RequestMapping(value="/Spill")
+    public String spill(){
+        System.out.println("******************     UserController.showLogin   ************************");
+        return "Spill";
+    }
+    
+    @RequestMapping(value="/LoggUt")
+    public String loggUt(){
+        System.out.println("******************     UserController.showLogin   ************************");
+        return "Login/login";
+    }
+    
+ 
+    
+   
 }

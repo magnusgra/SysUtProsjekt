@@ -13,7 +13,7 @@
         <title>Nick and Steven</title>
         
          <!-- Bootstrap -->
-       <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
+        <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
     
     </head>
     <body>
@@ -27,8 +27,8 @@
     			<ul class="nav navbar-nav navbar-right">
     				
     				<li><a href="Home">Home</a></li>
-    				<li><a href="Spill">Start Spillet</a></li>
-    				<li class="active"><a href="Highscore">Se Highscore</a></li>
+    				<li class="active"><a href="Spill">Start Spillet</a></li>
+    				<li><a href="Highscore">Se Highscore</a></li>
     				<li><a href="MinSide">Min Side</a></li>
     				<li><a href="LoggUt">Logg ut</a></li>
     			</ul>
@@ -40,33 +40,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    
-    
-    <form:form action="se highscore" method="GET" modelAttribute="resultatFormBackingBean">
-    <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
-    <table border="1" width="100">
-        <tr>
-            <th>Bruker</th>
-            <th>Antall forsok</th>
-            <th>Poeng</th>
-        </tr>
-        
-        <c:forEach var="resultat" items="${resultatFormBackingBean.alleResultat}" varStatus="status">
-            <tr>
-                <td><c:out value="${resultat.brukerdata.getBrukernavn()}"/>
-                </td> 
-                                    
-                <td> <form:input path="alleResultat[${resultat.index}].poeng" /> 
-                </td>
-                <td> <form:input path="alleResultat[${resultat.index}].forsoknr" />
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
-  
-    <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
-</form:form>
-    <hr>
-    
     </body>
 </html>
