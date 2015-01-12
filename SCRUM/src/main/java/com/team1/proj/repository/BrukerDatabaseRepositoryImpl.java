@@ -60,7 +60,7 @@ public class BrukerDatabaseRepositoryImpl implements Repository{
         Opprydder.lukkForbindelse(forbindelse);
     }
     
-    public Brukerdata getBruker(String brukernavn){
+    public Brukerdata getBrukerdata(String brukernavn){
         System.out.println("Database.getBruker()");
         PreparedStatement stmt = null;
         ResultSet res;

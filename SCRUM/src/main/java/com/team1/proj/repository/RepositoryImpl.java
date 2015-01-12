@@ -7,8 +7,6 @@ package com.team1.proj.repository;
 
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Resultat;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,12 +20,18 @@ public class RepositoryImpl implements Repository {
     
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
+    private Repository repo;
     
     @Autowired
     public void setDataSource(DataSource dataSource) {
         System.out.println(dataSource);
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+    }
+    
+    public Brukerdata getBrukerdata(String brukerdata){
+        System.out.println("**** VareServiceImpl.getVare()  *** ");
+        return repo.getBrukerdata(brukerdata);
     }
     
 

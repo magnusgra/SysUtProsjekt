@@ -17,6 +17,7 @@
     <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
     </head>
     <body>
+        
     <div class="navbar navbar-default">
     	<div class="container">
     		<a href="Home" class = "navbar-brand">Nic and Steven</a>
@@ -39,9 +40,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
-    
+            <center>
     <form:form action="se highscore" method="GET" modelAttribute="resultatFormBackingBean">
     <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
     <table border="1" width="100">
@@ -50,7 +51,7 @@
             <th>Antall forsok</th>
             <th>Poeng</th>
         </tr>
-        
+
         <c:forEach var="resultat" items="${resultatFormBackingBean.alleResultat}" varStatus="status">
             <tr>
                 <td><c:out value="${resultat.brukerdata.getBrukernavn()}"/>
@@ -62,11 +63,14 @@
                 </td>
             </tr>
         </c:forEach>
+            
     </table>
-  
     <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
 </form:form>
     <hr>
+    </center>
+  
+    
     
     </body>
 </html>

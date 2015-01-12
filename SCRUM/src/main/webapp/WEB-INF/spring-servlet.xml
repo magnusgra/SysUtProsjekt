@@ -31,6 +31,8 @@
     </bean>
        
     <bean id="brukerdata" class ="com.team1.proj.brukerklasser.Brukerdata"/>
+    <bean id="brukerService" class ="com.team1.proj.service.BrukerServiceImpl"/>
+    <bean id="repository" class ="com.team1.proj.repository.BrukerTemplateRepositoryImpl"/>
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
     
