@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -40,9 +41,23 @@ public class MinSideController {
         return new Brukerdata();
     }
     
-        @RequestMapping(value="/MinSide")
-        public String minSide(Model model){
-        System.out.println("******************     UserController.showLogin   ************************");
+    @Autowired
+    private BrukerService brukerService;
+    
+    @Autowired
+    public void setBrukerService(BrukerService brukerService){
+        this.brukerService = brukerService;
+    }
+    
+    @ModelAttribute("brukerService")
+    public BrukerService getBrukerService() {
+        return new BrukerServiceImpl();
+    }
+
+    
+    @RequestMapping(value="/MinSide")
+    public String minSide(Model model){
+        System.out.println("******************     UserController.MinSide   ************************");
         if(brukerdata.isInnlogget()){
             model.addAttribute(new EndrePassordFormBackingBean());
             return "MinSide";
@@ -50,5 +65,36 @@ public class MinSideController {
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
+    
+    @RequestMapping(value="/MinSide", method=RequestMethod.POST)
+    public String endrePassord(Model model, @ModelAttribute EndrePassordFormBackingBean epfbb){
+        System.out.println("******************     UserController.endrePassord   ************************");
+        if(brukerdata.isInnlogget()){
+            model.addAttribute(new EndrePassordFormBackingBean());
+            
+            
+            
+            if (!epfbb.passordErLik()){
+                model.addAttribute("meldingError", "Passordene er ikke like.");
+                model.addAttribute("melding", "");
+                return "MinSide";
+            }
+            
+            if (brukerService.endrePassord(brukerdata, epfbb.getNyttPassord())){
+                model.addAttribute("melding", "Passordet er endret");
+                model.addAttribute("meldingError", "");
+                return "MinSide";
+            } else {
+                model.addAttribute("meldingError", "Gammelt passord er feil.");
+                model.addAttribute("melding", "");
+                return "MinSide";
+            }
+
+        }
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login";
+    }
+        
+        
 
 }

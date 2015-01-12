@@ -63,7 +63,7 @@ public class BrukerServiceImpl implements BrukerService {
 
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return repo.endrePassord(bd, nyttPassord);
     }
 
     @Override

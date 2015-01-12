@@ -40,6 +40,10 @@ public class MainController {
         this.brukerService = brukerService;
     }
     
+    @ModelAttribute("brukerService")
+    public BrukerService getBrukerService() {
+        return new BrukerServiceImpl();
+    }
 
     @Autowired
     public void setBrukerdata(Brukerdata brukerdata){
@@ -47,10 +51,7 @@ public class MainController {
         this.brukerdata = brukerdata; 
     }
     
-    @ModelAttribute("brukerService")
-    public BrukerService getBrukerService() {
-        return new BrukerServiceImpl();
-    }
+    
     @ModelAttribute("brukerdata")
     public Brukerdata getBrukerdata() {
         System.out.println("getBrukerdata");
@@ -73,7 +74,11 @@ public class MainController {
         
         Brukerdata innlogget = brukerService.loggInn(logindata.getEpost(), logindata.getPassord());
         if (innlogget != null){
-            this.brukerdata = innlogget;
+            
+            this.brukerdata.setBrukernavn(innlogget.getBrukernavn());
+            this.brukerdata.setEpost(innlogget.getEpost());
+            this.brukerdata.setInnlogget(innlogget.isInnlogget());
+ 
             return "index";
         }
         
