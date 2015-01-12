@@ -37,7 +37,7 @@ public class Brukerdata {
         return innlogget;
     }
     public void setInnlogget(boolean verdi){
-        this.innlogget = innlogget; 
+        this.innlogget = verdi; 
     }
    
     

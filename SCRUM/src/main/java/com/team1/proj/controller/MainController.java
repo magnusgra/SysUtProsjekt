@@ -139,14 +139,7 @@ public class MainController {
     }   
     
     
-    @RequestMapping(value="/MinSide")
-    public String minSide(){
-        System.out.println("******************     UserController.showLogin   ************************");
-        if(brukerdata.isInnlogget()){
-            return "MinSide";
-        }
-        return "Login/login";
-    }
+
     
     @RequestMapping(value="/Spill")
     public String spill(){
