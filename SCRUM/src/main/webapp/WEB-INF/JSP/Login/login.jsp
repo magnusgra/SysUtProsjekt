@@ -24,11 +24,11 @@
         
         <div id="login">
      
-            <h1>Brukerkonto</h1>
-            <form:form method="POST" modelAttribute="brukerService" action = "Home">
-                <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
+            <h1>Nic and Steven</h1>
+            <form:form method="POST" modelAttribute="brukerdata" action = "Home">
+                <form:input type= "email" placeholder="Epost" path="epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
-                <form:input type= "password" placeholder="Passord" path="brukerdata.passord" /><br>
+                <form:input type= "password" placeholder="Passord" path="passord" /><br>
                 <%--<input type="password" placeholder="Passord" /><br>--%>
                 <input type="submit" value="Logg inn" />
                 <br>
