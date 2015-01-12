@@ -29,6 +29,8 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
+    
+    private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
 
     
     private DataSource dataSource;
@@ -72,7 +74,10 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
-        return true;
+        
+        System.out.println("UPDATE bruker SET passord='"+nyttPassord+"' WHERE (epost='"+bd.getEpost()+"' AND passord='" +bd.getPassord() + "')");
+        return jdbcTemplateObject.update(sqlEndrePassord, nyttPassord, bd.getEpost(), bd.getPassord()) == 1;
+        
     }
     
     @Override

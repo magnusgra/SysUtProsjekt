@@ -75,18 +75,18 @@ public class MinSideController {
             
             
             if (!epfbb.passordErLik()){
-                model.addAttribute("meldingError", "Passordene er ikke like.");
-                model.addAttribute("melding", "");
+                model.addAttribute("meldingtype", "melding-error");
+                model.addAttribute("melding", "Passordene er ikke like.");
                 return "MinSide";
             }
-            
-            if (brukerService.endrePassord(brukerdata, epfbb.getNyttPassord())){
+            brukerdata.setPassord(epfbb.getGammeltPassord());
+            if (brukerService.endrePassord(brukerdata, epfbb.getNyttPassord())){ 
+                model.addAttribute("meldingtype", "melding-suksess");
                 model.addAttribute("melding", "Passordet er endret");
-                model.addAttribute("meldingError", "");
                 return "MinSide";
             } else {
-                model.addAttribute("meldingError", "Gammelt passord er feil.");
-                model.addAttribute("melding", "");
+                model.addAttribute("meldingtype", "melding-error");
+                model.addAttribute("melding", "Gammelt passord er feil.");
                 return "MinSide";
             }
 

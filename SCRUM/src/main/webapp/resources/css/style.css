@@ -47,7 +47,7 @@ form{
 }
 
 input[type="email"],input[type="password"],input[type="text"] {
-  width:92%;
+  width:100%;
   background:#fff;
   margin-bottom:4%;
   border:1px solid #ccc;
@@ -80,21 +80,14 @@ input[type="submit"]:hover{
 
 
 .melding-error {
-   position: relative;
-   top: 0.5em;
-   
    color: red;
-   margin: 0 auto;
-   padding: 0em;
-   
+}
+
+.melding-suksess {
+   color: green;
 }
 
 .melding {
-   position: relative;
-   top: 0.5em;
-   
-   color: greenyellow;
-   margin: 0 auto;
-   padding: 0em;
-   
+       height: 1.1em;
+       padding: 0em;
 }

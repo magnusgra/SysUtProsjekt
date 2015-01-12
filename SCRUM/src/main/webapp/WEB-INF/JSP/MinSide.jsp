@@ -49,19 +49,15 @@
             <h1>Endre passord</h1>
                 <form:form method="POST" modelAttribute="endrePassordFormBackingBean" action="MinSide">
                     <center>
-                        
-                    <p class="melding"><c:out value="${melding}"/></p><p class="melding-error"><c:out value="${meldingError}"/></p>
-                    <form:input type= "password" placeholder="Gammelt passord" path="gammeltPassord" /><br>
-                    <form:input type= "password" placeholder="Nytt passord" path="nyttPassord" /><br>
-                    <form:input type= "password" placeholder="Bekreft nytt passord" path="gjentaNyttPassord" /><br>
-                    <input type="submit" value="Endre" title="Endre Passord" />
-                    <br>
-                    <br>
+                        <p class="melding ${meldingtype}">${melding}</p>
+                        <form:input type= "password" placeholder="Gammelt passord" path="gammeltPassord" /><br>
+                        <form:input type= "password" placeholder="Nytt passord" path="nyttPassord" /><br>
+                        <form:input type= "password" placeholder="Bekreft nytt passord" path="gjentaNyttPassord" /><br>
+                        <input type="submit" value="Endre" title="Endre Passord" />
+                        <br>
+                        <br>
                     </center>
                 </form:form>
         </div>
-    
-    
-    
     </body>
 </html>
