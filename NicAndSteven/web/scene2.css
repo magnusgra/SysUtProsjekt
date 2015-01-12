@@ -1,0 +1,160 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08.jan.2015, 13:39:57
+    Author     : microtonickitten
+*/
+body {
+    background-color: gray;
+}
+#container {
+    width: 800px;
+    height: 450px;
+    border-style: solid;
+    border-width: thin;
+    position: relative;
+    left: 0;
+    top: 0;
+    background-image: url("bilder/scene2himmel.jpg");
+}
+#tre {
+    position: absolute;
+    height: 274px;
+    width: 208px;
+    top: 37px;
+    right: 40px;
+    z-index: -1;
+    background-image: url("bilder/scene2tre.png");
+}
+.bygninger, #vei {
+    background-color: #404040;
+    position: absolute;
+    z-index: 0;
+}
+#vei {
+    height: 110px;
+    width: 800px;
+    bottom: 0px;
+    z-index: -1;
+}
+.bygninger {
+    bottom: 190px;
+}
+#bygning1 {
+    height: 145px;
+    width: 40px;
+    left: 0px;
+}
+#bygning2 {
+    height: 70px;
+    width: 35px;
+    left: 40px;
+}
+#bygning3 {
+    height: 205px;
+    width: 35px;
+    left: 75px;
+}
+#bygning4 {
+    height: 25px;
+    width: 70px;
+    left: 105px;
+}
+#bygning5 {
+    height: 125px;
+    width: 125px;
+    left: 175px;
+    z-index: -1;
+}
+#bygning6 {
+    height: 50px;
+    width: 120px;
+    left: 300px;
+}
+#bygning7 {
+    height: 170px;
+    width: 40px;
+    left: 420px;
+}
+#bygning8 {
+    height: 105px;
+    width: 155px;
+    left: 460px;
+}
+#bygning9 {
+    height: 160px;
+    width: 115px;
+    left: 615px;
+}
+#bygning10 {
+    height: 45px;
+    left: 730px;
+    width: 70px;
+}
+#gress {
+    height: 80px;
+    width: 800px;
+    position: absolute;
+    top: 260px;
+    left: 0px;
+    z-index: -1;
+    background-color: #bfcd9c;
+}
+.fartsstreker {
+    height: 30px;
+    width: 105px;
+    background-color: #e2e4bf;
+    z-index: 1;
+    position: absolute;
+    bottom: 45px;
+}
+#fartsstrek1 {
+    left: 10px;
+}
+#fartsstrek2 {
+    left: 180px;
+}
+#fartsstrek3 {
+    left: 350px;
+}
+#fartsstrek4 {
+    left: 520px;
+}
+#fartsstrek5 {
+    left: 690px;
+}
+
+ #canvas{ position:absolute;
+    left:18px;
+    top:107px;
+    z-index: 1;
+    background: transparent;
+ }
+ 
+ #box{
+     position:absolute;
+    left:300px;
+    top:100px;
+    background-color: red;
+ }
+ #canvas.boxes{
+      background-color: white;
+ }
+ 
+ #codeContainer{
+     position:relative;
+     float: left;
+     width: 200px;
+     height: 500px;
+ }
+ 
+ #htmlView{
+     width:500px;
+ }
+ 
+ #cssView{
+     width:500px;
+ }
