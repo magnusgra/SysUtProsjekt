@@ -14,6 +14,7 @@ import com.team1.proj.brukerklasser.Resultat;
  */
 public interface Repository {
     
+    public Brukerdata getBrukerdata(String brukernavn);
     public void leggTilBruker(Brukerdata bd);
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);

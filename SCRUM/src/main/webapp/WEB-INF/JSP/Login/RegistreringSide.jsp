@@ -26,7 +26,7 @@
         <div id="login">
             
             <h1>Registrer deg</h1>
-            <form:form method="POST" modelAttribute="registreringsForm" action = "RegistrerBruker">
+            <form:form method="POST" modelAttribute="registreringsForm" action = "RegistreringBruker">
                 <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "text" placeholder="Navn" path="brukerdata.brukernavn" /><br>

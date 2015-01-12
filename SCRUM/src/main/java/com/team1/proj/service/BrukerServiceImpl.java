@@ -18,21 +18,19 @@ public class BrukerServiceImpl implements BrukerService {
      
     @Autowired
     private Repository repo;
-    private Brukerdata brukerdata;
     
-    public Brukerdata getBrukerdata(){
-        System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
-        if (brukerdata == null){
-            brukerdata = new Brukerdata();
-        }
-        return brukerdata;
-    }
-    
-     @Autowired
+    @Autowired
      public void setRepository(Repository repo){
          System.out.println("BrukerServiceImpl.setDatabase2   " + repo);
          this.repo = repo;
      }
+    
+    public Brukerdata getBrukerdata(String brukernavn){
+        System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
+        return repo.getBrukerdata(brukernavn);
+    }
+    
+     
     @Override
     public boolean leggTilBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");

@@ -40,6 +40,11 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
+    
+    @Override
+    public Brukerdata getBrukerdata(String brukernavn ){
+        return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBruker, new Object[]{brukernavn}, new BrukerMapper());
+    }
    
     @Override
     public void leggTilBruker(Brukerdata bd){
