@@ -10,6 +10,7 @@ import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,49 +26,76 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-@SessionAttributes("brukerService")
+@SessionAttributes({"brukerService","brukerdata"})
+
 public class MainController {
+    @Autowired
+    private Brukerdata brukerdata;
+    @Autowired
+    public void setBrukerdata(Brukerdata brukerdata){
+        this.brukerdata = brukerdata; 
+    }
     
     @ModelAttribute("brukerService")
     public BrukerService getBrukerService() {
         return new BrukerServiceImpl();
     }
+    @ModelAttribute("brukerdata")
+    public Brukerdata getBrukerdata() {
+        return new Brukerdata();
+    }
     @RequestMapping(value="/*")
-    public String index(){
+    public String index(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result){
         System.out.println("******************     UserController.showLogin   ************************");
-        //hvis logget inn
-        if (true) {
+        if(brukerdata.isInnlogget()){
             return "index";
         }
-        
         return "Login/login";
+        
+    }
+    @RequestMapping(value="Home", method=RequestMethod.POST)
+    public String showIndexSide(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
+        System.out.println("******************     UserController.showStartside/index   ************************");
+        if (result.hasErrors()) {
+            return "Login/login";
+        }
+        brukerdata.setInnlogget(true);
+        return "index";
     }
 
     @RequestMapping(value = "Startside")
     public String showStartside(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
-        System.out.println("******************     UserController.showStartside   ************************");
+        System.out.println("******************     UserController.showStartside/index   ************************");
         if (result.hasErrors()) {
             return "Login/login";
         }
+        brukerdata.setInnlogget(true);
         return "Startside";
     }
     
     @RequestMapping(value = "EndrePassord")
     public String showEndrePassord(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
-        System.out.println("******************     UserController.showStartside   ************************");
+        System.out.println("******************     UserController.showEndrePassord   ************************");
         if (result.hasErrors()) {
             return "startside";
         }
-        return "EndrePassord";
+        if(brukerdata.isInnlogget()){
+            return "EndrePassord";
+        }
+        
+        return "Login/login";
     }
     
     @RequestMapping(value = "Highscore")
     public String showHighscore(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
-        System.out.println("******************     UserController.showStartside   ************************");
+        System.out.println("******************     UserController.Highscore   ************************");
         if (result.hasErrors()) {
             return "startside";
         }
-        return "Highscore";
+        if(brukerdata.isInnlogget()){
+            return "Highscore";
+        }
+        return "Login/login";
     }
     
     @RequestMapping(value="RegistreringSide")
@@ -111,18 +139,25 @@ public class MainController {
     @RequestMapping(value="/MinSide")
     public String minSide(){
         System.out.println("******************     UserController.showLogin   ************************");
-        return "MinSide";
+        if(brukerdata.isInnlogget()){
+            return "MinSide";
+        }
+        return "Login/login";
     }
     
     @RequestMapping(value="/Spill")
     public String spill(){
         System.out.println("******************     UserController.showLogin   ************************");
-        return "Spill";
+        if(brukerdata.isInnlogget()){
+            return "Spill";
+        }
+        return "Login/login";
     }
     
     @RequestMapping(value="/LoggUt")
     public String loggUt(){
         System.out.println("******************     UserController.showLogin   ************************");
+        brukerdata.setInnlogget(false);
         return "Login/login";
     }
     

@@ -30,7 +30,7 @@
           <property name="order" value="2" />
     </bean>
        
-
+    <bean id="brukerdata" class ="com.team1.proj.brukerklasser.Brukerdata"/>
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
     
@@ -53,4 +53,5 @@
             <value>passord</value>
         </property>
     </bean>
+    
 </beans>

@@ -19,9 +19,9 @@ public interface BrukerService {
     public boolean leggTilBruker(Brukerdata bd);
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
-    
+   
     public boolean loggInn(String brukernavn, String passord);
-    
+   
     public RegistreringsForm getRegistreringsForm();
     
 }

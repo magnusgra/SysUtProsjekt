@@ -9,6 +9,7 @@ package com.team1.proj.controller;
  *
  * @author Kai
  */
+
 public class LoginController {
     
 }

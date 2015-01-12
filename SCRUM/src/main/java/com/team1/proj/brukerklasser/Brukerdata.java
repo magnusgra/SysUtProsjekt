@@ -19,6 +19,7 @@ public class Brukerdata {
     @NotNull
     private String passord; 
     private String epost;
+    private boolean innlogget;
     
     public Brukerdata(){ 
     }
@@ -32,10 +33,18 @@ public class Brukerdata {
         this.userName = userName; 
         this.password = password; 
     }*/
+    public boolean isInnlogget(){
+        return innlogget;
+    }
+    public void setInnlogget(boolean verdi){
+        this.innlogget = innlogget; 
+    }
+   
     
     public String getBrukernavn() {
         return brukernavn;
     }
+    
 
     public void setBrukernavn(String brukernavn) {
         this.brukernavn = brukernavn;
