@@ -15,9 +15,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *
  * @author arnecs
  */
-public class RepositoryImpl implements Repository {
+public class RepositoryImpl {
     
-    
+    /*
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
     private Repository repo;
@@ -51,10 +51,10 @@ public class RepositoryImpl implements Repository {
     }
 
     @Override
-    public boolean loggInn(String brukernavn, String passord) {
+    public Brukerdata loggInn(String brukernavn, String passord) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    */
     
     
 }

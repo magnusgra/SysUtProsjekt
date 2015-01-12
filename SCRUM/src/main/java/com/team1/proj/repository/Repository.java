@@ -19,7 +19,7 @@ public interface Repository {
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
     
-    public boolean loggInn(String brukernavn, String passord);
+    public Brukerdata loggInn(String brukernavn, String passord);
     
     
     
