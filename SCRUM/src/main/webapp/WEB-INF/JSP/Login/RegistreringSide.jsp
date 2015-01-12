@@ -16,7 +16,7 @@
         <title>Registrer deg!</title>
 
         <link rel="stylesheet" href="<c:url value="/resources/css/login.css"/>" media="screen" type="text/css" />
-
+        
     </head>
 
     <body>
