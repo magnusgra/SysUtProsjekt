@@ -24,7 +24,7 @@
         
         <div id="login">
      
-            <h1>Brukerkonto</h1>
+            <h1>Nic and Steven</h1>
             <form:form method="POST" modelAttribute="brukerdata" action = "Home">
                 <form:input type= "email" placeholder="Epost" path="epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
