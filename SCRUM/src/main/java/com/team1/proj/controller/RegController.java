@@ -44,11 +44,13 @@ public class RegController {
         String email = regForm.getBrukerdata().getEpost();
         String navn = regForm.getBrukerdata().getBrukernavn();    
         if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
+            
             return "Login/RegistreringSide";
         }
         
         if (brukerService.leggTilBruker(regForm.getBrukerdata())){
             model.addAttribute(regForm.getBrukerdata());
+            model.addAttribute("logindata", new Brukerdata());
             return "Login/login";
         }
             

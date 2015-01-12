@@ -221,7 +221,7 @@ public class BrukerDatabaseRepositoryImpl implements Repository{
     }
 
     @Override
-    public boolean loggInn(String brukernavn, String passord) {
+    public Brukerdata loggInn(String brukernavn, String passord) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

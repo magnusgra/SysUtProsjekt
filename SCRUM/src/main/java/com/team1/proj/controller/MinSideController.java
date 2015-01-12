@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes
 public class MinSideController {
     
-     @Autowired
+    @Autowired
     private Brukerdata brukerdata;
     
     @Autowired
@@ -47,7 +47,7 @@ public class MinSideController {
             model.addAttribute(new EndrePassordFormBackingBean());
             return "MinSide";
         }
-        model.addAttribute("brukerService", new BrukerServiceImpl());
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
 

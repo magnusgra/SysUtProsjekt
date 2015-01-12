@@ -55,14 +55,6 @@ public class BrukerServiceImpl implements BrukerService {
         return new RegistreringsForm();
     }
 
-    
-    public void setBrukerdata(Brukerdata bd) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public boolean loggInn(Brukerdata bd) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void leggTilResultat(Resultat res) {
@@ -75,8 +67,19 @@ public class BrukerServiceImpl implements BrukerService {
     }
 
     @Override
-    public boolean loggInn(String brukernavn, String passord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Brukerdata loggInn(String epost, String passord) {
+        Brukerdata bd = null;
+        if (repo != null) {
+            bd = repo.loggInn(epost, passord);
+            if (bd != null){
+                bd.setInnlogget(true);
+            }
+        } else {
+            System.out.println("LoggInn - REPO == NULL");
+        }
+        
+        return bd;
+        
     }
 
     

@@ -74,10 +74,13 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     }
     
     @Override
-    public boolean loggInn(String brukernavn, String passord){
-        return true;
-    
+    public Brukerdata loggInn(String epost, String passord){
+        Brukerdata bd = new Brukerdata();
+        bd.setBrukernavn("Arne Christian");
+        bd.setEpost(epost);
+        bd.setPassord(passord);
         
+        return bd;
     }
 }
 

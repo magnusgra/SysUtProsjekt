@@ -5,9 +5,10 @@ DROP TABLE bruker;
 CREATE TABLE bruker
 (
 brukernavn VARCHAR(255),
-epost VARCHAR(255),
+
 rettigheter INT,
 passord VARCHAR(255),
+epost VARCHAR(255),
 PRIMARY KEY(epost)
 );
 
@@ -19,13 +20,13 @@ PRIMARY KEY(oppgavenr)
 
 CREATE TABLE resultat
 (
-brukernavn VARCHAR(255) NOT NULL,
+epost VARCHAR(255) NOT NULL,
 forsoknr INT,
 oppgavenr INT,
 status VARCHAR(10),
 poeng INT,
-PRIMARY KEY(brukernavn,oppgavenr,forsoknr),
-FOREIGN KEY(brukernavn) REFERENCES bruker(brukernavn),
+PRIMARY KEY(epost,oppgavenr,forsoknr),
+FOREIGN KEY(epost) REFERENCES bruker(epost),
 FOREIGN KEY(oppgavenr) REFERENCES oppgave(oppgavenr)
 );
 

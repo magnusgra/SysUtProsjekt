@@ -31,6 +31,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class MainController {
     @Autowired
     private Brukerdata brukerdata;
+    
+    @Autowired
+    private BrukerService brukerService;
+    
+    @Autowired
+    public void setBrukerService(BrukerService brukerService){
+        this.brukerService = brukerService;
+    }
+    
 
     @Autowired
     public void setBrukerdata(Brukerdata brukerdata){
@@ -48,61 +57,58 @@ public class MainController {
         return new Brukerdata();
     }
     @RequestMapping(value="/*")
-    public String index(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result){
+    public String index(Model model){
         System.out.println("******************     UserController.showLogin   ************************");
         if(brukerdata.isInnlogget()){
             return "index";
         }
-        return "Login/login";
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login"; 
         
     }
     @RequestMapping(value="Home", method=RequestMethod.POST)
-    public String showIndexSide(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
+    public String showIndexSide(@ModelAttribute("logindata") Brukerdata logindata,Model model) {
         System.out.println("******************     UserController.showStartside/index   ************************");
-        if (result.hasErrors()) {
-            return "Login/login";
+      
+        
+        Brukerdata innlogget = brukerService.loggInn(logindata.getEpost(), logindata.getPassord());
+        if (innlogget != null){
+            this.brukerdata = innlogget;
+            return "index";
         }
-        brukerdata.setInnlogget(true);
-        return "index";
+        
+        
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login";
     }
 
-    @RequestMapping(value = "Startside")
-    public String showStartside(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
-        System.out.println("******************     UserController.showStartside/index   ************************");
-        if (result.hasErrors()) {
-            return "Login/login";
-        }
-        brukerdata.setInnlogget(true);
-        return "Startside";
-    }
+
     
     @RequestMapping(value = "EndrePassord")
-    public String showEndrePassord(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
+    public String showEndrePassord(Model model) {
         System.out.println("******************     UserController.showEndrePassord   ************************");
-        if (result.hasErrors()) {
-            return "startside";
-        }
         if(brukerdata.isInnlogget()){
             return "EndrePassord";
         }
         
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     
     @RequestMapping(value = "Highscore")
-    public String showHighscore(@Valid @ModelAttribute(value = "brukerService") BrukerService brukerService, BindingResult result) {
+    public String showHighscore(Model model) {
         System.out.println("******************     UserController.Highscore   ************************");
-        if (result.hasErrors()) {
-            return "startside";
-        }
+
         if(brukerdata.isInnlogget()){
             return "Highscore";
         }
+        
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     
     @RequestMapping(value="RegistreringSide")
-    public String registreringSide(@ModelAttribute(value = "brukerService") BrukerService brukerService, Model model){
+    public String registreringSide(Model model){
         System.out.println("******************     UserController.showRegistreringSide   ************************");
         model.addAttribute(brukerService.getRegistreringsForm());
         return "Login/RegistreringSide";
@@ -110,10 +116,11 @@ public class MainController {
     
     
     @RequestMapping(value="RegistrerBruker", method=RequestMethod.POST)
-    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, @ModelAttribute(value = "brukerService") BrukerService brukerService){
+    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
         if (!regForm.isGodtarBrukervilkar()){
             //Godtar ikke brukervilkår
+            model.addAttribute("melding", "Du må godta brukervilkårene.");
             return "Login/RegistreringSide";
         } 
         String email = regForm.getBrukerdata().getEpost();
@@ -124,9 +131,11 @@ public class MainController {
         
         if (brukerService.leggTilBruker(regForm.getBrukerdata())){
             
+            model.addAttribute("logindata", new Brukerdata());
             return "Login/login";
         }
         
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/RegistreringSide";
         
         
@@ -142,18 +151,22 @@ public class MainController {
 
     
     @RequestMapping(value="/Spill")
-    public String spill(){
+    public String spill(Model model){
         System.out.println("******************     UserController.showLogin   ************************");
         if(brukerdata.isInnlogget()){
             return "Spill";
         }
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     
     @RequestMapping(value="/LoggUt")
-    public String loggUt(){
+    public String loggUt(Model model){
         System.out.println("******************     UserController.showLogin   ************************");
         brukerdata.setInnlogget(false);
+        brukerdata.setPassord("");
+        
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     

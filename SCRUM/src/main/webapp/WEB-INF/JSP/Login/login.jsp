@@ -25,7 +25,9 @@
         <div id="login">
      
             <h1>Nic and Steven</h1>
-            <form:form method="POST" modelAttribute="brukerdata" action = "Home">
+            
+            <form:form method="POST" modelAttribute="logindata" action = "Home">
+                <center><p class="melding">Feil epost eller passord</p></p></center>
                 <form:input type= "email" placeholder="Epost" path="epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "password" placeholder="Passord" path="passord" /><br>
