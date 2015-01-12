@@ -21,10 +21,11 @@ import com.team1.proj.repository.utils.Opprydder;
  * @Kai
  */
 
-public class BrukerDatabaseRepositoryImpl implements Repository{
-    private Connection forbindelse;
+public class BrukerDatabaseRepositoryImpl {
+    /*private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select brukernavn from bruker where brukernavn = ?";
+    private final String sqlSelectBrukerViaEpost = "Select brukernavn from bruker where epost = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
@@ -59,7 +60,33 @@ public class BrukerDatabaseRepositoryImpl implements Repository{
         System.out.println("Lukker databaseforbindelsen");
         Opprydder.lukkForbindelse(forbindelse);
     }
-    
+    public Brukerdata getBrukerdata(String epost, String passord){
+        System.out.println("Database.getBrukerdata(String epost, String passord");
+        PreparedStatement stmt = null;
+        ResultSet res;
+        Brukerdata bd = null;
+        try {
+            åpneForbindelse();
+            stmt = forbindelse.prepareStatement(sqlSelectBrukerViaEpost);
+            stmt.setString(1, epost);
+            stmt.setString(2, passord);
+            res = stmt.executeQuery();
+            if (res.next()) {
+                bd = new Brukerdata(res.getString("brukernavn"),res.getInt("rettigheter"), res.getString("passord"), res.getString("epost"));
+            }
+        } catch (SQLException e) {
+            Opprydder.rullTilbake(forbindelse);
+            Opprydder.skrivMelding(e, "getAlleBrukere()");
+        } catch (Exception e) {
+            Opprydder.skrivMelding(e, "getAlleBrukere - ikke sqlfeil");
+        } finally {
+            Opprydder.settAutoCommit(forbindelse);
+            Opprydder.lukkSetning(stmt);
+        }
+        lukkForbindelse();
+        System.out.println(" Database.getBruker(). Har funnet bruker=" + bd );
+        return bd;
+    }
     public Brukerdata getBrukerdata(String brukernavn){
         System.out.println("Database.getBruker()");
         PreparedStatement stmt = null;
@@ -223,5 +250,5 @@ public class BrukerDatabaseRepositoryImpl implements Repository{
     @Override
     public Brukerdata loggInn(String brukernavn, String passord) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 }

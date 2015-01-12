@@ -22,6 +22,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
+    private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
@@ -75,12 +76,8 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     @Override
     public Brukerdata loggInn(String epost, String passord){
-        Brukerdata bd = new Brukerdata();
-        bd.setBrukernavn("Arne Christian");
-        bd.setEpost(epost);
-        bd.setPassord(passord);
-        
-        return bd;
+          return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerViaEpost, new Object[]{epost}, new BrukerMapper());
+       
     }
 }
 
