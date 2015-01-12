@@ -12,9 +12,11 @@ import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.SessionAttributes;
 //import org.springframework.dao.
 
 @Controller
+@SessionAttributes
 public class RegController {
     
     @Autowired
@@ -31,7 +33,7 @@ public class RegController {
         return "RegistreringSide";
     }
        
-    @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.GET)
+    @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.POST)
     public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm){
         
         if (!regForm.isGodtarBrukervilkar()){

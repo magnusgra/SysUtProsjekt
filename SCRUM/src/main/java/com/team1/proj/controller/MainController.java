@@ -31,8 +31,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class MainController {
     @Autowired
     private Brukerdata brukerdata;
+    
     @Autowired
     public void setBrukerdata(Brukerdata brukerdata){
+        System.out.println("setBrukerdata");
         this.brukerdata = brukerdata; 
     }
     
@@ -42,6 +44,7 @@ public class MainController {
     }
     @ModelAttribute("brukerdata")
     public Brukerdata getBrukerdata() {
+        System.out.println("getBrukerdata");
         return new Brukerdata();
     }
     @RequestMapping(value="/*")

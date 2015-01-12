@@ -20,10 +20,10 @@
         <div id="login">
             <div id="triangle"></div>
             <h1>Endre passord</h1>
-            <form:form method="POST" modelAttribute="brukerService" action="EndrePassord">
-                <form:input type= "password" placeholder="Gammelt passord" path="brukerdata.passord" /><br>
-                <form:input type= "password" placeholder="Nytt passord" path="brukerdata.passord" /><br>
-                <form:input type= "password" placeholder="Bekreft nytt passord" path="brukerdata.passord" /><br>
+            <form:form method="POST" modelAttribute="endrePassordFormBackingBean" action="EndrePassord">
+                <form:input type= "password" placeholder="Gammelt passord" path="gammeltPassord" /><br>
+                <form:input type= "password" placeholder="Nytt passord" path="nyttPassord" /><br>
+                <form:input type= "password" placeholder="Bekreft nytt passord" path="gjentaNyttPassord" /><br>
                 <input type="submit" value="Endre" />
                 <br>
                 <br>

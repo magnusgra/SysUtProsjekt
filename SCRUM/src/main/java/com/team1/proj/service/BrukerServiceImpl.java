@@ -16,6 +16,7 @@ import com.team1.proj.repository.Repository;
 //@Service
 public class BrukerServiceImpl implements BrukerService {
      
+    @Autowired
     private Repository repo;
     private Brukerdata brukerdata;
     
