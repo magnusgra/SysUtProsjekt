@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Resultat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
@@ -22,7 +23,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
-    private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ?";
+    private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
@@ -76,7 +77,12 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     @Override
     public Brukerdata loggInn(String epost, String passord){
-          return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerViaEpost, new Object[]{epost}, new BrukerMapper());
+        try{  
+            return(Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerViaEpost, new Object[]{epost,passord}, new BrukerMapper());
+       
+       }catch(EmptyResultDataAccessException e){
+           return null; 
+       }
        
     }
 }
