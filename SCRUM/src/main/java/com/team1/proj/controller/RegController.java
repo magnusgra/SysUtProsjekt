@@ -37,23 +37,29 @@ public class RegController {
     @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.POST)
     public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
-        if (!regForm.isGodtarBrukervilkar()){
-            //Godtar ikke brukervilkår
-            return "Login/RegistreringSide";
-        } 
+         
         String email = regForm.getBrukerdata().getEpost();
         String navn = regForm.getBrukerdata().getBrukernavn();    
         if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
-            
+            model.addAttribute("meldingtype", "melding-error");
+            model.addAttribute("melding", "Navn og epost må være fylt ut.");
+            return "Login/RegistreringSide";
+        }
+        if (!regForm.isGodtarBrukervilkar()){
+            model.addAttribute("meldingtype", "melding-error");
+            model.addAttribute("melding", "Du må godta brukervilkårene for å registrere deg.");
             return "Login/RegistreringSide";
         }
         
         if (brukerService.leggTilBruker(regForm.getBrukerdata())){
             model.addAttribute(regForm.getBrukerdata());
-            model.addAttribute("logindata", new Brukerdata());
+            Brukerdata logindata = regForm.getBrukerdata();
+            logindata.setPassord("");
+            model.addAttribute("logindata", logindata);
             return "Login/login";
         }
-            
+        model.addAttribute("meldingtype", "melding-error");
+        model.addAttribute("melding", "Din epost er allerede registrert.");
         return "Login/RegistreringSide";
         
         

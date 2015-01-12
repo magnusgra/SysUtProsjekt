@@ -75,7 +75,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
         
-        System.out.println("UPDATE bruker SET passord='"+nyttPassord+"' WHERE (epost='"+bd.getEpost()+"' AND passord='" +bd.getPassord() + "')");
+        
         return jdbcTemplateObject.update(sqlEndrePassord, nyttPassord, bd.getEpost(), bd.getPassord()) == 1;
         
     }

@@ -82,8 +82,10 @@ public class MainController {
             return "index";
         }
         
-        
-        model.addAttribute("logindata", new Brukerdata());
+        logindata.setPassord("");
+        model.addAttribute("melding", "Epost eller passord er feil.");
+        model.addAttribute("meldingtype","melding-error");
+        model.addAttribute("logindata", logindata);
         return "Login/login";
     }
 

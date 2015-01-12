@@ -55,7 +55,7 @@
                         <form:input type= "password" placeholder="Bekreft nytt passord" path="gjentaNyttPassord" /><br>
                         <input type="submit" value="Endre" title="Endre Passord" />
                         <br>
-                        <br>
+                        
                     </center>
                 </form:form>
         </div>

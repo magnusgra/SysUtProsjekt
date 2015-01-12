@@ -25,9 +25,10 @@
 
         <div id="login">
             
-            <h1>Registrer deg</h1>
+            <h1>Nic and Steven</h1>
             <form:form method="POST" modelAttribute="registreringsForm" action = "RegistreringBruker">
-                <center><p class="melding">Du er ikke gammel nok.</p></p></center>
+                <center><p class="melding ${meldingtype}">
+                        <c:if test="${melding==null}">Registrer deg</c:if>${melding}</p></center>
                 <form:input type= "email" placeholder="Epost" path="brukerdata.epost" /><br>
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "text" placeholder="Navn" path="brukerdata.brukernavn" /><br>
