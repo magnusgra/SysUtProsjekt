@@ -13,7 +13,7 @@ import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.mailoppsett.Mail;
 import com.team1.proj.repository.Repository;
 
-//@Service
+//@Service 
 public class BrukerServiceImpl implements BrukerService {
      
     @Autowired

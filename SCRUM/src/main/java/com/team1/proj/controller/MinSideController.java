@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  *
  * @author arnecs
  */
-
+ 
 @Controller
 @SessionAttributes
 public class MinSideController {
