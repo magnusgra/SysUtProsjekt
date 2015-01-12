@@ -5,9 +5,10 @@ DROP TABLE bruker;
 CREATE TABLE bruker
 (
 brukernavn VARCHAR(255),
+epost VARCHAR(255),
 rettigheter INT,
 passord VARCHAR(255),
-PRIMARY KEY(brukernavn)
+PRIMARY KEY(epost)
 );
 
 CREATE TABLE oppgave

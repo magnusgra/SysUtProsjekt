@@ -12,6 +12,7 @@ import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.SessionAttributes;
 //import org.springframework.dao.
 
@@ -34,7 +35,7 @@ public class RegController {
     }
        
     @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.POST)
-    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm){
+    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
         if (!regForm.isGodtarBrukervilkar()){
             //Godtar ikke brukervilkår
@@ -47,6 +48,7 @@ public class RegController {
         }
         
         if (brukerService.leggTilBruker(regForm.getBrukerdata())){
+            model.addAttribute(regForm.getBrukerdata());
             return "Login/login";
         }
             
