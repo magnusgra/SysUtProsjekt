@@ -7,6 +7,7 @@ package com.team1.proj.repository;
 
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Resultat;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public interface Repository {
     public void leggTilBruker(Brukerdata bd);
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
+    public Arraylist Brukerdata getHighscore();
     
     public Brukerdata loggInn(String epost, String passord);
     

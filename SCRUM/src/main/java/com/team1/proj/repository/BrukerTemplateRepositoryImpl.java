@@ -12,6 +12,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Resultat;
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,10 +26,12 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
+    private final String sqlSelect10Beste = "SELECT * FROM RESULTAT ORDER BY RESULTAT.POENG DESC FETCH NEXT 10 ROWS ONLY";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
+    
 
     
     private DataSource dataSource;
@@ -73,6 +76,10 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
         return true;
+    }
+    @Override
+    public ArrayList<Brukerdata> getHighscore(){
+        return null;
     }
     
     @Override
