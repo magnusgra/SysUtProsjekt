@@ -9,6 +9,18 @@ package com.team1.proj.repository;
  *
  * @author Mari
  */
-public class HighscoreMapper {
-    
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.springframework.jdbc.core.RowMapper;
+import com.team1.proj.brukerklasser.Highscore;
+
+
+public class HighscoreMapper implements RowMapper<Highscore>{
+    @Override
+    public Highscore mapRow(ResultSet rs, int i) throws SQLException {
+        Highscore bruker = new Highscore();
+        bruker.setBrukernavn(rs.getString("brukernavn"));
+        bruker.setTotalsum(rs.getInt("totalsum"));
+        return bruker;
+    }
 }
