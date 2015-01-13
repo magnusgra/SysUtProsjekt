@@ -6,6 +6,7 @@ package com.team1.proj.service;
  */
 
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.HighscoreListe;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.brukerklasser.Resultat;
 
@@ -23,6 +24,7 @@ public interface BrukerService {
     public Brukerdata loggInn(String epost, String passord);
    
     public RegistreringsForm getRegistreringsForm();
+    public HighscoreListe getHighscore();
     
 }
 

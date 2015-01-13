@@ -6,6 +6,7 @@
 package com.team1.proj.controller;
 
 import com.team1.proj.brukerklasser.Brukerdata; 
+import com.team1.proj.brukerklasser.HighscoreListe;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
@@ -96,14 +97,15 @@ public class MainController {
 
     
     @RequestMapping(value = "Highscore")
-    public String showHighscore(Model model) {
+    public String showHighscore(Model model, BrukerService brukerService) {
         System.out.println("******************     UserController.Highscore   ************************");
 
         if(brukerdata.isInnlogget()){
             return "Highscore";
         }
-        
+        HighscoreListe liste = brukerService.getHighscore(); 
         model.addAttribute("logindata", new Brukerdata());
+        model.addAttribute("highscoreliste", liste);
         return "Login/login";
     }
     

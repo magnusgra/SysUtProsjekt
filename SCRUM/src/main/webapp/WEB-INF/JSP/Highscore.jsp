@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,15 +59,15 @@
             <th>Poeng</th>
         </tr>
 
-        <c:forEach var="resultat" items="${resultatFormBackingBean.alleResultat}" varStatus="status">
+        <c:forEach var="resultat" items="${highscoreliste.higscoreliste}" varStatus="status">
             <tr>
-                <td><c:out value="${resultat.brukerdata.getBrukernavn()}"/>
+                <td><c:out value="${resultat.getBrukernavn()}"/>
                 </td> 
-                                    
-                <td> <form:input path="alleResultat[${resultat.index}].poeng" /> 
+                 <td> <form:input path="higscoreliste[${resultat.index}].brukernavn" />
+                </td>                   
+                <td> <form:input path="higscoreliste[${resultat.index}].totalsum" /> 
                 </td>
-                <td> <form:input path="alleResultat[${resultat.index}].forsoknr" />
-                </td>
+                
             </tr>
         </c:forEach>
             

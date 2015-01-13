@@ -111,7 +111,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
 		bruker.setTotalsum((int)(Integer)row.get("TOTALSUM"));
 		brukere.add(bruker);
 	}
- 
+          liste.setHigscoreliste(brukere);
 	return liste;
     }
     
