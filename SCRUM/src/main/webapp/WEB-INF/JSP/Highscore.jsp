@@ -70,7 +70,7 @@
             </tr>
         </c:forEach>
             
-    </table>
+    </table>    
     <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
 </form:form>
     <hr>

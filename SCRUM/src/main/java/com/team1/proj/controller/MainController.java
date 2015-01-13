@@ -53,12 +53,12 @@ public class MainController {
         this.brukerdata = brukerdata; 
     }
     
-    
     @ModelAttribute("brukerdata")
     public Brukerdata getBrukerdata() {
         System.out.println("getBrukerdata");
         return new Brukerdata();
     }
+    
     @RequestMapping(value="/*")
     public String index(Model model){
         System.out.println("******************     UserController.showLogin   ************************");
