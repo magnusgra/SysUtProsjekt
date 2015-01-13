@@ -47,7 +47,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
-    
+    <center>
+    <form:form action="Godkjenningsliste" method="GET" modelAttribute="resultatFormBackingBean">
+    <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
+    <table border="1" width="100">
+        <tr>
+            <th>Bruker</th>
+            <th>Status</th>
+        </tr>
+
+        <c:forEach var="resultat" items="glListeFromBackingBean" varStatus="status">
+            <tr>
+                <td><c:out value="epost"/>
+                </td> 
+                                    
+                <td> <form:input path="alleResultat[${resultat.index}].poeng" /> 
+                </td>
+                <td> <form:input path="alleResultat[${resultat.index}].forsoknr" />
+                </td>
+            </tr>
+        </c:forEach>
+            
+    </table>    
+            <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
+        </form:form>
+    <hr>
+    </center>
     
         
         

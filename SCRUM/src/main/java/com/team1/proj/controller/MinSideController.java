@@ -93,6 +93,28 @@ public class MinSideController {
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
+    
+    @RequestMapping(value="MinSide/Godkjenningsliste")
+    public String godkjenningsliste(Model model){
+        System.out.println("******************     UserController.GL   ************************");
+        if(brukerdata.isInnlogget()){
+            switch (brukerdata.getRettigheter()){
+                case 0: //Student
+                //    Resultat oppgaver = brukerService.getResultat(brukerdata.getEpost());
+                //    model.addAttribute("oppgaver", oppgaver);
+                    return "gl";
+                    
+                case 1: //Admin
+
+                    return "gl_admin";
+                    
+                default:
+                    break;
+            }
+        }
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login";
+    }
         
         
 

@@ -12,7 +12,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
-import com.team1.proj.brukerklasser.HighscoreListe;
+import com.team1.proj.ui.HighscoreListe;
 import com.team1.proj.brukerklasser.Resultat;
 import java.util.ArrayList;
 import java.util.Map;

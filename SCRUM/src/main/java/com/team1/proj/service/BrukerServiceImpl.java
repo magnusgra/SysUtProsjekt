@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
-import com.team1.proj.brukerklasser.HighscoreListe;
+import com.team1.proj.ui.HighscoreListe;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.mailoppsett.Mail;

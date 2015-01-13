@@ -12,22 +12,13 @@ epost VARCHAR(255),
 PRIMARY KEY(epost)
 );
 
-CREATE TABLE oppgave
-(
-oppgavenr INT,
-PRIMARY KEY(oppgavenr)
-);
-
 CREATE TABLE resultat
 (
 epost VARCHAR(255) NOT NULL,
-forsoknr INT,
 oppgavenr INT,
-status VARCHAR(10),
 poeng INT,
-PRIMARY KEY(epost,oppgavenr,forsoknr),
+PRIMARY KEY(epost,oppgavenr),
 FOREIGN KEY(epost) REFERENCES bruker(epost),
-FOREIGN KEY(oppgavenr) REFERENCES oppgave(oppgavenr)
 );
 
 
