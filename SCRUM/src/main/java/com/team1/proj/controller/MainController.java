@@ -11,9 +11,11 @@ import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +42,10 @@ public class MainController {
         this.brukerService = brukerService;
     }
     
+    @ModelAttribute("brukerService")
+    public BrukerService getBrukerService() {
+        return new BrukerServiceImpl();
+    }
 
     @Autowired
     public void setBrukerdata(Brukerdata brukerdata){
@@ -47,10 +53,7 @@ public class MainController {
         this.brukerdata = brukerdata; 
     }
     
-    @ModelAttribute("brukerService")
-    public BrukerService getBrukerService() {
-        return new BrukerServiceImpl();
-    }
+    
     @ModelAttribute("brukerdata")
     public Brukerdata getBrukerdata() {
         System.out.println("getBrukerdata");
@@ -73,27 +76,24 @@ public class MainController {
         
         Brukerdata innlogget = brukerService.loggInn(logindata.getEpost(), logindata.getPassord());
         if (innlogget != null){
-            this.brukerdata = innlogget;
+            
+            this.brukerdata.setBrukernavn(innlogget.getBrukernavn());
+            this.brukerdata.setEpost(innlogget.getEpost());
+            this.brukerdata.setInnlogget(innlogget.isInnlogget());
+ 
             return "index";
         }
         
-        
-        model.addAttribute("logindata", new Brukerdata());
+        logindata.setPassord("");
+        model.addAttribute("melding", "Epost eller passord er feil.");
+        model.addAttribute("meldingtype","melding-error");
+        model.addAttribute("logindata", logindata);
         return "Login/login";
     }
 
 
     
-    @RequestMapping(value = "EndrePassord")
-    public String showEndrePassord(Model model) {
-        System.out.println("******************     UserController.showEndrePassord   ************************");
-        if(brukerdata.isInnlogget()){
-            return "EndrePassord";
-        }
-        
-        model.addAttribute("logindata", new Brukerdata());
-        return "Login/login";
-    }
+
     
     @RequestMapping(value = "Highscore")
     public String showHighscore(Model model) {
@@ -114,7 +114,7 @@ public class MainController {
         return "Login/RegistreringSide";
     }
     
-    
+    /*
     @RequestMapping(value="RegistrerBruker", method=RequestMethod.POST)
     public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
@@ -139,7 +139,7 @@ public class MainController {
         return "Login/RegistreringSide";
         
         
-    }
+    }*/
     
 @RequestMapping(value="/avtale")
     public String avtale(){
@@ -169,8 +169,5 @@ public class MainController {
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
-    
- 
-    
-   
+      
 }

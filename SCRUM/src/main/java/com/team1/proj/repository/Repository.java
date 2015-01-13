@@ -17,8 +17,8 @@ import java.util.List;
  */
 public interface Repository {
     
-    public Brukerdata getBrukerdata(String brukernavn);
-    public void leggTilBruker(Brukerdata bd);
+    public Brukerdata getBrukerdata(String epost);
+    public boolean leggTilBruker(Brukerdata bd);
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
     public HighscoreListe getHighscore();

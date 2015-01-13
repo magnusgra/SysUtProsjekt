@@ -77,12 +77,15 @@ input[type="submit"]:hover{
 }
 
 
-.melding {
-   position: relative;
-   top: 0.5em;
-   min-height: 1em;
+.melding-error {
    color: red;
-   margin: 0 auto;
-   padding: 0em;
-   
+}
+
+.melding-suksess {
+   color: green;
+}
+
+.melding {
+       height: 1.1em;
+       padding: 0em;
 }

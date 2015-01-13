@@ -27,6 +27,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
+    private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     private final String sqlSelect10Beste = "select bruker.brukernavn, TOTALSUM from bruker natural join (\n" +
@@ -36,9 +37,14 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
+<<<<<<< HEAD
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     
     
+=======
+    
+    private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
+>>>>>>> 51dad1bae2a0928600267b53e8621c4d978ba5fa
 
     
     private DataSource dataSource;
@@ -54,19 +60,29 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     }
     
     @Override
-    public Brukerdata getBrukerdata(String brukernavn ){
-        return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBruker, new Object[]{brukernavn}, new BrukerMapper());
+    public Brukerdata getBrukerdata(String epost ){
+        try {
+            return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerEpost, new Object[]{epost}, new BrukerMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
     }
    
     @Override
-    public void leggTilBruker(Brukerdata bd){
-        jdbcTemplateObject.update(sqlInsertBruker, 
-            new Object[]{
-                bd.getBrukernavn(), 
-                bd.getRettigheter(), 
-                bd.getPassord(),
-                bd.getEpost()
-        });
+    public boolean leggTilBruker(Brukerdata bd){
+        
+        if (getBrukerdata(bd.getEpost()) == null){
+            jdbcTemplateObject.update(sqlInsertBruker, 
+                new Object[]{
+                    bd.getBrukernavn(), 
+                    bd.getRettigheter(), 
+                    bd.getPassord(),
+                    bd.getEpost()
+            });
+            return true;
+        }
+        return false;
+        
     }
     
     public void leggTilResultat(Resultat res){
@@ -82,7 +98,10 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
-        return true;
+        
+        
+        return jdbcTemplateObject.update(sqlEndrePassord, nyttPassord, bd.getEpost(), bd.getPassord()) == 1;
+        
     }
     @Override
     public HighscoreListe getHighscore(){
