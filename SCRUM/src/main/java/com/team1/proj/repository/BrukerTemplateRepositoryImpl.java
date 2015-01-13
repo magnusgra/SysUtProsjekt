@@ -37,14 +37,9 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
-<<<<<<< HEAD
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
-    
-    
-=======
-    
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
->>>>>>> 51dad1bae2a0928600267b53e8621c4d978ba5fa
+
 
     
     private DataSource dataSource;
