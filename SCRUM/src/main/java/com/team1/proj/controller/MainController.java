@@ -6,10 +6,12 @@
 package com.team1.proj.controller;
 
 import com.team1.proj.brukerklasser.Brukerdata; 
+import com.team1.proj.brukerklasser.Highscore;
 import com.team1.proj.brukerklasser.HighscoreListe;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -103,7 +105,7 @@ public class MainController {
         if(brukerdata.isInnlogget()){
             return "Highscore";
         }
-        HighscoreListe liste = brukerService.getHighscore(); 
+        List<Highscore> liste = brukerService.getHighscore(); 
         model.addAttribute("logindata", new Brukerdata());
         model.addAttribute("highscoreliste", liste);
         return "Login/login";

@@ -99,9 +99,9 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         
     }
     @Override
-    public HighscoreListe getHighscore(){
-          
-	List<Highscore> brukere = new ArrayList<Highscore>();
+    public List<Highscore> getHighscore(){
+          return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
+	/*List<Highscore> brukere = new ArrayList<Highscore>();
           HighscoreListe liste = new HighscoreListe(brukere);
           
 	List<Map<String, Object>> rows = jdbcTemplateObject.queryForList(sqlSelect10Beste);
@@ -113,6 +113,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
 	}
           liste.setHigscoreliste(brukere);
 	return liste;
+         */
     }
     
     @Override

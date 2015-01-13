@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.Highscore;
 import com.team1.proj.brukerklasser.HighscoreListe;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.brukerklasser.Resultat;
@@ -76,7 +77,7 @@ public class BrukerServiceImpl implements BrukerService {
         return repo.endrePassord(bd, nyttPassord);
     }
     @Override
-    public HighscoreListe getHighscore(){
+    public List<Highscore> getHighscore(){
         return repo.getHighscore();
         
     }
