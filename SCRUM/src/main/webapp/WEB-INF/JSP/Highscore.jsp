@@ -30,7 +30,13 @@
     				<li><a href="Home">Home</a></li>
     				<li><a href="Spill">Start Spillet</a></li>
     				<li class="active"><a href="Highscore">Se Highscore</a></li>
-    				<li><a href="MinSide">Min Side</a></li>
+    				<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="MinSide/EndrePassord" >Endre Passord</a></li>
+                                        <li><a href="MinSide/Godkjenningsliste" >Godkjenningsliste</a></li>
+                                    </ul>
+                                </li>
     				<li><a href="LoggUt">Logg ut</a></li>
     			</ul>
     		</div>

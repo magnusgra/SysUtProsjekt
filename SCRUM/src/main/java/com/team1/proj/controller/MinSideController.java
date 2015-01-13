@@ -55,39 +55,38 @@ public class MinSideController {
     }
 
     
-    @RequestMapping(value="/MinSide")
+    @RequestMapping(value="MinSide/EndrePassord")
     public String minSide(Model model){
         System.out.println("******************     UserController.MinSide   ************************");
         if(brukerdata.isInnlogget()){
             model.addAttribute(new EndrePassordFormBackingBean());
-            return "MinSide";
+            return "EndrePassord";
         }
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     
-    @RequestMapping(value="/MinSide", method=RequestMethod.POST)
+    
+    
+    @RequestMapping(value="MinSide/EndrePassord", method=RequestMethod.POST)
     public String endrePassord(Model model, @ModelAttribute EndrePassordFormBackingBean epfbb){
         System.out.println("******************     UserController.endrePassord   ************************");
         if(brukerdata.isInnlogget()){
             model.addAttribute(new EndrePassordFormBackingBean());
-            
-            
-            
             if (!epfbb.passordErLik()){
                 model.addAttribute("meldingtype", "melding-error");
                 model.addAttribute("melding", "Passordene er ikke like.");
-                return "MinSide";
+                return "EndrePassord";
             }
             brukerdata.setPassord(epfbb.getGammeltPassord());
             if (brukerService.endrePassord(brukerdata, epfbb.getNyttPassord())){ 
                 model.addAttribute("meldingtype", "melding-suksess");
                 model.addAttribute("melding", "Passordet er endret");
-                return "MinSide";
+                return "EndrePassord";
             } else {
                 model.addAttribute("meldingtype", "melding-error");
                 model.addAttribute("melding", "Gammelt passord er feil.");
-                return "MinSide";
+                return "EndrePassord";
             }
 
         }

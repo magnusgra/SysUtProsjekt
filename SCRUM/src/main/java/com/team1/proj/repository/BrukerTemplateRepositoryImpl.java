@@ -23,6 +23,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
     private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
+    private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     
@@ -46,19 +47,29 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     }
     
     @Override
-    public Brukerdata getBrukerdata(String brukernavn ){
-        return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBruker, new Object[]{brukernavn}, new BrukerMapper());
+    public Brukerdata getBrukerdata(String epost ){
+        try {
+            return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerEpost, new Object[]{epost}, new BrukerMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
     }
    
     @Override
-    public void leggTilBruker(Brukerdata bd){
-        jdbcTemplateObject.update(sqlInsertBruker, 
-            new Object[]{
-                bd.getBrukernavn(), 
-                bd.getRettigheter(), 
-                bd.getPassord(),
-                bd.getEpost()
-        });
+    public boolean leggTilBruker(Brukerdata bd){
+        
+        if (getBrukerdata(bd.getEpost()) == null){
+            jdbcTemplateObject.update(sqlInsertBruker, 
+                new Object[]{
+                    bd.getBrukernavn(), 
+                    bd.getRettigheter(), 
+                    bd.getPassord(),
+                    bd.getEpost()
+            });
+            return true;
+        }
+        return false;
+        
     }
     
     public void leggTilResultat(Resultat res){

@@ -11,9 +11,11 @@ import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -91,16 +93,7 @@ public class MainController {
 
 
     
-    @RequestMapping(value = "EndrePassord")
-    public String showEndrePassord(Model model) {
-        System.out.println("******************     UserController.showEndrePassord   ************************");
-        if(brukerdata.isInnlogget()){
-            return "EndrePassord";
-        }
-        
-        model.addAttribute("logindata", new Brukerdata());
-        return "Login/login";
-    }
+
     
     @RequestMapping(value = "Highscore")
     public String showHighscore(Model model) {
@@ -121,7 +114,7 @@ public class MainController {
         return "Login/RegistreringSide";
     }
     
-    
+    /*
     @RequestMapping(value="RegistrerBruker", method=RequestMethod.POST)
     public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
@@ -146,7 +139,7 @@ public class MainController {
         return "Login/RegistreringSide";
         
         
-    }
+    }*/
     
 @RequestMapping(value="/avtale")
     public String avtale(){
@@ -176,8 +169,5 @@ public class MainController {
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
-    
- 
-    
-   
+      
 }
