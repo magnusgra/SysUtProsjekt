@@ -31,7 +31,7 @@ public class RegController {
     @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.GET)
     public String vare(@ModelAttribute Brukerdata bd) {
         System.out.println(" ******   Reg.controller.nybruker() ");
-        return "RegistreringSide";
+        return "Login/RegistreringSide";
     }
        
     @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.POST)
@@ -51,15 +51,18 @@ public class RegController {
             return "Login/RegistreringSide";
         }
         
-        if (brukerService.leggTilBruker(regForm.getBrukerdata())){
+        String melding = brukerService.leggTilBruker(regForm.getBrukerdata());
+        if (melding == null){
             model.addAttribute(regForm.getBrukerdata());
             Brukerdata logindata = regForm.getBrukerdata();
             logindata.setPassord("");
             model.addAttribute("logindata", logindata);
+            model.addAttribute("melding", "Du vil få tilsendt passord på epost snart.");
+            model.addAttribute("meldingtype", "melding-suksess");
             return "Login/login";
         }
         model.addAttribute("meldingtype", "melding-error");
-        model.addAttribute("melding", "Din epost er allerede registrert.");
+        model.addAttribute("melding", melding);
         return "Login/RegistreringSide";
         
         

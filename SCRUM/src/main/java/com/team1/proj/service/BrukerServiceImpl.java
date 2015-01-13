@@ -11,7 +11,9 @@ import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.mailoppsett.Mail;
+import com.team1.proj.mailoppsett.Passord;
 import com.team1.proj.repository.Repository;
+import com.team1.proj.mailoppsett.EmailValidator;
 
 //@Service 
 public class BrukerServiceImpl implements BrukerService {
@@ -32,21 +34,28 @@ public class BrukerServiceImpl implements BrukerService {
     
      
     @Override
-    public boolean leggTilBruker(Brukerdata bd){
+    public String leggTilBruker(Brukerdata bd){
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
-        Mail mail = new Mail();
-        String passord = mail.sendMailMedPassord(bd);
-        if (passord != null){
-            bd.setPassord(passord);
+        Passord p = new Passord();
+        String passord = p.autogenererPassord();
+        bd.setPassord(passord);
             
-            if (repo != null){
-                repo.leggTilBruker(bd);
+        if (repo == null) {
+            return "Noe gikk galt. Prøv igjen senere.";
+        }
+        EmailValidator eval = new EmailValidator();
+        if (eval.validate(bd.getEpost())){
+            if (repo.leggTilBruker(bd)){
+
+                Mail mail = new Mail();
+
+                mail.sendMailMedPassord(bd);
+                return null;
             } else {
-                System.out.println("REPO == NULL");;
+                return "Din epost er allerede registrert.";
             }
-            return true;
         } else {
-            return false;
+            return "Epost er ugyldig.";
         }
     }
     
