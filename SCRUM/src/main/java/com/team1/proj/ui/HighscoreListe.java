@@ -28,6 +28,25 @@ public class HighscoreListe {
 
     public void setHigscoreliste(List<Highscore> higscoreliste) {
         this.higscoreliste = higscoreliste;
+        setPlasseringer();
+    }
+    
+    
+    public void setPlasseringer(){
+        int plass = 0;
+        int score = Integer.MAX_VALUE;
+        int sammeScore = 0;
+        
+        for (Highscore highscore : higscoreliste) {
+            if (highscore.getTotalsum() < score) {
+                score = highscore.getTotalsum();
+                plass += sammeScore + 1;
+                sammeScore = 0;
+            } else {
+                sammeScore++;
+            }
+            highscore.setPlassering(plass);
+        }
     }
     
 }

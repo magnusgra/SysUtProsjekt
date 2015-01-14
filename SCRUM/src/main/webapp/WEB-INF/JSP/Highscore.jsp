@@ -21,7 +21,7 @@
         
     <div class="navbar navbar-default">
     	<div class="container">
-    		<a href="Home" class = "navbar-brand">Nic and Steven</a>
+    		<a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
     		<div class="collapse navbar-collapse navHeaderCollapse">
@@ -55,30 +55,48 @@
     
             <center>
    
-    <h5>Husk at dette bare er et spill. Ikke ta det for seri&oslash;st :)</h5>
-    <table border="1" width="500">
-        <tr>
-            <th>Bruker</th>
-            <th>Poeng</th>
-        </tr>
-
-        <c:forEach var="highscore" items="${highscoreListe.higscoreliste}" varStatus="status">
-            <tr> 
-                 <td> ${highscore.fornavn}
-                </td>                   
-                <td> ${highscore.totalsum}
-                </td>
-                
-            </tr>
-        </c:forEach>
-            
-    </table>    
-    <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
-
-    <hr>
-    </center>
-  
+ 
     
+    <div id="highscore-container">
+        <h1>
+            <a id="oppdater-highscores" href="Highscore">
+                <img src="<c:url value='/resources/bilder/update_icon.png'/>"/>
+            </a>
+            <center>
+                Highscore
+            </center>
+        </h1>
+        <br>
+        <p class="melding">Husk at dette bare er et spill. Ikke ta det for seri&oslash;st :)</p>
+        <br>
+        <table >
+            <tr>
+                <th>#</th>
+                <th>Bruker</th>
+                <th>Poeng</th>
+            </tr>
+
+            <c:forEach var="highscore" items="${highscoreListe.higscoreliste}" varStatus="status">
+                <tr class="plass${highscore.plassering}">
+                    <td> 
+                         ${highscore.plassering}
+                    </td> 
+                    <td> 
+                         ${highscore.fornavn}
+                    </td>                   
+                    <td>
+                        ${highscore.totalsum}
+                    </td>
+                </tr>
+            </c:forEach>
+
+        </table>    
+       
+        <hr>
+      
+
+</div>
+      </center>
     
     </body>
 </html>

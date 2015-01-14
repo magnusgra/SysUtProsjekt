@@ -12,6 +12,7 @@ package com.team1.proj.brukerklasser;
 public class Highscore {
     private String fornavn; 
     private int totalsum; 
+    private int plassering;
 
     public Highscore(String fornavn, int totalsum) {
         this.fornavn = fornavn;
@@ -36,6 +37,12 @@ public class Highscore {
     public void setTotalsum(int totalsum) {
         this.totalsum = totalsum;
     }
-    
-    
+
+    public int getPlassering() {
+        return plassering;
+    }
+
+    public void setPlassering(int plassering) {
+        this.plassering = plassering;
+    }
 }

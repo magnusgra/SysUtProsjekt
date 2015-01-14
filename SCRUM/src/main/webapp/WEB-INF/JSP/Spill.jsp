@@ -19,7 +19,7 @@
     <body>
     <div class="navbar navbar-default">
     	<div class="container">
-    		<a href="Home" class = "navbar-brand">Nic and Steven</a>
+    		<a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
     		<div class="collapse navbar-collapse navHeaderCollapse">
