@@ -82,6 +82,12 @@ public class BrukerServiceImpl implements BrukerService {
         return repo.getHighscore();
         
     }
+    @Override
+    public List<Resultat> getAlleBrukere(){
+        System.out.println("****** BrukerServiceImpl.getAlleBrukere()******");
+        return repo.getAlleBrukere(); 
+    }
+    
 
     @Override
     public Brukerdata loggInn(String epost, String passord) {

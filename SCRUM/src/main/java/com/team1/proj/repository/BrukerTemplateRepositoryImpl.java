@@ -37,6 +37,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
+    private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select poeng from resultat where oppgavenr=9 AND resultat.epost = bruker.epost) from bruker";
 
 
     
@@ -56,6 +57,14 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     public Brukerdata getBrukerdata(String epost ){
         try {
             return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerEpost, new Object[]{epost}, new BrukerMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
+    @Override 
+    public List<Resultat> getAlleBrukere(){
+        try {
+            return jdbcTemplateObject.query(sqlSelect10Beste, new GodkjenningMapper());
         } catch (EmptyResultDataAccessException e){
             return null;
         }
@@ -83,7 +92,6 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         jdbcTemplateObject.update(sqlInsertResultat,
                 new Object[]{
                 res.getBrukerdata(), 
-                res.getForsoknr(), 
                 res.getOppgavenr(),
                 res.getPoeng(),
                 res.getStatus()
@@ -101,19 +109,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     public List<Highscore> getHighscore(){
         System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
           return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
-	/*List<Highscore> brukere = new ArrayList<Highscore>();
-          HighscoreListe liste = new HighscoreListe(brukere);
-          
-	List<Map<String, Object>> rows = jdbcTemplateObject.queryForList(sqlSelect10Beste);
-	for (Map row : rows) {
-		Highscore bruker = new Highscore();
-		bruker.setBrukernavn((String)(row.get("BRUKERNAVN")));
-		bruker.setTotalsum((int)(Integer)row.get("TOTALSUM"));
-		brukere.add(bruker);
-	}
-          liste.setHigscoreliste(brukere);
-	return liste;
-         */
+	
     }
     
     @Override

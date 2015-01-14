@@ -26,12 +26,5 @@ public class ResultatFormBackingBean {
         return alleResultat;
     }
     
-    public Resultat getResultat(int oppgnr){
-        for(Resultat r : valgtResultat){
-            if(r.getOppgavenr()==oppgnr) return r;
-        }
-        return null;
-    }
-    
     
 }

@@ -84,6 +84,7 @@ public class MainController {
             this.brukerdata.setEtternavn(innlogget.getEtternavn());
             this.brukerdata.setEpost(innlogget.getEpost());
             this.brukerdata.setInnlogget(innlogget.isInnlogget());
+            this.brukerdata.setRettigheter(innlogget.getRettigheter());
  
             return "index";
         }

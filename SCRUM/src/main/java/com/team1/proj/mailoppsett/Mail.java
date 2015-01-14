@@ -66,8 +66,8 @@ public class Mail {
     
     public boolean sendMailMedPassord(Brukerdata brukerdata){
         //Sendt fra bruker og passord
-        String fra = "scrumteam1@yahoo.com";
-        String passord = "Passord1";
+        String fra = "scrumteamhist@yahoo.com";
+        String passord = "Passordet";
         //Mottaker:
         String fornavn = brukerdata.getFornavn();
         String etternavn = brukerdata.getEtternavn();
