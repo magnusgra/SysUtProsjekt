@@ -15,6 +15,36 @@
          <!-- Bootstrap -->
         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
     <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
+    <style>
+        .button{
+            width:30%;
+            background:#3399cc;
+            border:0;
+            padding:3%;
+            font-family:'Open Sans',sans-serif;
+            font-size:100%;
+            color:#fff;
+            cursor:pointer;
+            transition:background .3s;
+            -webkit-transition:background .3s;
+            -webkit-border-radius: 11;
+            -moz-border-radius: 11;
+            border-radius: 11px;
+            position: fixed;
+            left: 37%;
+            top: 50%;
+        }
+
+        .button:hover {
+          background: #3cb0fd;
+          background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+          text-decoration: none;
+        }
+    </style>
     </head>
     <body>
     <div class="navbar navbar-default">
@@ -50,9 +80,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
-    
-    
-    <center><input type="submit" value="Start Spillet" /></center>
+    <div>
+    <img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" style="width:304px;height:228px; top:10%"/>
+    </div>
+    <center><input class = button type="button" value="Start Spillet" /></center>
     
     
     
