@@ -9,6 +9,7 @@ import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
+import com.team1.proj.ui.ResultatFormBackingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -95,7 +96,7 @@ public class MinSideController {
     }
     
     @RequestMapping(value="MinSide/Godkjenningsliste")
-    public String godkjenningsliste(Model model){
+    public String godkjenningsliste(@ModelAttribute ResultatFormBackingBean resultatForm, Model model){
         System.out.println("******************     UserController.GL   ************************");
         if(brukerdata.isInnlogget()){
             switch (brukerdata.getRettigheter()){
@@ -105,7 +106,7 @@ public class MinSideController {
                     return "gl";
                     
                 case 1: //Admin
-
+                    resultatForm.setValgtResultat(brukerService.getAlleBrukere());
                     return "gl_admin";
                     
                 default:
