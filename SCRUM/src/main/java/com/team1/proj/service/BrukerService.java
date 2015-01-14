@@ -26,6 +26,7 @@ public interface BrukerService {
    
     public RegistreringsForm getRegistreringsForm();
     public List<Highscore> getHighscore();
+    public List<Resultat> getAlleBrukere(); 
     
 }
 

@@ -60,6 +60,14 @@ public class BrukerTemplateRepositoryImpl implements Repository{
             return null;
         }
     }
+    @Override 
+    public List<Resultat> getAlleBrukere(){
+        try {
+            return jdbcTemplateObject.query(sqlSelect10Beste, new GodkjenningMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
    
     @Override
     public boolean leggTilBruker(Brukerdata bd){
@@ -82,7 +90,6 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         jdbcTemplateObject.update(sqlInsertResultat,
                 new Object[]{
                 res.getBrukerdata(), 
-                res.getForsoknr(), 
                 res.getOppgavenr(),
                 res.getPoeng(),
                 res.getStatus()
@@ -100,19 +107,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     public List<Highscore> getHighscore(){
         System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
           return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
-	/*List<Highscore> brukere = new ArrayList<Highscore>();
-          HighscoreListe liste = new HighscoreListe(brukere);
-          
-	List<Map<String, Object>> rows = jdbcTemplateObject.queryForList(sqlSelect10Beste);
-	for (Map row : rows) {
-		Highscore bruker = new Highscore();
-		bruker.setBrukernavn((String)(row.get("BRUKERNAVN")));
-		bruker.setTotalsum((int)(Integer)row.get("TOTALSUM"));
-		brukere.add(bruker);
-	}
-          liste.setHigscoreliste(brukere);
-	return liste;
-         */
+	
     }
     
     @Override

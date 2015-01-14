@@ -11,21 +11,18 @@ package com.team1.proj.brukerklasser;
  */
 public class Resultat {
     private Brukerdata brukerdata;
-    private int forsoknr;
-    private int oppgavenr;
+    private String status; 
+    private int oppgavenr; 
     private int poeng;
-    private String status;
 
+    
 
     
     public Resultat(){    
     }
 
-    public Resultat(Brukerdata brukerdata, int forsoknr, int oppgavenr, int poeng, String status) {
+    public Resultat(Brukerdata brukerdata, String status) {
         this.brukerdata = brukerdata;
-        this.forsoknr = forsoknr;
-        this.oppgavenr = oppgavenr;
-        this.poeng = poeng;
         this.status = status;
     }
    
@@ -36,6 +33,21 @@ public class Resultat {
     public void setBrukerdata(Brukerdata brukerdata) {
         this.brukerdata = brukerdata;
     }
+       
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public int getPoeng() {
+        return poeng;
+    }
+
+    public void setPoeng(int poeng) {
+        this.poeng = poeng;
+    }
 
     public int getOppgavenr() {
         return oppgavenr;
@@ -45,28 +57,5 @@ public class Resultat {
         this.oppgavenr = oppgavenr;
     }
 
-    public int getPoeng() {
-        return poeng;
-    }
-
-    public void setPoeng(int poeng) {
-        this.poeng = poeng;
-    } 
-    
-    public int getForsoknr() {
-        return forsoknr;
-    }
-
-    public void setForsoknr(int forsoknr) {
-        this.forsoknr = forsoknr;
-    }
-       
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
     
 }
