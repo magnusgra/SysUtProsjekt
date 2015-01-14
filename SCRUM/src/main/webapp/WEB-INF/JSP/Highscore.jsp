@@ -50,22 +50,19 @@
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
             <center>
-    <form:form action="se highscore" method="GET" modelAttribute="resultatFormBackingBean">
+    <form:form action="highscore" method="GET" modelAttribute="highscoreListe">
     <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
     <table border="1" width="100">
         <tr>
             <th>Bruker</th>
-            <th>Antall forsok</th>
             <th>Poeng</th>
         </tr>
 
-        <c:forEach var="resultat" items="${highscoreliste.higscoreliste}" varStatus="status">
-            <tr>
-                <td><c:out value="${resultat.getBrukernavn()}"/>
-                </td> 
-                 <td> <form:input path="higscoreliste[${resultat.index}].brukernavn" />
+        <c:forEach var="highscore" items="${highscoreListe.higscoreliste}" varStatus="status">
+            <tr> 
+                 <td> <form:input path="higscoreliste[${status.index}].brukernavn" />
                 </td>                   
-                <td> <form:input path="higscoreliste[${resultat.index}].totalsum" /> 
+                <td> <form:input path="higscoreliste[${status.index}].totalsum" /> 
                 </td>
                 
             </tr>
