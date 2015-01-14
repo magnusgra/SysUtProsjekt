@@ -20,7 +20,7 @@ public class HighscoreMapper implements RowMapper<Highscore>{
     public Highscore mapRow(ResultSet rs, int i) throws SQLException {
         System.out.println("******************** HighscoreMapper.mapRow()*******************");
         Highscore bruker = new Highscore();
-        bruker.setBrukernavn(rs.getString("brukernavn"));
+        bruker.setFornavn(rs.getString("fornavn"));
         bruker.setTotalsum(rs.getInt("totalsum"));
         return bruker;
     }

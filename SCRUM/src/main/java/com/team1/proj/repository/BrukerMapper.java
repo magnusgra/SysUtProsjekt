@@ -16,7 +16,8 @@ public class BrukerMapper implements RowMapper<Brukerdata> {
     @Override
     public Brukerdata mapRow(ResultSet rs, int i) throws SQLException {
         Brukerdata bruker = new Brukerdata();
-        bruker.setBrukernavn(rs.getString("brukernavn"));
+        bruker.setFornavn(rs.getString("fornavn"));
+        bruker.setEtternavn(rs.getString("etternavn"));
         bruker.setRettigheter(rs.getInt("rettigheter"));
         bruker.setPassord(rs.getString("passord"));
         bruker.setEpost(rs.getString("epost"));

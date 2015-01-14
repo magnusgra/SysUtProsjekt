@@ -20,8 +20,8 @@ public class GodkjenningMapper implements RowMapper<Resultat>  {
     public Resultat mapRow(ResultSet rs, int i) throws SQLException {
         Resultat res = new Resultat(); 
         Brukerdata bruker = new Brukerdata();
-        bruker.setBrukernavn(rs.getString("etternavn"));
-        bruker.setBrukernavn(rs.getString("fornavn"));
+        bruker.setEtternavn(rs.getString("etternavn"));
+        bruker.setFornavn(rs.getString("fornavn"));
         bruker.setEpost(rs.getString("epost"));
         res.setStatus(rs.getString("status"));
         return res;

@@ -10,23 +10,23 @@ package com.team1.proj.brukerklasser;
  * @author Mari
  */
 public class Highscore {
-    private String brukernavn; 
+    private String fornavn; 
     private int totalsum; 
 
-    public Highscore(String brukernavn, int totalsum) {
-        this.brukernavn = brukernavn;
+    public Highscore(String fornavn, int totalsum) {
+        this.fornavn = fornavn;
         this.totalsum = totalsum;
     }
     
     public Highscore(){
         
     }
-    public String getBrukernavn() {
-        return brukernavn;
+    public String getFornavn() {
+        return fornavn;
     }
 
-    public void setBrukernavn(String brukernavn) {
-        this.brukernavn = brukernavn;
+    public void setFornavn(String fornavn) {
+        this.fornavn = fornavn;
     }
 
     public int getTotalsum() {

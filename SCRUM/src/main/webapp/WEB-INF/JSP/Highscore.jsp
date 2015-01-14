@@ -28,17 +28,21 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="Home">Home</a></li>
-    				<li><a href="Spill">Start Spillet</a></li>
-    				<li class="active"><a href="Highscore">Se Highscore</a></li>
+    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li class="active"><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="MinSide/EndrePassord" >Endre Passord</a></li>
-                                        <li><a href="MinSide/Godkjenningsliste" >Godkjenningsliste</a></li>
+                                        <li>
+                                            <a href="<c:url value='/MinSide/EndrePassord'/>" >Endre Passord</a>
+                                        </li>
+                                        <li>
+                                            <a href="<c:url value='MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
+                                        </li>
                                     </ul>
                                 </li>
-    				<li><a href="LoggUt">Logg ut</a></li>
+    				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
     			</ul>
     		</div>
         </div>
@@ -51,8 +55,8 @@
     
             <center>
     <form:form action="highscore" method="GET" modelAttribute="highscoreListe">
-    <h5>Husk at dette bare er et spill. Ikke ta det for serioest :)</h5>
-    <table border="1" width="100">
+    <h5>Husk at dette bare er et spill. Ikke ta det for seri&oslash;st :)</h5>
+    <table border="1" width="500">
         <tr>
             <th>Bruker</th>
             <th>Poeng</th>
@@ -60,9 +64,9 @@
 
         <c:forEach var="highscore" items="${highscoreListe.higscoreliste}" varStatus="status">
             <tr> 
-                 <td> <form:input path="higscoreliste[${status.index}].brukernavn" />
+                 <td> ${highscore.fornavn}
                 </td>                   
-                <td> <form:input path="higscoreliste[${status.index}].totalsum" /> 
+                <td> ${highscore.totalsum}
                 </td>
                 
             </tr>
@@ -70,11 +74,11 @@
             
     </table>    
     <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
-</form:form>
+
     <hr>
     </center>
   
     
-    
+    </form:form>
     </body>
 </html>

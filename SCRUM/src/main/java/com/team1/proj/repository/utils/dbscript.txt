@@ -1,24 +1,19 @@
 DROP TABLE resultat;
-DROP TABLE oppgave;
 DROP TABLE bruker;
 
-CREATE TABLE bruker
-(
-brukernavn VARCHAR(255),
-
-rettigheter INT,
-passord VARCHAR(255),
-epost VARCHAR(255),
-PRIMARY KEY(epost)
+CREATE TABLE bruker (
+    fornavn VARCHAR(255),
+    etternavn VARCHAR(255),
+    rettigheter INT,
+    passord VARCHAR(255),
+    epost VARCHAR(255),
+    PRIMARY KEY(epost)
 );
 
-CREATE TABLE resultat
-(
-epost VARCHAR(255) NOT NULL,
-oppgavenr INT,
-poeng INT,
-PRIMARY KEY(epost,oppgavenr),
-FOREIGN KEY(epost) REFERENCES bruker(epost),
+CREATE TABLE resultat (
+    epost VARCHAR(255) NOT NULL,
+    oppgavenr INT,
+    poeng INT,
+    PRIMARY KEY(epost,oppgavenr),
+    FOREIGN KEY(epost) REFERENCES bruker(epost)
 );
-
-

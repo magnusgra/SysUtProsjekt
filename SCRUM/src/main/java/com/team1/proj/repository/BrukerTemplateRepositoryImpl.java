@@ -30,9 +30,9 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
-    private final String sqlSelect10Beste = "select bruker.brukernavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY";
+    private final String sqlSelect10Beste = "select bruker.fornavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY";
     
-    private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
+    private final String sqlInsertBruker = "insert into bruker values(?,?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
@@ -75,7 +75,8 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         if (getBrukerdata(bd.getEpost()) == null){
             jdbcTemplateObject.update(sqlInsertBruker, 
                 new Object[]{
-                    bd.getBrukernavn(), 
+                    bd.getFornavn(),
+                    bd.getEtternavn(),
                     bd.getRettigheter(), 
                     bd.getPassord(),
                     bd.getEpost()

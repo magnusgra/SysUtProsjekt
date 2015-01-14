@@ -39,8 +39,9 @@ public class RegController {
         
          
         String email = regForm.getBrukerdata().getEpost();
-        String navn = regForm.getBrukerdata().getBrukernavn();    
-        if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
+        String fornavn = regForm.getBrukerdata().getFornavn();
+        String etternavn = regForm.getBrukerdata().getEtternavn();
+        if (fornavn == null || fornavn.isEmpty() || etternavn == null || etternavn.isEmpty() || email == null || email.isEmpty()){
             model.addAttribute("meldingtype", "melding-error");
             model.addAttribute("melding", "Navn og epost må være fylt ut.");
             return "Login/RegistreringSide";
