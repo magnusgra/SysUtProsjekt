@@ -107,6 +107,7 @@ public class MinSideController {
                     
                 case 1: //Admin
                     resultatForm.setValgtResultat(brukerService.getAlleBrukere());
+                    model.addAttribute("resultatFormBackingBean", resultatForm);
                     return "gl_admin";
                     
                 default:

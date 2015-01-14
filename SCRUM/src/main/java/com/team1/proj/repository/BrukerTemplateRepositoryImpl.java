@@ -37,7 +37,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
-    private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select poeng from resultat where oppgavenr=9 AND resultat.epost = bruker.epost) from bruker";
+    private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select resultat.POENG from resultat where oppgavenr=8 AND resultat.epost = bruker.epost) status from bruker";
 
 
     
@@ -64,7 +64,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override 
     public List<Resultat> getAlleBrukere(){
         try {
-            return jdbcTemplateObject.query(sqlSelect10Beste, new GodkjenningMapper());
+            return jdbcTemplateObject.query(sqlHentGodkjenning, new GodkjenningMapper());
         } catch (EmptyResultDataAccessException e){
             return null;
         }
@@ -91,9 +91,10 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     public void leggTilResultat(Resultat res){
         jdbcTemplateObject.update(sqlInsertResultat,
                 new Object[]{
-                res.getBrukerdata(), 
-                res.getOppgavenr(),
-                res.getPoeng(),
+                res.getFornavn(),
+                res.getEtternavn(),
+                res.getEpost(),
+                res.getRettigheter(),
                 res.getStatus()
         });
     }
