@@ -28,17 +28,21 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="Home">Home</a></li>
-    				<li><a href="Spill">Start Spillet</a></li>
-    				<li class="active"><a href="Highscore">Se Highscore</a></li>
+    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li class="active"><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="MinSide/EndrePassord" >Endre Passord</a></li>
-                                        <li><a href="MinSide/Godkjenningsliste" >Godkjenningsliste</a></li>
+                                        <li>
+                                            <a href="<c:url value='/MinSide/EndrePassord'/>" >Endre Passord</a>
+                                        </li>
+                                        <li>
+                                            <a href="<c:url value='MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
+                                        </li>
                                     </ul>
                                 </li>
-    				<li><a href="LoggUt">Logg ut</a></li>
+    				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
     			</ul>
     		</div>
         </div>
