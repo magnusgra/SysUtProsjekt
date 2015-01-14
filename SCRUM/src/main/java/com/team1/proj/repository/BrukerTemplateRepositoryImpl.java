@@ -37,6 +37,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
+    private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select poeng from resultat where oppgavenr=9 AND resultat.epost = bruker.epost) from bruker";
 
 
     

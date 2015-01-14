@@ -23,7 +23,9 @@ public class GodkjenningMapper implements RowMapper<Resultat>  {
         bruker.setEtternavn(rs.getString("etternavn"));
         bruker.setFornavn(rs.getString("fornavn"));
         bruker.setEpost(rs.getString("epost"));
-        res.setStatus(rs.getString("status"));
+        bruker.setRettigheter(rs.getInt("rettigheter"));
+        res.setPoeng(rs.getInt("poeng"));
+        res.setBrukerdata(bruker);
         return res;
     }
 }
