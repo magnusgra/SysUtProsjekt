@@ -48,7 +48,7 @@ public class RegController {
         }
         if (!regForm.isGodtarBrukervilkar()){
             model.addAttribute("meldingtype", "melding-error");
-            model.addAttribute("melding", "Du må godta brukervilkårene for å registrere deg.");
+            model.addAttribute("melding", "Du må godta brukervilkårene.");
             return "Login/RegistreringSide";
         }
         

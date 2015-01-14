@@ -76,6 +76,12 @@ input[type="submit"]:hover{
   background:#2288bb;
 }
 
+input[type="submit"]:disabled {
+    
+    cursor: default;
+    color: #959595;
+    background: rgb(248, 248, 248);
+}
 
 .melding-error {
    color: red;
