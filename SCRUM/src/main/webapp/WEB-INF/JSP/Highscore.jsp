@@ -55,7 +55,7 @@
     
             <center>
     <form:form action="highscore" method="GET" modelAttribute="highscoreListe">
-    <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
+    <h5>Husk at dette bare er et spill. Ikke ta det for seri&oslash;st :)</h5>
     <table border="1" width="100">
         <tr>
             <th>Bruker</th>
