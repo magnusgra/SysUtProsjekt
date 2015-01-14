@@ -28,7 +28,7 @@ body{
 
 #endre-passord-container h1{
   margin: 0;
-  background:rgb(248, 248, 248);;
+  background:rgb(248, 248, 248);
   padding:20px 0;
   font-size:140%;
   font-weight:300;
@@ -75,6 +75,12 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
   background:#2288bb;
+}
+
+input[type="submit"]:disabled {
+    
+    color: #959595;
+    background: rgb(248, 248, 248);
 }
 
 
