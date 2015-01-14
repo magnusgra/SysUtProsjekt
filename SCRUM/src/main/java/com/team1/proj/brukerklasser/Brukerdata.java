@@ -1,6 +1,8 @@
 package com.team1.proj.brukerklasser;
 
+import java.util.Locale;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang.WordUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,13 +27,7 @@ public class Brukerdata {
     
     public Brukerdata(){ 
     }
-    public Brukerdata(String fornavn, String etternavn,int rettigheter, String passord, String epost){
-        this.fornavn = fornavn; 
-        this.etternavn = etternavn;
-        this.rettigheter = rettigheter;
-        this.passord = passord; 
-        this.epost = epost;
-    }
+    
     /*public Brukerdata(String userName, String password){
         this.userName = userName; 
         this.password = password; 
@@ -48,7 +44,8 @@ public class Brukerdata {
     }
 
     public void setFornavn(String fornavn) {
-        this.fornavn = fornavn;
+       
+        this.fornavn = WordUtils.capitalize(fornavn);
     }
 
     public String getEtternavn() {
@@ -56,7 +53,7 @@ public class Brukerdata {
     }
 
     public void setEtternavn(String etternavn) {
-        this.etternavn = etternavn;
+        this.etternavn = WordUtils.capitalize(etternavn);
     }
     
     public int getRettigheter() {
@@ -80,8 +77,13 @@ public class Brukerdata {
     }
     
     public void setEpost(String epost){
-        this.epost = epost;
+        this.epost = epost.toLowerCase();
+        
     }
     
+    public void formaterNavn(){
+        this.fornavn = WordUtils.capitalize(fornavn.toLowerCase());
+        this.etternavn = WordUtils.capitalize(etternavn.toLowerCase());
+    }
     
 }
