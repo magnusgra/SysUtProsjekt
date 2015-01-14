@@ -13,18 +13,21 @@ import javax.validation.constraints.NotNull;
  */
 
 public class Brukerdata {
-    @NotNull
-    private String brukernavn;
+   
+    private String fornavn;
+    private String etternavn;
+    
     private int rettigheter;
-    @NotNull
+
     private String passord; 
     private String epost;
     private boolean innlogget;
     
     public Brukerdata(){ 
     }
-    public Brukerdata(String brukernavn,int rettigheter, String passord, String epost){
-        this.brukernavn = brukernavn; 
+    public Brukerdata(String fornavn, String etternavn,int rettigheter, String passord, String epost){
+        this.fornavn = fornavn; 
+        this.etternavn = etternavn;
         this.rettigheter = rettigheter;
         this.passord = passord; 
         this.epost = epost;
@@ -39,15 +42,21 @@ public class Brukerdata {
     public void setInnlogget(boolean verdi){
         this.innlogget = verdi; 
     }
-   
-    
-    public String getBrukernavn() {
-        return brukernavn;
-    }
-    
 
-    public void setBrukernavn(String brukernavn) {
-        this.brukernavn = brukernavn;
+    public String getFornavn() {
+        return fornavn;
+    }
+
+    public void setFornavn(String fornavn) {
+        this.fornavn = fornavn;
+    }
+
+    public String getEtternavn() {
+        return etternavn;
+    }
+
+    public void setEtternavn(String etternavn) {
+        this.etternavn = etternavn;
     }
     
     public int getRettigheter() {

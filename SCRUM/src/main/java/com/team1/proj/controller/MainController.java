@@ -80,7 +80,8 @@ public class MainController {
         Brukerdata innlogget = brukerService.loggInn(logindata.getEpost(), logindata.getPassord());
         if (innlogget != null){
             
-            this.brukerdata.setBrukernavn(innlogget.getBrukernavn());
+            this.brukerdata.setFornavn(innlogget.getFornavn());
+            this.brukerdata.setEtternavn(innlogget.getEtternavn());
             this.brukerdata.setEpost(innlogget.getEpost());
             this.brukerdata.setInnlogget(innlogget.isInnlogget());
  
@@ -103,13 +104,12 @@ public class MainController {
         System.out.println("******************     UserController.Highscore   ************************");
 
         if(brukerdata.isInnlogget()){  
-        hs.setHigscoreliste(brukerService.getHighscore());
-        model.addAttribute("logindata", new Brukerdata());
-         return "Highscore";
+            hs.setHigscoreliste(brukerService.getHighscore());
+
+            return "Highscore";
         }
         
-       // model.addAttribute("logindata", new Brukerdata());
-       // model.addAttribute("higscoreliste",brukerService.getHighscore());
+        model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     

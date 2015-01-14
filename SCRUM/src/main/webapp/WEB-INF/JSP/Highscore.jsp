@@ -54,9 +54,9 @@
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
             <center>
-    <form:form action="highscore" method="GET" modelAttribute="highscoreListe">
+   
     <h5>Husk at dette bare er et spill. Ikke ta det for seri&oslash;st :)</h5>
-    <table border="1" width="100">
+    <table border="1" width="500">
         <tr>
             <th>Bruker</th>
             <th>Poeng</th>
@@ -64,9 +64,9 @@
 
         <c:forEach var="highscore" items="${highscoreListe.higscoreliste}" varStatus="status">
             <tr> 
-                 <td> <form:input path="higscoreliste[${status.index}].brukernavn" />
+                 <td> ${highscore.fornavn}
                 </td>                   
-                <td> <form:input path="higscoreliste[${status.index}].totalsum" /> 
+                <td> ${highscore.totalsum}
                 </td>
                 
             </tr>
@@ -74,7 +74,7 @@
             
     </table>    
     <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
-</form:form>
+
     <hr>
     </center>
   
