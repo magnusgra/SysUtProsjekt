@@ -30,9 +30,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
-    private final String sqlSelect10Beste = "select bruker.brukernavn, TOTALSUM from bruker natural join (\n" +
-"    select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost\n" +
-") poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY;";
+    private final String sqlSelect10Beste = "select bruker.brukernavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
@@ -100,6 +98,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     }
     @Override
     public List<Highscore> getHighscore(){
+        System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
           return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
 	/*List<Highscore> brukere = new ArrayList<Highscore>();
           HighscoreListe liste = new HighscoreListe(brukere);

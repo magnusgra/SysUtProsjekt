@@ -78,6 +78,7 @@ public class BrukerServiceImpl implements BrukerService {
     }
     @Override
     public List<Highscore> getHighscore(){
+        System.out.println("****** BrukerServiceImpl.getHighscore()******");
         return repo.getHighscore();
         
     }

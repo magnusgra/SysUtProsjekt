@@ -99,15 +99,15 @@ public class MainController {
 
     
     @RequestMapping(value = "Highscore")
-    public String showHighscore(Model model, BrukerService brukerService) {
+    public String showHighscore(Model model) {
         System.out.println("******************     UserController.Highscore   ************************");
 
         if(brukerdata.isInnlogget()){
             return "Highscore";
         }
-        List<Highscore> liste = brukerService.getHighscore(); 
+        //List<Highscore> liste = brukerService.getHighscore(); 
         model.addAttribute("logindata", new Brukerdata());
-        model.addAttribute("highscoreliste", liste);
+        model.addAttribute("higscoreliste",brukerService.getHighscore());
         return "Login/login";
     }
     

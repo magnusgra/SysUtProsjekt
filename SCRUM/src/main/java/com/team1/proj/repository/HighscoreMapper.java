@@ -18,6 +18,7 @@ import com.team1.proj.brukerklasser.Highscore;
 public class HighscoreMapper implements RowMapper<Highscore>{
     @Override
     public Highscore mapRow(ResultSet rs, int i) throws SQLException {
+        System.out.println("******************** HighscoreMapper.mapRow()*******************");
         Highscore bruker = new Highscore();
         bruker.setBrukernavn(rs.getString("brukernavn"));
         bruker.setTotalsum(rs.getInt("totalsum"));
