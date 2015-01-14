@@ -47,6 +47,8 @@ public class BrukerServiceImpl implements BrukerService {
         }
         EmailValidator eval = new EmailValidator();
         if (eval.validate(bd.getEpost())){
+            
+            bd.formaterNavn();
             if (repo.leggTilBruker(bd)){
 
                 Mail mail = new Mail();

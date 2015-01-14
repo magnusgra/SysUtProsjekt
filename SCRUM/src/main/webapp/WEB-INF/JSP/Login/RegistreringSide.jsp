@@ -4,7 +4,7 @@
     Author     : Kai
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
                 <%--<input type="email" placeholder="Epost" /><br>--%>
                 <form:input type= "text" placeholder="Fornavn" path="brukerdata.fornavn" /><br>
                 <form:input type= "text" placeholder="Etternavn" path="brukerdata.etternavn" /><br>
-                <center><form:checkbox path="godtarBrukervilkar"/> <form:label path="godtarBrukervilkar" >  Ja, jeg godtar <a href="avtale" target="popup" onclick="window.open('avtale','avtale','width=600,height=400')">brukervilkÃ¥rene</a>.</form:label></center><br>
+                <center><form:checkbox path="godtarBrukervilkar"/> <form:label path="godtarBrukervilkar" >  Ja, jeg godtar <a href="avtale" target="popup" onclick="window.open('avtale','avtale','width=600,height=400')">brukervilkårene</a>.</form:label></center><br>
            
                 <%--<input type="password" placeholder="Passord" /><br>--%>
                 <input type="submit" value="Registrer bruker" />
