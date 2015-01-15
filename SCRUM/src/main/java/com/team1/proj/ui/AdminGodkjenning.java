@@ -36,6 +36,14 @@ public class AdminGodkjenning {
         this.oppgaver = oppgaver;
     }
     
+    
+    public String getStatusClass(){
+        return oppgaver.size() == 8 ? "gl-godkjent" : "gl-ikke-godkjent";
+    }
+    
+    public String getStatus(){
+        return oppgaver.size() == 8 ? "Godkjent" : "Ikke Godkjent";
+    }
 
     
 }

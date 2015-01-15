@@ -41,7 +41,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select resultat.POENG from resultat where oppgavenr=8 AND resultat.epost = bruker.epost) status from bruker";
 
 
-    private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+    private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn ASC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
     private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=?";
     
     private DataSource dataSource;

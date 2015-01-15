@@ -12,6 +12,7 @@
         <title>Godkjenning admin</title>
         <!-- Bootstrap -->
         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
+    
 
         <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
         <script type="text/javascript">
@@ -30,36 +31,8 @@
 
 
         </script>
-        <style type="text/css">
-
-            .gl-container {
-                width:750px;
-                margin:0 auto;
-                margin-top:75px;
-                margin-bottom:2%;
-                transition:opacity 1s;
-                -webkit-transition:opacity 1s;
-
-                border: 1px solid rgb(231, 231, 231);
-
-                box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
-
-            }
-            .gl-container div {
-                width:100%;
-            }
-            .gl-container .gl-header {
-                background-color:#d3d3d3;
-                padding: 2px;
-                cursor: pointer;
-                font-weight: bold;
-            }
-            .gl-container .gl-content {
-                display: none;
-                padding : 5px;
-            }
-
-        </style>
+        
+      
     </head>
     <body>
         <div class="navbar navbar-default">
@@ -94,39 +67,48 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
-    <center>
-
-        <div class="gl-container">
-         
 
 
+        <div id="gl-container">
+            <h1>
+                Godkjenningsliste
+            </h1>
+            <br>
+            <center>
+            <p>
+                Dette er en godkjenningsliste. Her kan du se hvem som har godkjent oppgavene.
+            </p>
+            </center>
+            
+            
                 <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
-
-
-                    <div class="gl-header">
+                    <div class="gl-header ${bruker.statusClass}">
                         ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn}                                                  
                     </div>
                     <div class="gl-content">
-
-                        ${bruker.brukerdata.rettigheter}
-
-                        <c:forEach var="oppgave" items="${bruker.oppgaver}" varStatus="status">
-                            ${oppgave.oppgavenr}:
-                            ${oppgave.poeng}
-
-                        </c:forEach>
+                       
+                        <table>
+                            <tr>
+                                <c:forTokens var="index" items="1 2 3 4 5 6 7 8" delims=" ">
+                                    <th>
+                                        ${index}
+                                    </th>
+                                </c:forTokens>
+                            </tr>
+                            <tr>
+                            <c:forEach var="oppgave" items="${bruker.oppgaver}" varStatus="status">
+                                <td>
+                                ${oppgave.poeng}
+                                </td>
+                            </c:forEach>
+                            </tr>
+                        </table>
                     </div>
-
-
                 </c:forEach>
-
-
-        </div>
-        <hr>
-    </center>
-
-
-
-
-</body>
+            <br>
+            <br>
+            </div>
+            <hr>
+        
+    </body>
 </html>

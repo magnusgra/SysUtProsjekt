@@ -106,11 +106,7 @@ public class MinSideController {
                     return "gl";
                     
                 case 1: //Admin
-                    resultatForm.setValgtResultat(brukerService.getAlleBrukere());
-                    
-                    
-                    
-                    model.addAttribute("godkjenningsListe", brukerService.getAdminListe(0, 10));
+                    model.addAttribute("godkjenningsListe", brukerService.getAdminListe(0,20));
                     return "gl_admin";
                     
                 default:
