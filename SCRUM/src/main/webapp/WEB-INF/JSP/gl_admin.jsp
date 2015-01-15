@@ -17,7 +17,7 @@
         <script type="text/javascript">
             //<![CDATA[ 
             $(window).load(function () {
-                $(".header").click(function () {
+                $(".gl-header").click(function () {
 
                     $header = $(this);
                     //getting the next element
@@ -48,13 +48,13 @@
             .gl-container div {
                 width:100%;
             }
-            .gl-container .header {
+            .gl-container .gl-header {
                 background-color:#d3d3d3;
                 padding: 2px;
                 cursor: pointer;
                 font-weight: bold;
             }
-            .gl-container .content {
+            .gl-container .gl-content {
                 display: none;
                 padding : 5px;
             }
@@ -63,29 +63,33 @@
     </head>
     <body>
         <div class="navbar navbar-default">
-            <div class="container">
-                <a href="Home" class = "navbar-brand">Nic and Steven</a>
-                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    	<div class="container">
+            <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
+    		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
-                <div class="collapse navbar-collapse navHeaderCollapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="../Home">Home</a></li>
-                        <li><a href="../Spill">Start Spillet</a></li>
-                        <li><a href="../Highscore">Se Highscore</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a href="MinSide/EndrePassord" >Endre Passord</a></li>
-                                <li><a href="MinSide/Godkjenningsliste" >Godkjenningsliste</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="../LoggUt">Logg ut</a></li>
-                    </ul>
-                </div>
-            </div>
+    		<div class="collapse navbar-collapse navHeaderCollapse">
+    			
+    			<ul class="nav navbar-nav navbar-right">
+    				
+    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
+    				<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="<c:url value='/MinSide/EndrePassord'/>" >Endre Passord</a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="<c:url value='/MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
+                                        </li>
+                                    </ul>
+                                </li>
+    				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
+    			</ul>
+    		</div>
         </div>
+    </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -93,29 +97,31 @@
     <center>
 
         <div class="gl-container">
-            <form:form action="Godkjenningsliste" method="GET" modelAttribute="resultatForm">  
+         
 
 
-                <c:forEach var="resultat" items="${resultatFormBackingBean.valgtResultat}" varStatus="status">
+                <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
 
 
-                    <div class="header">
-                        ${resultat.fornavn}${resultat.etternavn}     ${resultat.status}                                              
+                    <div class="gl-header">
+                        ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn}                                                  
                     </div>
-                    <div class="content">
+                    <div class="gl-content">
 
-                        ${resultat.rettigheter}
+                        ${bruker.brukerdata.rettigheter}
 
-                        ${resultat.epost}
+                        <c:forEach var="oppgave" items="${bruker.oppgaver}" varStatus="status">
+                            ${oppgave.oppgavenr}:
+                            ${oppgave.poeng}
 
-
+                        </c:forEach>
                     </div>
 
 
                 </c:forEach>
 
 
-            </form:form></div>
+        </div>
         <hr>
     </center>
 

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
+import com.team1.proj.brukerklasser.Oppgave;
 import com.team1.proj.ui.HighscoreListe;
 import com.team1.proj.brukerklasser.Resultat;
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select resultat.POENG from resultat where oppgavenr=8 AND resultat.epost = bruker.epost) status from bruker";
 
 
+    private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+    private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=?";
     
     private DataSource dataSource;
     JdbcTemplate jdbcTemplateObject;
@@ -123,5 +126,23 @@ public class BrukerTemplateRepositoryImpl implements Repository{
        }
        
     }
+    
+    @Override 
+    public List<Brukerdata> getBrukerdata(int fra, int til) {
+        try {
+            return jdbcTemplateObject.query(sqlHentBrukerdataFraTil, new Object[]{new Integer(fra), new Integer(til - fra)}, new BrukerMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
+    
+    public List<Oppgave> getOppgaverFor(Brukerdata brukerdata){
+         try {
+            return jdbcTemplateObject.query(sqlHentOppgaverForBruker, new Object[]{brukerdata.getEpost()}, new OppgaveMapper());
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
+    
 }
 

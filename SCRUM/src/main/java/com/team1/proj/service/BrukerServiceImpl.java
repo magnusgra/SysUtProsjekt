@@ -16,6 +16,8 @@ import com.team1.proj.mailoppsett.Mail;
 import com.team1.proj.mailoppsett.Passord;
 import com.team1.proj.repository.Repository;
 import com.team1.proj.mailoppsett.EmailValidator;
+import com.team1.proj.ui.AdminGodkjenning;
+import java.util.ArrayList;
 
 //@Service 
 public class BrukerServiceImpl implements BrukerService {
@@ -104,6 +106,23 @@ public class BrukerServiceImpl implements BrukerService {
         }
         
         return bd;
+        
+    }
+    
+    
+    @Override
+    public List<AdminGodkjenning> getAdminListe(int fra, int til){
+        List<Brukerdata> brukerdataListe = repo.getBrukerdata(fra, til);
+        ArrayList<AdminGodkjenning> agListe = new ArrayList();
+        
+        for (Brukerdata bd : brukerdataListe){
+            AdminGodkjenning ag = new AdminGodkjenning();
+            ag.setBrukerdata(bd);
+            //System.out.println(bd.getEpost());
+            ag.setOppgaver(repo.getOppgaverFor(bd));
+            agListe.add(ag);
+        }
+        return agListe;
         
     }
 
