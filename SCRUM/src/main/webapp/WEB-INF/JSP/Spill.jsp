@@ -44,6 +44,10 @@
           background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
           text-decoration: none;
         }
+        #nas-bilde{
+            width: 20%;
+                
+        }
     </style>
     </head>
     <body>
@@ -81,7 +85,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     <div>
-    <img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" style="width:304px;height:228px; top:10%"/>
+    <img id="nas-bilde" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />
     </div>
     <center><input class = button type="button" value="Start Spillet" /></center>
     
