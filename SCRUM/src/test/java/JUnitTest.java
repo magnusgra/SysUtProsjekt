@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
+import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.repository.BrukerTemplateRepositoryImpl;
+import com.team1.proj.repository.Repository;
+import com.team1.proj.service.BrukerServiceImpl;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,8 +41,12 @@ public class JUnitTest {
     }
     @Test
     public void test(){
-        BrukerTemplateRepositoryImpl template = new BrukerTemplateRepositoryImpl();
-        
+        Repository repo = new Repository();
+        BrukerServiceImpl bs = new BrukerServiceImpl(); 
+        Brukerdata bruker = new Brukerdata("Mari", "Thorsteinsen", "123",1, "mari.andrine.t@gmail.com");
+        bs.setRepository(repo);
+        Brukerdata brukerdatabase = bs.getBrukerdata("mari.andrine.t@gmail.com");
+        //assertEquals(bruker, brukerdatabase);
         
     }
 

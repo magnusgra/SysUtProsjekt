@@ -21,7 +21,7 @@ public interface BrukerService {
     public String leggTilBruker(Brukerdata bd);
     public void leggTilResultat(Resultat res);
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
-   
+   public Brukerdata getBrukerdata(String epost);
     public Brukerdata loggInn(String epost, String passord);
    
     public RegistreringsForm getRegistreringsForm();

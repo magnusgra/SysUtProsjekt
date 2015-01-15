@@ -29,9 +29,9 @@ public class BrukerServiceImpl implements BrukerService {
          this.repo = repo;
      }
     
-    public Brukerdata getBrukerdata(String brukernavn){
+    public Brukerdata getBrukerdata(String epost){
         System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
-        return repo.getBrukerdata(brukernavn);
+        return repo.getBrukerdata(epost);
     }
     
      

@@ -28,10 +28,13 @@ public class Brukerdata {
     public Brukerdata(){ 
     }
     
-    /*public Brukerdata(String userName, String password){
-        this.userName = userName; 
-        this.password = password; 
-    }*/
+    public Brukerdata(String fornavn, String etternavn, String passord, int rettigheter, String epost){
+        this.fornavn = fornavn; 
+        this.etternavn = etternavn; 
+        this.passord = passord; 
+        this.rettigheter = rettigheter;
+        this.epost = epost; 
+    }
     public boolean isInnlogget(){
         return innlogget;
     }

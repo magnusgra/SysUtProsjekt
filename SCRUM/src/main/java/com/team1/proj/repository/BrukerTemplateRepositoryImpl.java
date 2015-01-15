@@ -26,7 +26,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     private Connection forbindelse;
     private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
-    private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
+    private final String sqlSelectBruker = "Select * from bruker where etternavn = ?";
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
