@@ -12,12 +12,13 @@
         <title>Godkjenning admin</title>
         <!-- Bootstrap -->
         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
+    
 
         <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
         <script type="text/javascript">
             //<![CDATA[ 
             $(window).load(function () {
-                $(".header").click(function () {
+                $(".gl-header").click(function () {
 
                     $header = $(this);
                     //getting the next element
@@ -30,97 +31,84 @@
 
 
         </script>
-        <style type="text/css">
-
-            .gl-container {
-                width:750px;
-                margin:0 auto;
-                margin-top:75px;
-                margin-bottom:2%;
-                transition:opacity 1s;
-                -webkit-transition:opacity 1s;
-
-                border: 1px solid rgb(231, 231, 231);
-
-                box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
-
-            }
-            .gl-container div {
-                width:100%;
-            }
-            .gl-container .header {
-                background-color:#d3d3d3;
-                padding: 2px;
-                cursor: pointer;
-                font-weight: bold;
-            }
-            .gl-container .content {
-                display: none;
-                padding : 5px;
-            }
-
-        </style>
+        
+      
     </head>
     <body>
         <div class="navbar navbar-default">
-            <div class="container">
-                <a href="Home" class = "navbar-brand">Nic and Steven</a>
-                <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    	<div class="container">
+            <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
+    		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
-                <div class="collapse navbar-collapse navHeaderCollapse">
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="../Home">Home</a></li>
-                        <li><a href="../Spill">Start Spillet</a></li>
-                        <li><a href="../Highscore">Se Highscore</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><a href="MinSide/EndrePassord" >Endre Passord</a></li>
-                                <li><a href="MinSide/Godkjenningsliste" >Godkjenningsliste</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="../LoggUt">Logg ut</a></li>
-                    </ul>
-                </div>
-            </div>
+    		<div class="collapse navbar-collapse navHeaderCollapse">
+    			
+    			<ul class="nav navbar-nav navbar-right">
+    				
+    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
+    				<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="<c:url value='/MinSide/EndrePassord'/>" >Endre Passord</a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="<c:url value='/MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
+                                        </li>
+                                    </ul>
+                                </li>
+    				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
+    			</ul>
+    		</div>
         </div>
+    </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
-    <center>
-
-        <div class="gl-container">
-            <form:form action="Godkjenningsliste" method="GET" modelAttribute="resultatForm">  
 
 
-                <c:forEach var="resultat" items="${resultatFormBackingBean.valgtResultat}" varStatus="status">
-
-
-                    <div class="header">
-                        ${resultat.fornavn}${resultat.etternavn}     ${resultat.status}                                              
+        <div id="gl-container">
+            <h1>
+                Godkjenningsliste
+            </h1>
+            <br>
+            <center>
+            <p>
+                Dette er en godkjenningsliste. Her kan du se hvem som har godkjent oppgavene.
+            </p>
+            </center>
+            
+            
+                <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
+                    <div class="gl-header ${bruker.statusClass}">
+                        ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn}                                                  
                     </div>
-                    <div class="content">
-
-                        ${resultat.rettigheter}
-
-                        ${resultat.epost}
-
-
+                    <div class="gl-content">
+                       
+                        <table>
+                            <tr>
+                                <c:forTokens var="index" items="1 2 3 4 5 6 7 8" delims=" ">
+                                    <th>
+                                        ${index}
+                                    </th>
+                                </c:forTokens>
+                            </tr>
+                            <tr>
+                            <c:forEach var="oppgave" items="${bruker.oppgaver}" varStatus="status">
+                                <td>
+                                ${oppgave.poeng}
+                                </td>
+                            </c:forEach>
+                            </tr>
+                        </table>
                     </div>
-
-
                 </c:forEach>
-
-
-            </form:form></div>
-        <hr>
-    </center>
-
-
-
-
-</body>
+            <br>
+            <br>
+            </div>
+            <hr>
+        
+    </body>
 </html>

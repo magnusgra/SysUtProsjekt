@@ -7,6 +7,7 @@ package com.team1.proj.repository;
 
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
+import com.team1.proj.brukerklasser.Oppgave;
 import com.team1.proj.brukerklasser.Resultat;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public interface Repository {
     
     
     
-    
+    public List<Brukerdata> getBrukerdata(int fra, int til);
+    public List<Oppgave> getOppgaverFor(Brukerdata brukerdata);
     
 }

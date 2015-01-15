@@ -9,6 +9,7 @@ import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
 import com.team1.proj.brukerklasser.RegistreringsForm;
 import com.team1.proj.brukerklasser.Resultat;
+import com.team1.proj.ui.AdminGodkjenning;
 import java.util.List;
 
 /*
@@ -27,6 +28,8 @@ public interface BrukerService {
     public RegistreringsForm getRegistreringsForm();
     public List<Highscore> getHighscore();
     public List<Resultat> getAlleBrukere(); 
+    
+    public List<AdminGodkjenning> getAdminListe(int fra, int til);
     
 }
 

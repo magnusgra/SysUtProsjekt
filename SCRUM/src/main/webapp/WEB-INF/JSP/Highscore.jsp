@@ -38,7 +38,7 @@
                                             <a href="<c:url value='/MinSide/EndrePassord'/>" >Endre Passord</a>
                                         </li>
                                         <li>
-                                            <a href="<c:url value='MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
+                                            <a href="<c:url value='/MinSide/Godkjenningsliste' />" >Godkjenningsliste</a>
                                         </li>
                                     </ul>
                                 </li>

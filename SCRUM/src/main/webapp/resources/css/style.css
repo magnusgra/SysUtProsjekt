@@ -10,7 +10,7 @@ body{
 }
 
 
-#endre-passord-container, #highscore-container {
+#endre-passord-container, #highscore-container, #gl-container {
   width:400px;
   margin:0 auto;
   margin-top:75px;
@@ -20,13 +20,19 @@ body{
   
   border: 1px solid rgb(231, 231, 231);
   
+  background: white;
+  
   box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
 
 }
 
+#gl-container {
+   -webkit-animation:spin 2000s linear infinite;
+}
 
 
-#endre-passord-container h1, #highscore-container h1{
+
+#endre-passord-container h1, #highscore-container h1, #gl-container h1{
   margin: 0;
   background:rgb(248, 248, 248);
   padding:20px 0;
@@ -38,6 +44,63 @@ body{
   border-bottom: 1px solid rgb(231, 231, 231);
 
 }
+
+#gl-container {
+    width: 750px;
+}
+
+#gl-container div {
+   width:92%;
+}
+#gl-container .gl-header {
+    
+    padding: 2px;
+    cursor: pointer;
+    
+    
+    -webkit-transition:background .3s;
+    color: white;
+    margin-top: 1px;
+    
+}
+
+.gl-godkjent {
+    background: #7dd08e;
+    border-top: 1px solid #6bc97d;
+}
+.gl-godkjent:hover {
+    background: #6bc97d;
+}
+
+.gl-ikke-godkjent {
+    background: #ff7f7f;
+    border-top: 1px solid #ff6666;
+}
+.gl-ikke-godkjent:hover {
+    background: #ff6666;
+}
+
+
+#gl-container .gl-content {
+    background: #fafafa;
+    display: none;
+    padding : 5px;
+      
+    border-left: 1px solid #f8f8f8;
+    border-right: 1px solid #f8f8f8;
+    border-bottom: 1px solid #f8f8f8;
+    
+      box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
+
+}
+
+.gl-content table {
+    width: 92%;
+  
+}
+
+
+
 
 form{
   background:#fff;

@@ -50,10 +50,23 @@
     		</div>
         </div>
     </div>
+                                     
+    <center>  
+        
+        <div class="progress" style="width: 60%; margin: 25% auto;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                60%
+            </div>
+        </div>
+    </center>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     </body>
+    
+    
+    
+    
 </html>
