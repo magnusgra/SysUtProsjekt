@@ -20,8 +20,8 @@ import javax.activation.*;
 public class Mail {
     public static void main(String[] args) {
         //Sendt fra bruker og passord
-        String fra = "nicandsteven@yahoo.com";
-        String passord = "scrumteam1";
+        String fra = "scrumteamhist@yahoo.com";
+        String passord = "passordet";
         //Mottaker:
         String brukernavnet = "ACS";
         String til = "achrs@hotmail.com";
@@ -67,7 +67,7 @@ public class Mail {
     public boolean sendMailMedPassord(Brukerdata brukerdata){
         //Sendt fra bruker og passord
         String fra = "scrumteamhist@yahoo.com";
-        String passord = "Passordet";
+        String passord = "passordet";
         //Mottaker:
         String fornavn = brukerdata.getFornavn();
         String etternavn = brukerdata.getEtternavn();
@@ -969,7 +969,7 @@ public class Mail {
 "                        \n" +
 "            \n" +
 "<h1 style=\"Margin-top: 0;color: #3888bd;font-weight: 400;font-size: 36px;Margin-bottom: 21px;text-align: center;font-family: Tahoma,sans-serif;line-height: 44px\">Velkommen som ny bruker.</h1><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">Er du klar for &#229; spille Nic & Steven og samtidig l&#230;re CSS og HTML5?</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">Her er alt du trenger for &#229; komme i gang:</p><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">&nbsp;</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: \n" +
-"Tahoma,sans-serif;line-height: 21px\">BRUKERNAVN:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+ fornavn + " " + etternavn +"</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">PASSORD:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+brukerdata.getPassord()+"</h3><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&#8203;<em>Du kan endre passord p&#229; nettsiden etter &#229; ha logget inn</em></p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 25px\">&nbsp;</p>\n" +
+"Tahoma,sans-serif;line-height: 21px\">BRUKERNAVN:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+ brukerdata.getEpost()+"</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">PASSORD:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+brukerdata.getPassord()+"</h3><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&#8203;<em>Du kan endre passord p&#229; nettsiden etter &#229; ha logget inn</em></p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 25px\">&nbsp;</p>\n" +
 "          \n" +
 "                      </td>\n" +
 "                    </tr>\n" +
