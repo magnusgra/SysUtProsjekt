@@ -26,7 +26,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class BrukerTemplateRepositoryImpl implements Repository{
     
     private Connection forbindelse;
-    private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
+    private final String sqlDeleteBruker = "Delete from bruker where epost = ?";
     private final String sqlSelectBruker = "Select * from bruker where etternavn = ?";
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
@@ -58,7 +58,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     @Override
     public Brukerdata getBrukerdata(String epost ){
-        try {
+        try{
             return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerEpost, new Object[]{epost}, new BrukerMapper());
         } catch (EmptyResultDataAccessException e){
             return null;
@@ -90,6 +90,13 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         return false;
         
     }
+    public boolean slettBruker(Brukerdata bd){
+        if(getBrukerdata(bd.getEpost())!=null){
+            jdbcTemplateObject.update(sqlDeleteBruker, bd.getEpost());
+            return true;
+        }
+        return false;
+    }
     
     public void leggTilResultat(Resultat res){
         jdbcTemplateObject.update(sqlInsertResultat,
@@ -104,16 +111,17 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
-        
-        
         return jdbcTemplateObject.update(sqlEndrePassord, nyttPassord, bd.getEpost(), bd.getPassord()) == 1;
         
     }
     @Override
     public List<Highscore> getHighscore(){
-        System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
-          return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
-	
+        try{
+            System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
+             return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
+        }catch(EmptyResultDataAccessException e){
+           return null;
+        }
     }
     
     @Override
