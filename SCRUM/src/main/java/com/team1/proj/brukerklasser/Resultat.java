@@ -16,10 +16,8 @@ public class Resultat {
     private int rettigheter;
     private String status; 
     private int oppgavenr;
+    private int poeng; 
 
-    
-
-    
     public Resultat(){    
     }
 
@@ -79,6 +77,14 @@ public class Resultat {
 
     public void setOppgavenr(int oppgavenr) {
         this.oppgavenr = oppgavenr;
+    }
+    
+    public int getPoeng() {
+        return poeng;
+    }
+
+    public void setPoeng(int poeng) {
+        this.poeng = poeng;
     }
 
     

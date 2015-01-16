@@ -29,15 +29,16 @@ import org.springframework.jdbc.core.RowMapper;
 public class BrukerTemplateRepositoryImpl implements Repository{
     
     private Connection forbindelse;
-    private final String sqlDeleteBruker = "Delete from bruker where brukernavn = ?";
-    private final String sqlSelectBruker = "Select * from bruker where brukernavn = ?";
+    private final String sqlDeleteBruker = "Delete from bruker where epost = ?";
+    private final String sqlSelectBruker = "Select * from bruker where etternavn = ?";
+    private final String sqlDeleteResultat = "Delete from resultat where epost = ? and oppgavenr = ?";
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
     private final String sqlSelect10Beste = "select bruker.fornavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?,?)";
-    private final String sqlInsertResultat = "insert into resultat values(?, ?, ?, ?, ?)";
+    private final String sqlInsertResultat = "insert into resultat values(?, ?, ?)";
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
@@ -64,7 +65,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     @Override
     public Brukerdata getBrukerdata(String epost ){
-        try {
+        try{
             return (Brukerdata)jdbcTemplateObject.queryForObject(sqlSelectBrukerEpost, new Object[]{epost}, new BrukerMapper());
         } catch (EmptyResultDataAccessException e){
             return null;
@@ -96,30 +97,46 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         return false;
         
     }
-    
+    public boolean slettBruker(Brukerdata bd){
+        if(getBrukerdata(bd.getEpost())!=null){
+            jdbcTemplateObject.update(sqlDeleteBruker, bd.getEpost());
+            return true;
+        }
+        return false;
+    }
+    @Override
     public void leggTilResultat(Resultat res){
+        
         jdbcTemplateObject.update(sqlInsertResultat,
                 new Object[]{
-                res.getFornavn(),
-                res.getEtternavn(),
                 res.getEpost(),
-                res.getRettigheter(),
-                res.getStatus()
+                res.getOppgavenr(),
+                res.getPoeng()
         });
+        
+    }
+    public void slettResultat(Resultat res){
+        jdbcTemplateObject.update(sqlDeleteResultat, res.getEpost(), res.getOppgavenr());       
+       
     }
         
     @Override
     public boolean endrePassord(Brukerdata bd, String nyttPassord){
-        
-        
         return jdbcTemplateObject.update(sqlEndrePassord, nyttPassord, bd.getEpost(), bd.getPassord()) == 1;
         
     }
     @Override
+    public boolean endreRettigheter(Brukerdata bd, int rettigheter){
+        return jdbcTemplateObject.update(sqlUpdateRettigheter, rettigheter, bd.getEpost())== 1; 
+    }
+    @Override
     public List<Highscore> getHighscore(){
-        System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
-          return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
-	
+        try{
+            System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
+             return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
+        }catch(EmptyResultDataAccessException e){
+           return null;
+        }
     }
     
     @Override

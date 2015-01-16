@@ -24,6 +24,7 @@ public interface Repository {
     public boolean endrePassord(Brukerdata bd, String nyttPassord);
     public List<Highscore> getHighscore();
     public List<Resultat> getAlleBrukere(); 
+    public boolean endreRettigheter(Brukerdata bd, int rettigheter);
     
     public Brukerdata loggInn(String epost, String passord);
     

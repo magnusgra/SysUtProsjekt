@@ -31,9 +31,9 @@ public class BrukerServiceImpl implements BrukerService {
          this.repo = repo;
      }
     
-    public Brukerdata getBrukerdata(String brukernavn){
+    public Brukerdata getBrukerdata(String epost){
         System.out.println("**** BrukerServiceImpl.getBruker()  *** ");
-        return repo.getBrukerdata(brukernavn);
+        return repo.getBrukerdata(epost);
     }
     
      
@@ -63,6 +63,11 @@ public class BrukerServiceImpl implements BrukerService {
         } else {
             return "Epost er ugyldig.";
         }
+    }
+    @Override
+    public boolean endreRettigheter(Brukerdata bd, int rettigheter){
+        System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
+        return repo.endreRettigheter(bd, rettigheter);
     }
     
     @Override
