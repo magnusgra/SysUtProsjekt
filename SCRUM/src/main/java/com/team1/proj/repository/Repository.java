@@ -32,5 +32,6 @@ public interface Repository {
     
     public List<Brukerdata> getBrukerdata(int fra, int til);
     public List<Oppgave> getOppgaverFor(Brukerdata brukerdata);
+    public int getAntBrukere();
     
 }

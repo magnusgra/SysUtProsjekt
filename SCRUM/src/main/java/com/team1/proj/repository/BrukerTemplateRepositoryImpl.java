@@ -15,11 +15,14 @@ import com.team1.proj.brukerklasser.Highscore;
 import com.team1.proj.brukerklasser.Oppgave;
 import com.team1.proj.ui.HighscoreListe;
 import com.team1.proj.brukerklasser.Resultat;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 
 
@@ -43,9 +46,12 @@ public class BrukerTemplateRepositoryImpl implements Repository{
 
     private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn ASC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
     private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=?";
+    private final String sqlHentAntBrukere = "SELECT COUNT(*) AS antall FROM bruker";
     
     private DataSource dataSource;
     JdbcTemplate jdbcTemplateObject;
+    
+    
     
     public BrukerTemplateRepositoryImpl() {}
     
@@ -144,5 +150,22 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         }
     }
     
+    @Override
+    public int getAntBrukere(){
+        try {
+            return jdbcTemplateObject.query(sqlHentAntBrukere, 
+                    new RowMapper<Integer>(){
+                        @Override
+                        public Integer mapRow(ResultSet rs, int i) throws SQLException {
+                            return new Integer(rs.getInt("antall"));
+                        }
+                    }
+                ).get(0).intValue();
+            
+        } catch (Exception e){
+            System.out.println(e);
+            return 0;
+        }
+    }
 }
 

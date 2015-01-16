@@ -1,41 +1,28 @@
+<%-- 
+    Document   : gl_admin
+    Created on : 07.jan.2015, 09:39:01
+    Author     : arnecs
+--%>
+
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
-        <title>Godkjenning admin</title>
-        <!-- Bootstrap -->
-        <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
-    
-
-        <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
-        <script type="text/javascript">
-            //<![CDATA[ 
-            $(window).load(function () {
-                $(".gl-header").click(function () {
-
-                    $header = $(this);
-                    //getting the next element
-                    $content = $header.next();
-                    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-                    $content.slideToggle(500, function () {
-                    });
-                });
-            });//]]>  
-
-
-        </script>
+        <title>Nick and Steven</title>
         
-      
+         <!-- Bootstrap -->
+         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
+         
+         
+         
+         <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
+         
+    
     </head>
     <body>
-        <div class="navbar navbar-default">
+    <div class="navbar navbar-default">
     	<div class="container">
             <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
@@ -63,52 +50,67 @@
     		</div>
         </div>
     </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
+                                     
+    
 
-
-        <div id="gl-container">
-            <h1>
-                Godkjenningsliste
-            </h1>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
+    
+    <div id="gl-container">
+        <h1>Godkjenningsliste</h1>
+        <center>
             <br>
-            <center>
             <p>
                 Dette er en godkjenningsliste. Her kan du se hvem som har godkjent oppgavene.
             </p>
-            </center>
-            
-            
-                <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
-                    <div class="gl-header ${bruker.statusClass}">
-                        ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn}                                                  
-                    </div>
-                    <div class="gl-content">
-                       
-                        <table>
-                            <tr>
-                                <c:forTokens var="index" items="1 2 3 4 5 6 7 8" delims=" ">
-                                    <th>
-                                        ${index}
-                                    </th>
-                                </c:forTokens>
-                            </tr>
-                            <tr>
-                            <c:forEach var="oppgave" items="${bruker.oppgaver}" varStatus="status">
-                                <td>
-                                ${oppgave.poeng}
-                                </td>
-                            </c:forEach>
-                            </tr>
-                        </table>
-                    </div>
-                </c:forEach>
-            <br>
-            <br>
+        </center>
+
+        <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
+            <div class="gl-header ${bruker.statusClass}">
+                    ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn} <span>${bruker.rettigheter}</span>  
+
+
+
             </div>
-            <hr>
+
+        </c:forEach>
         
+        <center>
+        <nav>
+        <ul class="pagination">
+            <c:if test="${aktivSide > 1}">
+              <li>
+                <a href="?side=${aktivSide-1}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            </c:if>
+              
+          <c:forEach var="i" items="${sider}" >
+              <li <c:if test="${aktivSide==i}">class="active"</c:if>><a href="?side=${i}">${i}</a></li>
+          </c:forEach>
+          <c:if test="${!sisteSide}" >
+          <li>
+            <a href="?side=${aktivSide+1}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </c:if>
+        </ul>
+</nav>
+        </center>
+        
+    </div>
+    
+        
+    
+    
+    
     </body>
+    
+    
+    
+    
 </html>

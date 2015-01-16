@@ -30,6 +30,6 @@ public interface BrukerService {
     public List<Resultat> getAlleBrukere(); 
     
     public List<AdminGodkjenning> getAdminListe(int fra, int til);
-    
+    public List<Integer> getSider(int aktivSide, int linjerPerSide);
 }
 

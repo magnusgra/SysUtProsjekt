@@ -52,6 +52,18 @@
     </div>
                                      
     <center>  
+        <div class="btn-group">
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Knapp <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div> 
         
         <div class="progress" style="width: 60%; margin: 25% auto;">
             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -64,6 +76,11 @@
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
+    
+    
+    
+    
+    
     </body>
     
     

@@ -126,7 +126,27 @@ public class BrukerServiceImpl implements BrukerService {
         
     }
 
-    
+    @Override
+    public List<Integer> getSider(int aktivSide, int linjerPerSide) {
+        int antBrukere = repo.getAntBrukere();
+        int antSider = (antBrukere / linjerPerSide) + 1;
+        
+        ArrayList<Integer> sider = new ArrayList();
+        
+        int start = aktivSide <= 5 ? 1 : aktivSide - 5;
+        int current = start;
+        
+        System.out.println("start: " + start + ",  current: " + current + ", antSider: " + antSider + ", brukere: " + antBrukere);
+        
+        while (current <= antSider && current < start + 10){
+            System.out.println("Side: " + current);
+           sider.add(new Integer(current));
+           current++;
+        }
+        
+        return sider;
+        
+    }
     
 }
 

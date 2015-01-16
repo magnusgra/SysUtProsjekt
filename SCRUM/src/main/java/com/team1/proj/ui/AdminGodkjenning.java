@@ -44,6 +44,19 @@ public class AdminGodkjenning {
     public String getStatus(){
         return oppgaver.size() == 8 ? "Godkjent" : "Ikke Godkjent";
     }
+    
+    public String getRettigheter(){
+        switch (brukerdata.getRettigheter()) {
+            case 0: //student
+                return "Student";
+            case 1: // Stud.ass
+                return "Studentassistent";
+            case 2: //Faglærer
+                return "Faglærer";
+            default:
+                return "";
+        }
+    }
 
     
 }

@@ -10,12 +10,15 @@ import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
 import com.team1.proj.ui.ResultatFormBackingBean;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
@@ -96,7 +99,7 @@ public class MinSideController {
     }
     
     @RequestMapping(value="MinSide/Godkjenningsliste")
-    public String godkjenningsliste(@ModelAttribute ResultatFormBackingBean resultatForm, Model model){
+    public String godkjenningsliste(Model model, HttpServletRequest request){
         System.out.println("******************     UserController.GL   ************************");
         if(brukerdata.isInnlogget()){
             switch (brukerdata.getRettigheter()){
@@ -106,7 +109,42 @@ public class MinSideController {
                     return "gl";
                     
                 case 1: //Admin
-                    model.addAttribute("godkjenningsListe", brukerService.getAdminListe(0,20));
+                    String sideString = request.getParameter("side");
+                    int side = 1;
+                    try {
+                        side = Integer.parseInt(sideString);
+                    } catch (NumberFormatException e){
+                        System.out.println("NFE: " + sideString);
+                    }
+                    
+                    if (side < 1) {
+                        side = 1;
+                    }
+                    
+                    
+                    int antPerSide = 5;
+                    int fra = (side - 1) * antPerSide;
+                    int til = side * antPerSide;
+                    
+                    List<Integer> sider = brukerService.getSider(side,antPerSide);
+
+                    if (sider.size() == 0 || side > sider.get(sider.size() - 1).intValue()) {
+                        side = 1;
+                        fra = (side - 1) * antPerSide;
+                        til = side * antPerSide;
+
+                        sider = brukerService.getSider(side,antPerSide);
+                    } 
+                    
+                                      boolean sisteSide = false;
+                    if (sider.size() > 0){
+                        sisteSide = side >= sider.get(sider.size() - 1).intValue(); 
+                    }
+                    
+                    model.addAttribute("sider", sider);
+                    model.addAttribute("aktivSide", side);
+                    model.addAttribute("sisteSide", sisteSide);
+                    model.addAttribute("godkjenningsListe", brukerService.getAdminListe(fra,til));
                     return "gl_admin";
                     
                 default:

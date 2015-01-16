@@ -26,9 +26,7 @@ body{
 
 }
 
-#gl-container {
-   -webkit-animation:spin 2000s linear infinite;
-}
+
 
 
 
@@ -51,33 +49,55 @@ body{
 
 #gl-container div {
    width:92%;
+
 }
 #gl-container .gl-header {
     
-    padding: 2px;
+    padding: 10px;
     cursor: pointer;
-    
-    
+    margin: 0 auto;
     -webkit-transition:background .3s;
-    color: white;
-    margin-top: 1px;
+    
     
 }
+.gl-header:nth-child(2n) {
+    background: #e7e7e7;
+}
+.gl-header:nth-child(2n + 1) {
+    background: #f0f0f0;
+}
+.gl-header:hover {
+    background: #d5d5d5 !important;
+}
 
-.gl-godkjent {
-    background: #7dd08e;
-    border-top: 1px solid #6bc97d;
+
+.gl-header span {
+    float: right;
+    margin-right: 12px;
+}
+
+.gl-godkjent:nth-child(2n + 1) {
+    color: white;
+    background-color: #7dd08e !important;
+}
+
+.gl-godkjent:nth-child(2n) {
+    color: white;
+    background-color: #6ac97e !important;
+ 
 }
 .gl-godkjent:hover {
-    background: #6bc97d;
+    background: #58c26d !important;
 }
 
+
+
 .gl-ikke-godkjent {
-    background: #ff7f7f;
-    border-top: 1px solid #ff6666;
+
+    color: #555;
 }
 .gl-ikke-godkjent:hover {
-    background: #ff6666;
+    background: #eee;
 }
 
 
@@ -90,12 +110,15 @@ body{
     border-right: 1px solid #f8f8f8;
     border-bottom: 1px solid #f8f8f8;
     
-      box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
+    box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
+    margin: 0 auto;
+    
 
 }
 
 .gl-content table {
     width: 92%;
+    
   
 }
 
@@ -170,6 +193,7 @@ input[type="submit"]:disabled {
 
 #highscore-container table  {
     
+    font-size: 120%;
     width: 90%;
     font-weight:300;
     border-color: rgb(248, 248, 248);
@@ -177,6 +201,7 @@ input[type="submit"]:disabled {
 
 #highscore-container .plass1 {
   color:gold;
+ 
 }
 
 #highscore-container .plass2 {
