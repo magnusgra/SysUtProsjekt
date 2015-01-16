@@ -64,6 +64,11 @@ public class BrukerServiceImpl implements BrukerService {
             return "Epost er ugyldig.";
         }
     }
+    @Override
+    public boolean endreRettigheter(Brukerdata bd, int rettigheter){
+        System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
+        return repo.endreRettigheter(bd, rettigheter);
+    }
     
     @Override
     public RegistreringsForm getRegistreringsForm(){

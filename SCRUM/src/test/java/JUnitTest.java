@@ -52,7 +52,7 @@ public class JUnitTest {
         
         Konfig konfig = new Konfig();
         temp.setDataSource(konfig.dataSource());
-        System.out.println("//TEST// testDbTilkobling() = funker!");
+        System.out.println("//TEST//: testDbTilkobling() = funker!");
         
     }
 
@@ -60,18 +60,18 @@ public class JUnitTest {
     public void testGetBrukerdata(){
         Konfig konfig = new Konfig();
         temp.setDataSource(konfig.dataSource());
-        Brukerdata bruker1 = new Brukerdata("Mari", "Thorsteinsen", "123",1, "mari.andrine.t@gmail.com");
-        Brukerdata bruker2 = temp.getBrukerdata("mari.andrine.t@gmail.com");
+        Brukerdata bruker1 = new Brukerdata("123", "123", "123",0,"123@123.no");
+        Brukerdata bruker2 = temp.getBrukerdata("test@test.no");
         Brukerdata bruker3 = temp.getBrukerdata("123@123.no");
-        assertEquals(bruker1, bruker2);
+        assertEquals(bruker1, bruker3);
         if(bruker2 != null){
-            System.out.println("//TEST// bruker1 er lik bruker2");
+            System.out.println("//TEST//: bruker1 er lik bruker2");
         }
-       assertNotSame(bruker1, bruker3);
+       assertNotSame(bruker1, bruker2);
        if(bruker3 != null){
-           System.out.println("//TEST//bruker1 er ikke lik bruker3");
+           System.out.println("//TEST//: bruker1 er ikke lik bruker3");
        }
-        System.out.println("//TEST// testGetBrukerdata() = funker!");
+        System.out.println("//TEST//: testGetBrukerdata() = funker!");
     }
     @Test
     public void testGetHighscore(){
@@ -79,7 +79,7 @@ public class JUnitTest {
         temp.setDataSource(konfig.dataSource());
         List<Highscore> h = temp.getHighscore();
         if(h.size()>3){
-            System.out.println("//TEST// getHighscoreTest() = funker!");
+            System.out.println("//TEST//: getHighscoreTest() = funker!");
             
         }
         
@@ -90,7 +90,7 @@ public class JUnitTest {
         temp.setDataSource(konfig.dataSource());
         List<Resultat> godkjenning = temp.getAlleBrukere();
         if(godkjenning.size() > 3 ){
-            System.out.println("//TEST// testGetAlleBrukere() = funker!");
+            System.out.println("//TEST//: testGetAlleBrukere() = funker!");
         }
     }
     @Test
@@ -98,12 +98,12 @@ public class JUnitTest {
         Konfig konfig = new Konfig();
         temp.setDataSource(konfig.dataSource());
         if(temp.loggInn("horten@horten.no", "123")!= null){
-            System.out.println("//TEST// horten@horten.no eksiterer i databasen og kan logge inn");
+            System.out.println("//TEST//: horten@horten.no eksiterer i databasen og kan logge inn");
         }
         if(temp.loggInn("123@hort.no", "123lj")== null){
-            System.out.println("//TEST// 123@hort.no eksiterer IKKE i databasen og kan IKKE logge inn");
+            System.out.println("//TEST//: 123@hort.no eksiterer IKKE i databasen og kan IKKE logge inn");
         }
-        System.out.println("//TEST// testLoggInnHvisEksisterer() = funker!");
+        System.out.println("//TEST//: testLoggInnHvisEksisterer() = funker!");
     }
     @Test
     public void testGetBrukerdataFraTil(){
@@ -111,28 +111,28 @@ public class JUnitTest {
        temp.setDataSource(konfig.dataSource()); 
        List<Brukerdata> fraTil = temp.getBrukerdata(0, 2);
        if(fraTil.size() == 3){
-           System.out.println("//TEST// hentet ut bruker 0 til og med 2");
+           System.out.println("//TEST//: hentet ut bruker 0 til og med 2");
        }
        List<Brukerdata> fraTil2 = temp.getBrukerdata(3, 4);
        if(fraTil2.size() == 2){
-           System.out.println("//TEST// hentet ut bruker 3 til og med 4");
+           System.out.println("//TEST//: hentet ut bruker 3 til og med 4");
        }
-        System.out.println("//TEST// testGetBrukerdataFraTil() = funker!");
+        System.out.println("//TEST//: testGetBrukerdataFraTil() = funker!");
     }
     @Test
     public void testGetOppgaverFor(){
        Konfig konfig = new Konfig();
        temp.setDataSource(konfig.dataSource()); 
-       Brukerdata bruker1 = new Brukerdata("Mari", "Thorsteinsen", "123",1, "mari.andrine.t@gmail.com");
+       Brukerdata bruker1 = new Brukerdata("test", "testesen", "123",0, "test@test.no");
        Brukerdata brukerSomIkkeEksisterer = new Brukerdata("Lars", "Hansen", "321",0, "hansen@lars.com");
        List<Oppgave> oppgavertilBruker = temp.getOppgaverFor(bruker1);
        if( oppgavertilBruker.size() > 1){
-           System.out.println("//TEST// hentet ut oppgaver til bruker1");
+           System.out.println("//TEST//: hentet ut oppgaver til bruker1");
        }
        if( temp.getOppgaverFor(brukerSomIkkeEksisterer) == null){
-           System.out.println("//TEST// får ikke hentet ut oppgaver hos bruker som ikke eksisterer");
+           System.out.println("//TEST//: får ikke hentet ut oppgaver hos bruker som ikke eksisterer");
        }
-       System.out.println("//TEST// testGetOppgaverFor() = funker!");
+       System.out.println("//TEST//: testGetOppgaverFor() = funker!");
        
     }
     @Test
@@ -150,6 +150,33 @@ public class JUnitTest {
     }
     @Test
     public void testLeggTilResultat(){
+       Konfig konfig = new Konfig();
+       temp.setDataSource(konfig.dataSource());
+       Resultat resTest = new Resultat("test","testesen" , "test@test.no", 0, "Godkjent");
+       resTest.setOppgavenr(11);
+       resTest.setPoeng(123);
+       temp.leggTilResultat(resTest);
+        System.out.println("//TEST//: legger til nytt resultat for oppgave 11 for test@test.no");
+      temp.slettResultat(resTest);
+        System.out.println("//TEST//: sletter resultat for oppgave 11 for test@test.no");
+        System.out.println("//TEST//: testLeggTilResultat()");
+        
+    }
+    @Test
+    public void testEndrePassord(){
+       Konfig konfig = new Konfig();
+       temp.setDataSource(konfig.dataSource());
+       Brukerdata bruker1 = new Brukerdata("test", "testesen", "123",0, "test@test.no");
+       temp.endrePassord(bruker1, "321");
+        System.out.println("//TEST//: endrer passord til test@test.no");
+       temp.endrePassord(bruker1, "123");
+        System.out.println("//TEST//: endrer tilbake passordet til test@test.no");
+       
+    }
+    @Test
+    public void testEndreRettigheter(){
+        Konfig konfig = new Konfig();
+       temp.setDataSource(konfig.dataSource());
         
     }
 }
