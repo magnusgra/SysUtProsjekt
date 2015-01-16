@@ -171,12 +171,19 @@ public class JUnitTest {
         System.out.println("//TEST//: endrer passord til test@test.no");
        temp.endrePassord(bruker1, "123");
         System.out.println("//TEST//: endrer tilbake passordet til test@test.no");
+        System.out.println("//TEST//: testEndrePassord() = funker!");
        
     }
     @Test
     public void testEndreRettigheter(){
         Konfig konfig = new Konfig();
        temp.setDataSource(konfig.dataSource());
+       Brukerdata bruker1 = new Brukerdata("test", "testesen", "123",0, "test@test.no");
+       temp.endreRettigheter(bruker1, 1);
+       System.out.println("//TEST//: endrer rettigheter til test@test.no");
+       temp.endreRettigheter(bruker1, 0);
+        System.out.println("//TEST//: endrer tilbake rettigheter til test@test.no");
+        System.out.println("//TEST//: testEndreRettigheter = funker!");
         
     }
 }
