@@ -166,9 +166,9 @@ public class JUnitTest {
     public void testEndrePassord(){
        Konfig konfig = new Konfig();
        temp.setDataSource(konfig.dataSource());
-       Brukerdata bruker1 = new Brukerdata("test", "testesen", "123",0, "test@test.no");
-       temp.endrePassord(bruker1, "321");
-        System.out.println("//TEST//: endrer passord til test@test.no");
+       Brukerdata bruker1 = new Brukerdata("123", "123", "123",0,"123@123.no");
+       temp.endrePassord(bruker1, "dasdas");
+       System.out.println("//TEST//: endrer passord til test@test.no");
        temp.endrePassord(bruker1, "123");
         System.out.println("//TEST//: endrer tilbake passordet til test@test.no");
         System.out.println("//TEST//: testEndrePassord() = funker!");
