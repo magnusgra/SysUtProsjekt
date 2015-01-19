@@ -41,19 +41,19 @@
          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
         <property name="driverClassName">
-            <value>org.apache.derby.jdbc.ClientDriver</value>
+            <value>com.mysql.jdbc.Driver</value>
         </property>
 
         <property name="url">
-            <value>jdbc:derby://localhost:1527/sysdbtest</value>
+            <value>jdbc:mysql://158.38.48.10:3306/marat</value>
         </property>
 
         <property name="username">
-            <value>brukernavn</value>
+            <value>marat</value>
         </property>
 
         <property name="password">
-            <value>passord</value>
+            <value>yQ3eqhAKa47zmDBH</value>
         </property>
     </bean>
     

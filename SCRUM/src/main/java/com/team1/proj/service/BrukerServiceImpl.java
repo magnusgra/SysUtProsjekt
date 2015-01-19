@@ -113,12 +113,14 @@ public class BrukerServiceImpl implements BrukerService {
         Brukerdata bd = null;
         if (repo != null) {
             bd = repo.getBrukerdata(epost);
-            String saltiDB = bd.getPassord().split(":")[1];
-            
-            String passordHash = HashPassord.getSecurePassword(passord, saltiDB);
-            bd = repo.loggInn(epost, passordHash+":"+saltiDB);
-            if (bd != null){
-                bd.setInnlogget(true);
+            if (bd != null) {
+                String saltiDB = bd.getPassord().split(":")[1];
+
+                String passordHash = HashPassord.getSecurePassword(passord, saltiDB);
+                bd = repo.loggInn(epost, passordHash+":"+saltiDB);
+                if (bd != null){
+                    bd.setInnlogget(true);
+                }
             }
         } else {
             System.out.println("LoggInn - REPO == NULL");

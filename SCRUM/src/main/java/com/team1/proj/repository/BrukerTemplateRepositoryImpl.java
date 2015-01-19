@@ -35,7 +35,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
     private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
     private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
-    private final String sqlSelect10Beste = "select bruker.fornavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC FETCH NEXT 10 ROWS ONLY";
+    private final String sqlSelect10Beste = "select bruker.fornavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC LIMIT 10";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?)";
@@ -45,7 +45,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select resultat.POENG from resultat where oppgavenr=8 AND resultat.epost = bruker.epost) status from bruker";
 
 
-    private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn ASC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+    private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn ASC LIMIT ? OFFSET ?;";
     private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=?";
     private final String sqlHentAntBrukere = "SELECT COUNT(*) AS antall FROM bruker";
     
@@ -153,7 +153,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override 
     public List<Brukerdata> getBrukerdata(int fra, int til) {
         try {
-            return jdbcTemplateObject.query(sqlHentBrukerdataFraTil, new Object[]{new Integer(fra), new Integer(til - fra)}, new BrukerMapper());
+            return jdbcTemplateObject.query(sqlHentBrukerdataFraTil, new Object[]{new Integer(til - fra), new Integer(fra)}, new BrukerMapper());
         } catch (EmptyResultDataAccessException e){
             return null;
         }
