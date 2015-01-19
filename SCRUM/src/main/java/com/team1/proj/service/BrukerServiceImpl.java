@@ -18,6 +18,9 @@ import com.team1.proj.repository.Repository;
 import com.team1.proj.mailoppsett.EmailValidator;
 import com.team1.proj.ui.AdminGodkjenning;
 import java.util.ArrayList;
+import com.team1.proj.service.HashPassord; 
+import java.security.NoSuchAlgorithmException;
+import javax.mail.NoSuchProviderException;
 
 //@Service 
 public class BrukerServiceImpl implements BrukerService {
@@ -42,7 +45,14 @@ public class BrukerServiceImpl implements BrukerService {
         System.out.println("**** BrukerServiceImpl.registrerBruker()  *** ");
         Passord p = new Passord();
         String passord = p.autogenererPassord();
-        bd.setPassord(passord);
+        String salt = null;
+        try{
+            salt = HashPassord.getSalt();
+        }catch(NoSuchAlgorithmException | NoSuchProviderException | java.security.NoSuchProviderException e){
+            e.printStackTrace();
+        }
+        String sikkertpassord = HashPassord.getSecurePassword(passord, salt)+ ":"+salt;
+        bd.setPassord(sikkertpassord);
             
         if (repo == null) {
             return "Noe gikk galt. Prøv igjen senere.";
@@ -55,7 +65,7 @@ public class BrukerServiceImpl implements BrukerService {
 
                 Mail mail = new Mail();
 
-                mail.sendMailMedPassord(bd);
+                mail.sendMailMedPassord(bd, passord);
                 return null;
             } else {
                 return "Din epost er allerede registrert.";
@@ -102,7 +112,11 @@ public class BrukerServiceImpl implements BrukerService {
     public Brukerdata loggInn(String epost, String passord) {
         Brukerdata bd = null;
         if (repo != null) {
-            bd = repo.loggInn(epost, passord);
+            bd = repo.getBrukerdata(epost);
+            String saltiDB = bd.getPassord().split(":")[1];
+            
+            String passordHash = HashPassord.getSecurePassword(passord, saltiDB);
+            bd = repo.loggInn(epost, passordHash+":"+saltiDB);
             if (bd != null){
                 bd.setInnlogget(true);
             }

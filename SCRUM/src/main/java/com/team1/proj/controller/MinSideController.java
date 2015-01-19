@@ -5,13 +5,17 @@
  */
 package com.team1.proj.controller;
 
+
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
+import com.team1.proj.service.HashPassord;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
 import com.team1.proj.ui.ResultatFormBackingBean;
 import java.util.Arrays;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import javax.mail.NoSuchProviderException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,8 +87,21 @@ public class MinSideController {
                 model.addAttribute("melding", "Passordene er ikke like.");
                 return "EndrePassord";
             }
-            brukerdata.setPassord(epfbb.getGammeltPassord());
-            if (brukerService.endrePassord(brukerdata, epfbb.getNyttPassord())){ 
+            String salt = null;
+            try{
+                salt = HashPassord.getSalt();
+            }catch(NoSuchAlgorithmException | NoSuchProviderException | java.security.NoSuchProviderException e){
+                e.printStackTrace();
+            }
+            //Hasher nytt passord:
+            String hashNyttPassord = HashPassord.getSecurePassword(epfbb.getNyttPassord(), salt)+ ":"+salt;
+            //Henter Brukerens passord og salt som ligger i databasen: 
+            Brukerdata brukeriDB = brukerService.getBrukerdata(brukerdata.getEpost());
+            String saltiDB = brukeriDB.getPassord() .split(":")[1];
+            //Hasher og salter gammelt passord som han har skrevet inn: 
+            String hashGammeltPassord = HashPassord.getSecurePassword(epfbb.getGammeltPassord(), saltiDB)+ ":"+saltiDB; 
+            brukerdata.setPassord(hashGammeltPassord);
+            if (brukerService.endrePassord(brukerdata, hashNyttPassord)){ 
                 model.addAttribute("meldingtype", "melding-suksess");
                 model.addAttribute("melding", "Passordet er endret");
                 return "EndrePassord";
