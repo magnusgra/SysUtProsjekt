@@ -36,9 +36,6 @@ public class TestJavaMail {
    //  @After
    // public void cleanup() {
    //     testSmtp.stop();
-    //@Resource
-    //private JavaMailSenderImplEmailSender;
-    //private GreenMailtestSmtp;
     /*ServerSetup setup = new ServerSetup(65438, "localhost", "smtp");
      GreenMail testSmtp = new GreenMail(setup);
     Mail emailSender = new Mail();*/
