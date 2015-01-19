@@ -12,6 +12,7 @@ import com.team1.proj.service.BrukerServiceImpl;
 import com.team1.proj.service.HashPassord;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
 import com.team1.proj.ui.ResultatFormBackingBean;
+import java.util.Arrays;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import javax.mail.NoSuchProviderException;
@@ -119,13 +120,35 @@ public class MinSideController {
     public String godkjenningsliste(Model model, HttpServletRequest request){
         System.out.println("******************     UserController.GL   ************************");
         if(brukerdata.isInnlogget()){
+            
+            List<String> banenavn = Arrays.asList(new String[]{"Hinder", "Liste", "Tiger", "Mismatch", "Linker", "Bur", "Manus", "Form", "Boss battle"}); 
+            model.addAttribute("oppgavenavn", banenavn);
+            model.addAttribute("brukerdata", brukerdata);
+            
             switch (brukerdata.getRettigheter()){
                 case 0: //Student
                 //    Resultat oppgaver = brukerService.getResultat(brukerdata.getEpost());
                 //    model.addAttribute("oppgaver", oppgaver);
                     return "gl";
                     
-                case 1: //Admin
+                case 1: //Studass
+                case 2: //Admin
+                    
+                    //Oppdater rettigheter
+                    try {
+                        model.addAttribute("aktivBruker", request.getParameter("aktivBruker"));
+                        String epost = request.getParameter("aktivBrukerEpost");
+                        int type = Integer.parseInt(request.getParameter("aktivBrukerType"));
+                        
+                        Brukerdata bd = new Brukerdata();
+                        bd.setEpost(epost);
+                        brukerService.endreRettigheter(bd, type);
+                        
+                    } catch (Exception e) {
+                        
+                    }
+                    
+                    
                     String sideString = request.getParameter("side");
                     int side = 1;
                     try {
@@ -139,7 +162,7 @@ public class MinSideController {
                     }
                     
                     
-                    int antPerSide = 5;
+                    int antPerSide = 20;
                     int fra = (side - 1) * antPerSide;
                     int til = side * antPerSide;
                     
@@ -157,6 +180,12 @@ public class MinSideController {
                     if (sider.size() > 0){
                         sisteSide = side >= sider.get(sider.size() - 1).intValue(); 
                     }
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     model.addAttribute("sider", sider);
                     model.addAttribute("aktivSide", side);

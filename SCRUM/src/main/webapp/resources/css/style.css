@@ -1,12 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 
-
+html {
+    min-width: 100% !important;
+}
 
 body{
   background-image: url(../bilder/pixel_bg.jpg);
   font-family:'Open Sans',sans-serif;
   color: #555;
+  
+  min-width: 100%;
+
 }
 
 
@@ -30,7 +35,7 @@ body{
 
 
 
-#endre-passord-container h1, #highscore-container h1, #gl-container h1{
+#endre-passord-container h1, #highscore-container h1, #gl-container h1, #oversikt-container h1{
   margin: 0;
   background:rgb(248, 248, 248);
   padding:20px 0;
@@ -253,3 +258,100 @@ input[type="submit"]:disabled {
     height: 40px;
     
 }
+
+.gl-cover {
+    z-index: 900;
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    width: 100%;
+    height: 100%;
+    margin: 0em !important;
+    padding: 0em;
+
+    
+    
+    background: rgba(0,0,0,0.25);
+
+}
+
+.oversikt-container {
+  z-index: 1000;
+  width:500px !important;
+  
+  margin:0 auto;
+  margin-top: -300px;
+  margin-left:-250px;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+  
+  border: 1px solid rgb(231, 231, 231);
+  
+  background: white;
+  
+  box-shadow: 0px 0px 10px rgba(70,70,70,0.4);
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  
+  
+}
+
+
+.oversikt-container h2{
+  margin: 0;
+  background:rgb(248, 248, 248);
+  padding:8px 0;
+  font-size:120%;
+  font-weight:500;
+  text-align:center;
+  
+  
+  border-bottom: 1px solid rgb(231, 231, 231);
+
+}
+.oversikt-container h3{
+  margin: 0;
+  background:rgb(248, 248, 248);
+  padding:8px 0;
+  font-size:100%;
+  font-weight:500;
+  text-align:center;
+  
+  
+  border-bottom: 1px solid rgb(231, 231, 231);
+
+}
+
+
+.oversikt-container table {
+    width: 100%;
+   
+}
+
+.oversikt-container table tr td, .oversikt-container table tr th {
+        padding: 2px 12px;
+        
+}
+
+.oversikt-container table tr td:nth-child(1), .oversikt-container table tr th:nth-child(1) {
+       width: 18px;
+        
+}
+
+.oversikt-container table tr:nth-child(2n + 1) {
+
+    background: #f7f7f7;
+}
+.oversikt-container table tr:nth-child(2n) {
+    background: #f0f0f0;
+}
+
+.oversikt-container form {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    
+}
+

@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +20,23 @@
          
          <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"/>
          
+         
+        <script>
+            function openBox(box) {
+                
+                document.getElementById('cover').hidden = false;
+                document.getElementById(box).hidden = false;
+            }
+            function closeBoxes() {
+                
+                var boxes = document.getElementsByClassName('oversikt-container');
+                
+                document.getElementById('cover').hidden = true;
+                for (var i = 0; i < boxes.length; i++){
+                   boxes[i].hidden = true;
+                }
+            }
+        </script>
     
     </head>
     <body>
@@ -50,14 +68,13 @@
     		</div>
         </div>
     </div>
-                                     
-    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
+    <div class="gl-cover" id="cover" onclick="closeBoxes()" hidden ></div>
     <div id="gl-container">
         <h1>Godkjenningsliste</h1>
         <center>
@@ -68,42 +85,90 @@
         </center>
 
         <c:forEach var="bruker" items="${godkjenningsListe}" varStatus="status">
-            <div class="gl-header ${bruker.statusClass}">
+            <div class="gl-header ${bruker.statusClass}" onclick="openBox('oversikt-container${status.index}')">
                     ${bruker.brukerdata.etternavn}, ${bruker.brukerdata.fornavn} <span>${bruker.rettigheter}</span>  
-
-
-
             </div>
-
-        </c:forEach>
-        
-        <center>
-        <nav>
-        <ul class="pagination">
-            <c:if test="${aktivSide > 1}">
-              <li>
-                <a href="?side=${aktivSide-1}" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-            </c:if>
-              
-          <c:forEach var="i" items="${sider}" >
-              <li <c:if test="${aktivSide==i}">class="active"</c:if>><a href="?side=${i}">${i}</a></li>
-          </c:forEach>
-          <c:if test="${!sisteSide}" >
-          <li>
-            <a href="?side=${aktivSide+1}" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </c:if>
-        </ul>
-</nav>
-        </center>
+            <div class="oversikt-container" id="oversikt-container${status.index}" hidden>
+                <h1>${bruker.brukerdata.fornavn} ${bruker.brukerdata.etternavn}</h1>
+                <h2 class="${bruker.statusClass}">${bruker.status}</h2>
+                <h3>${bruker.brukerdata.epost}</h3>
+                <c:if test="${brukerdata.rettigheter == 2}">
+                    <form:form method="POST" modelAttribute="bruker.brukerdata" action="Godkjenningsliste"  >
+                        <input type="hidden" name="aktivBruker" value="${status.index}" >
+                        <input type="hidden" name="aktivBrukerEpost" value="${bruker.brukerdata.epost}" >
+                            <c:choose>
+                                <c:when test="${bruker.brukerdata.rettigheter == 0}">
+                                    <input type="hidden" name="aktivBrukerType" value="1" >
+                                    <input type="submit" value="Gjør til Studentassistent" >
+                                </c:when>
+                                <c:when test="${bruker.brukerdata.rettigheter == 1}">
+                                    <input type="hidden" name="aktivBrukerType" value="0" >
+                                     <input type="submit" value="Gjør til Student">
+                                </c:when>
+                            </c:choose> 
+                    </form:form>
+                </c:if>
+                    <center>
+                        <table>
+                            <tr>
+                                <th>#</th>
+                                <th>Nivå</th>
+                                <th>Poeng</th>
+                            </tr>
+                            <c:forEach var="oppgave" items="${oppgavenavn}" varStatus="statusOppgave">
+                                <tr>
+                                    <td>${statusOppgave.index+1}</td>
+                                    <td>${oppgave}</td>
+                                    <td>${bruker.oppgaver[status.index].poeng}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </center>
+                    <h2>Poeng: ${bruker.totalPoeng}</h2>
+                </div>
+                <div></div>
+                <c:if test="${aktivBruker == status.index}">
+                    <script>    
+                        openBox('oversikt-container${status.index}');
+                    </script>
+                </c:if>
+            </c:forEach>
+                    
+            <center>
+                <nav>
+                    <ul class="pagination">
+                        <c:if test="${aktivSide > 1}">
+                          <li>
+                            <a href="?side=${aktivSide-1}" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                        </c:if>
+                        <c:forEach var="i" items="${sider}" >
+                            <li <c:if test="${aktivSide==i}">class="active"</c:if>>
+                                <a href="?side=${i}">
+                                    ${i}
+                                </a>
+                            </li>
+                        </c:forEach>
+                        <c:if test="${!sisteSide}" >
+                        <li>
+                          <a href="?side=${aktivSide+1}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </c:if>
+                    </ul>
+                </nav>
+            </center>
         
     </div>
     
+    
+
+ 
+    
+
         
     
     
