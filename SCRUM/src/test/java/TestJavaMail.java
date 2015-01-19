@@ -28,7 +28,7 @@ public class TestJavaMail {
  public void testSendHtmlEmail() throws MessagingException, IOException {
      String subject = "TestSubject";
      String message = "TestMessage";
-     mail.sendHtmlEmail(message, subject, message, message, message, subject, message);
+    // mail.sendHtmlEmail(message, subject, message, message, message, subject, message);
  }
 }
  
