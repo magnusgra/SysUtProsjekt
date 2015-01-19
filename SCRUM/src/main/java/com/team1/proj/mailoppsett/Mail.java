@@ -109,6 +109,7 @@ public class Mail {
  
         Session session = Session.getInstance(properties, auth);
  
+        // 
         Message msg = new MimeMessage(session);
  
         msg.setFrom(new InternetAddress(userName));
