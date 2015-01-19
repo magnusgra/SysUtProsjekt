@@ -70,11 +70,12 @@ public class Konfig extends WebMvcConfigurationSupport {
     
     @Bean
     public DataSource dataSource(){
-        String url = "jdbc:derby://localhost:1527/sysdbtest";
-        String username = "brukernavn";
-        String password = "passord";
+        
+        String url = "jdbc:derby://localhost:1527/sysdbtest";//jdbc:mysql://158.38.48.10:3306/marat
+        String username = "brukernavn";//marat
+        String password = "passord";//yQ3eqhAKa47zmDBH
         DriverManagerDataSource dmds = new DriverManagerDataSource(url, username, password);
-        dmds.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
+        dmds.setDriverClassName("org.apache.derby.jdbc.ClientDriver");//"com.mysql.jdbc.Driver"; 
         try{
             Connection con = dmds.getConnection();
             System.out.println(" *********  Konfig " + con );

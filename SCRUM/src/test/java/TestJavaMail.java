@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import org.jvnet.mock_javamail.Mailbox;
+//import org.jvnet.mock_javamail.Mailbox;
 import com.team1.proj.mailoppsett.Mail;
 import java.io.IOException;
 import org.junit.*;
@@ -21,7 +21,7 @@ public class TestJavaMail {
  @Before
  public void setUp(){
  mail = new Mail();
- Mailbox.clearAll();
+ //Mailbox.clearAll();
  }
  
  @Test
