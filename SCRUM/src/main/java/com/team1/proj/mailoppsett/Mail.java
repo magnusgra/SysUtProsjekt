@@ -29,7 +29,7 @@ public class Mail {
     private String toAddress;
     private String subject;
     private String message;
-
+    
     public String getHost() {
         return host;
     }
@@ -86,7 +86,7 @@ public class Mail {
         this.message = message;
     }
     
-    
+   
     public void sendHtmlEmail(String host, String port,
             final String userName, final String password, String toAddress,
             String subject, String message) throws AddressException,
@@ -125,8 +125,10 @@ public class Mail {
  
     }
     
-     public boolean sendMailMedPassord(Brukerdata brukerdata){
+     //public boolean sendMailMedPassord(Brukerdata brukerdata){
           
+    public boolean sendMailMedPassord(Brukerdata brukerdata, String ps){
+        //Sendt fra bruker og passord
         String fra = "scrumteamhist@yahoo.com";
         String passord = "passordet";
         String fornavn = brukerdata.getFornavn();
@@ -722,8 +724,99 @@ public class Mail {
 "Tahoma,sans-serif;line-height: 21px\">BRUKERNAVN:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+ brukerdata.getEpost()+"</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">PASSORD:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+brukerdata.getPassord()+"</h3><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&#8203;<em>Du kan endre passord p&#229; nettsiden etter &#229; ha logget inn</em></p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 25px\">&nbsp;</p>\n" +
 "\n</td>\n</tr>\n</tbody></table>\n\n<div class=\"column-bottom\" style=\"font-size: 34px;line-height: 34px\">&nbsp;</div>\n</td>\n</tr>\n</tbody></table>\n\n<div class=\"separator\" style=\"background-color: #dddfe0;line-height: 40px\">&nbsp;</div>\n\n<table class=\"footer centered\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px\">\n" +
 "<tbody><tr>\n<td style=\"padding: 0;vertical-align: top\">\n<table class=\"social\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto\" align=\"center\">\n<tbody><tr>\n<td style=\"padding: 0 13px 40px 13px;vertical-align: middle\">\n<fblike class=\"facebook\" style=\"display: inline-block;font-size: 12px;font-weight: 400;line-height: 12px;text-decoration: none;text-transform: uppercase;color: #968e96;font-family: Tahoma,sans-serif\"><img style=\"border: 0;-ms-interpolation-mode: bicubic;vertical-align: middle\" src=\"https://i6.createsend1.com/static/eb/master/02-blush/images/facebook-dark.png\" alt=\"\" width=\"20\" height=\"20\" />&nbsp; <span style=\"mso-text-raise: 6px\">Liker</span></fblike>\n</td>\n<td style=\"padding: 0 13px 40px 13px;vertical-align: middle\">\n</td>\n\n</tr>\n</tbody></table>\n<table class=\"divider\" style=\"border-collapse: collapse;border-spacing: 0;line-height: 11px;width: 100%;border-top: 1px dashed #968e96\"><tbody><tr><td style=\"padding: 0;vertical-align: top\">&nbsp;</td></tr></tbody></table>\n<table class=\"contents\" style=\"border-collapse: collapse;border-spacing: 0;width: 600px\">\n<tbody><tr>\n" +
-"<td class=\"address\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: left;padding-left: 30px;padding-right: 10px;width: 45%;color: #968e96;font-family: Tahoma,sans-serif\">\n<div>SCRUMTEAM1<br />\nAiTeL<br />\nHiST&nbsp;</div>\n</td>\n<td class=\"campaign\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: right;padding-right: 30px;padding-left: 10px;width: 55%;color: #968e96;font-family: Tahoma,sans-serif\">\n<div class=\"links\">\n<span class=\"block\">\n\n</span>\n<span class=\"block\">\n<unsubscribe href=\"#\">\nJanuar\n</unsubscribe>\n</span>\n</div>\n<div>2015<br />\n<br />\n&nbsp;</div>\n</td>\n</tr>\n</tbody></table>\n</td>\n</tr>\n</tbody></table>\n</center>\n\n</body>","text/html");
-            
+"<td class=\"address\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: left;padding-left: 30px;padding-right: 10px;width: 45%;color: #968e96;font-family: Tahoma,sans-serif\">\n<div>SCRUMTEAM1<br />\nAiTeL<br />\nHiST&nbsp;</div>\n</td>\n<td class=\"campaign\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: right;padding-right: 30px;padding-left: 10px;width: 55%;color: #968e96;font-family: Tahoma,sans-serif\">\n<div class=\"links\">\n<span class=\"block\">\n\n</span>\n<span class=\"block\">\n<unsubscribe href=\"#\">\nJanuar\n</unsubscribe>\n</span>\n</div>\n<div>2015<br />\n<br />\n&nbsp;</div>\n</td>\n</tr>\n</tbody></table>\n</td>\n</tr>\n</tbody></table>\n</center>\n\n" +            
+"</style>\n" +
+"    <center class=\"wrapper\" style=\"display: table;table-layout: fixed;width: 100%;min-width: 620px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #dddfe0\">\n" +
+"      <table class=\"preheader centered\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px\">\n" +
+"        <tbody><tr>\n" +
+"          <td class=\"inner\" style=\"padding: 0;vertical-align: top;padding-top: 11px;padding-bottom: 12px\">\n" +
+"            <table style=\"border-collapse: collapse;border-spacing: 0;width: 540px;Margin-left: auto;Margin-right: auto\" align=\"center\">\n" +
+"              <tbody><tr>\n" +
+"                <td class=\"title\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: normal;letter-spacing: 0.01em;line-height: 17px;color: #968e96;font-family: Tahoma,sans-serif;text-align: left\">Velkommen som ny bruker</td>\n" +
+"                <td class=\"webversion\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: normal;letter-spacing: 0.01em;line-height: 17px;color: #968e96;font-family: Tahoma,sans-serif;text-align: right;width: 240px\">\n" +
+"                  Utviklet av SCRUMTEAM1<webversion>Januar 2015</webversion>\n" +
+"                </td>\n" +
+"              </tr>\n" +
+"            </tbody></table>\n" +
+"          </td>\n" +
+"        </tr>\n" +
+"      </tbody></table>\n" +
+"      <table class=\"header centered\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;border-top: 1px dashed #968e96\">\n" +
+"        <tbody><tr>\n" +
+"          <td class=\"logo\" style=\"padding: 0;vertical-align: top;mso-line-height-rule: at-least;padding-top: 40px;padding-bottom: 37px\"><div class=\"logo-center\" style=\"font-size: 42px;line-height: 50px;color: #555;font-family: Tahoma,sans-serif;text-align: center\" align=\"center\" id=\"emb-email-header\"><img style=\"border: 0;-ms-interpolation-mode: bicubic;display: block;Margin-left: auto;Margin-right: auto;max-width: 240px\" src=\"http://s10.postimg.org/8fthqf4yh/nicandsteven.png\" alt=\"\" width=\"160\" height=\"124\" /></div></td>\n" +
+"        </tr>\n" +
+"      </tbody></table>\n" +
+"      \n" +
+"          <table class=\"one-col centered\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;background-color: #ffffff;border-radius: 4px;box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1)\">\n" +
+"            <tbody><tr>\n" +
+"              <td class=\"column\" style=\"padding: 0;vertical-align: top;text-align: left\">\n" +
+"                <div><div class=\"column-top\" style=\"font-size: 60px;line-height: 60px\">&nbsp;</div></div>\n" +
+"                  <table class=\"contents\" style=\"border-collapse: collapse;border-spacing: 0;width: 100%\">\n" +
+"                    <tbody><tr>\n" +
+"                      <td class=\"padded\" style=\"padding: 0;vertical-align: top;padding-left: 60px;padding-right: 60px\">\n" +
+"                        \n" +
+"            \n" +
+"<h1 style=\"Margin-top: 0;color: #3888bd;font-weight: 400;font-size: 36px;Margin-bottom: 21px;text-align: center;font-family: Tahoma,sans-serif;line-height: 44px\">Velkommen som ny bruker.</h1><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">Er du klar for &#229; spille Nic & Steven og samtidig l&#230;re CSS og HTML5?</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">Her er alt du trenger for &#229; komme i gang:</p><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">&nbsp;</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: \n" +
+"Tahoma,sans-serif;line-height: 21px\">BRUKERNAVN:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+ brukerdata.getEpost()+"</h3><h3 style=\"Margin-top: 0;color: #377fcc;font-weight: bold;font-size: 15px;Margin-bottom: 16px;font-family: Tahoma,sans-serif;line-height: 21px\">PASSORD:<p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">"+ps+"</h3><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&nbsp;</p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 24px\">&#8203;<em>Du kan endre passord p&#229; nettsiden etter &#229; ha logget inn</em></p><p style=\"Margin-top: 0;color: #61606c;font-weight: 400;font-size: 15px;font-family: Tahoma,sans-serif;line-height: 24px;Margin-bottom: 25px\">&nbsp;</p>\n" +
+"          \n" +
+"                      </td>\n" +
+"                    </tr>\n" +
+"                  </tbody></table>\n" +
+"                \n" +
+"                <div class=\"column-bottom\" style=\"font-size: 34px;line-height: 34px\">&nbsp;</div>\n" +
+"              </td>\n" +
+"            </tr>\n" +
+"          </tbody></table>\n" +
+"        \n" +
+"          <div class=\"separator\" style=\"background-color: #dddfe0;line-height: 40px\">&nbsp;</div>\n" +
+"        \n" +
+"      <table class=\"footer centered\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px\">\n" +
+"        <tbody><tr>\n" +
+"          <td style=\"padding: 0;vertical-align: top\">\n" +
+"            <table class=\"social\" style=\"border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto\" align=\"center\">\n" +
+"              <tbody><tr>\n" +
+"                <td style=\"padding: 0 13px 40px 13px;vertical-align: middle\">\n" +
+"                  <fblike class=\"facebook\" style=\"display: inline-block;font-size: 12px;font-weight: 400;line-height: 12px;text-decoration: none;text-transform: uppercase;color: #968e96;font-family: Tahoma,sans-serif\"><img style=\"border: 0;-ms-interpolation-mode: bicubic;vertical-align: middle\" src=\"https://i6.createsend1.com/static/eb/master/02-blush/images/facebook-dark.png\" alt=\"\" width=\"20\" height=\"20\" />&nbsp; <span style=\"mso-text-raise: 6px\">Liker</span></fblike>\n" +
+"                </td>\n" +
+"                <td style=\"padding: 0 13px 40px 13px;vertical-align: middle\">\n" +
+"                  <tweet class=\"twitter\" style=\"display: inline-block;font-size: 12px;font-weight: 400;line-height: 12px;text-decoration: none;text-transform: uppercase;color: #968e96;font-family: Tahoma,sans-serif\"><img style=\"border: 0;-ms-interpolation-mode: bicubic;vertical-align: middle\" src=\"https://i7.createsend1.com/static/eb/master/02-blush/images/twitter-dark.png\" alt=\"\" width=\"20\" height=\"20\" />&nbsp; <span style=\"mso-text-raise: 6px\">Tweet</span></tweet>\n" +
+"                </td>\n" +
+"                \n" +
+"              </tr>\n" +
+"            </tbody></table>\n" +
+"            <table class=\"divider\" style=\"border-collapse: collapse;border-spacing: 0;line-height: 11px;width: 100%;border-top: 1px dashed #968e96\"><tbody><tr><td style=\"padding: 0;vertical-align: top\">&nbsp;</td></tr></tbody></table>\n" +
+"            <table class=\"contents\" style=\"border-collapse: collapse;border-spacing: 0;width: 600px\">\n" +
+"              <tbody><tr>\n" +
+"                <td class=\"address\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: left;padding-left: 30px;padding-right: 10px;width: 45%;color: #968e96;font-family: Tahoma,sans-serif\">\n" +
+"                  <div>SCRUMTEAM1<br />\n" +
+"AiTeL<br />\n" +
+"HiST&nbsp;</div>\n" +
+"                </td>\n" +
+"                <td class=\"campaign\" style=\"padding: 0;vertical-align: top;font-size: 11px;font-weight: 400;line-height: 19px;padding-bottom: 40px;-webkit-font-smoothing: antialiased;text-align: right;padding-right: 30px;padding-left: 10px;width: 55%;color: #968e96;font-family: Tahoma,sans-serif\">\n" +
+"                  <div class=\"links\">\n" +
+"                    <span class=\"block\">\n" +
+"                      \n" +
+"                    </span>\n" +
+"                    <span class=\"block\">\n" +
+"                      <unsubscribe href=\"#\">\n" +
+"                        Januar\n" +
+"                      </unsubscribe>\n" +
+"                    </span>\n" +
+"                  </div>\n" +
+"                  <div>2015<br />\n" +
+"<br />\n" +
+"&nbsp;</div>\n" +
+"                </td>\n" +
+"              </tr>\n" +
+"            </tbody></table>\n" +
+"          </td>\n" +
+"        </tr>\n" +
+"      </tbody></table>\n" +
+"    </center>\n" +
+"  \n" +
+"</body>","text/html");
+        
+            //Send meldingen
             Transport transport = session.getTransport("smtp");
             transport.connect(host, fra, passord);
             transport.sendMessage(message, message.getAllRecipients());
