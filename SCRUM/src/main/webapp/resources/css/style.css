@@ -35,7 +35,7 @@ body{
 
 
 
-#endre-passord-container h1, #highscore-container h1, #gl-container h1, #oversikt-container h1{
+#endre-passord-container h1, #highscore-container h1, #gl-container h1, .oversikt-container h1{
   margin: 0;
   background:rgb(248, 248, 248);
   padding:20px 0;
@@ -275,7 +275,7 @@ input[type="submit"]:disabled {
 
 }
 
-.oversikt-container {
+.oversikt-container, .min-oversikt-container {
   z-index: 1000;
   width:500px !important;
   
@@ -299,7 +299,7 @@ input[type="submit"]:disabled {
 }
 
 
-.oversikt-container h2{
+.oversikt-container h2 {
   margin: 0;
   background:rgb(248, 248, 248);
   padding:8px 0;

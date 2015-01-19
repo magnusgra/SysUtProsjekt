@@ -48,34 +48,30 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     <center>
-    <form:form action="Godkjenningsliste" method="GET" modelAttribute="resultatFormBackingBean">
-    <h5>Husk at dette bare er et spill. Ikke ta det for seriost :)</h5>
-    <table border="1" width="100">
-        <tr>
-            <th>Bruker</th>
-            <th>Status</th>
-        </tr>
-
-        <c:forEach var="resultat" items="glListeFromBackingBean" varStatus="status">
-            <tr>
-                <td><c:out value="epost"/>
-                </td> 
-                                    
-                <td> <form:input path="alleResultat[${resultat.index}].poeng" /> 
-                </td>
-                <td> <form:input path="alleResultat[${resultat.index}].forsoknr" />
-                </td>
-            </tr>
-        </c:forEach>
-            
-    </table>    
-            <a class="menu-button" href="Highscore" >Oppdater Highscores</a>
-        </form:form>
-    <hr>
-    </center>
-    
         
-        
-        
+        <div class="oversikt-container" >
+                <h1>${bruker.brukerdata.fornavn} ${bruker.brukerdata.etternavn}</h1>
+                <h2 class="${bruker.statusClass}">${bruker.status}</h2>
+                <h3>${bruker.brukerdata.epost}</h3>
+               
+                    <center>
+                        <table>
+                            <tr>
+                                <th>#</th>
+                                <th>Nivå</th>
+                                <th>Poeng</th>
+                            </tr>
+                            <c:forEach var="oppgave" items="${oppgavenavn}" varStatus="statusOppgave">
+                                <tr>
+                                    <td>${statusOppgave.index+1}</td>
+                                    <td>${oppgave}</td>
+                                    <td>${bruker.oppgaver[statusOppgave.index].poeng}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </center>
+                    <h2>Poeng: ${bruker.totalPoeng}</h2>
+                </div>
+    </center>    
     </body>
 </html>

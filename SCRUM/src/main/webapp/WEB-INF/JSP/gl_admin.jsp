@@ -96,6 +96,7 @@
                     <form:form method="POST" modelAttribute="bruker.brukerdata" action="Godkjenningsliste"  >
                         <input type="hidden" name="aktivBruker" value="${status.index}" >
                         <input type="hidden" name="aktivBrukerEpost" value="${bruker.brukerdata.epost}" >
+                        <input type="hidden" name="side" value="${aktivSide}" >
                             <c:choose>
                                 <c:when test="${bruker.brukerdata.rettigheter == 0}">
                                     <input type="hidden" name="aktivBrukerType" value="1" >
@@ -119,7 +120,7 @@
                                 <tr>
                                     <td>${statusOppgave.index+1}</td>
                                     <td>${oppgave}</td>
-                                    <td>${bruker.oppgaver[status.index].poeng}</td>
+                                    <td>${bruker.oppgaver[statusOppgave.index].poeng}</td>
                                 </tr>
                             </c:forEach>
                         </table>

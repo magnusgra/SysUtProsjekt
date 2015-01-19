@@ -128,6 +128,13 @@ public class BrukerServiceImpl implements BrukerService {
         
     }
     
+    public AdminGodkjenning getResultat(Brukerdata bd){
+        AdminGodkjenning ag = new AdminGodkjenning();
+        ag.setBrukerdata(bd);
+        ag.setOppgaver(repo.getOppgaverFor(bd));
+        return ag;
+    }
+    
     
     @Override
     public List<AdminGodkjenning> getAdminListe(int fra, int til){

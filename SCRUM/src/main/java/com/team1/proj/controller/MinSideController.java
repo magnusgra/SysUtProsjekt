@@ -10,6 +10,7 @@ import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import com.team1.proj.service.HashPassord;
+import com.team1.proj.ui.AdminGodkjenning;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
 import com.team1.proj.ui.ResultatFormBackingBean;
 import java.util.Arrays;
@@ -129,6 +130,10 @@ public class MinSideController {
                 case 0: //Student
                 //    Resultat oppgaver = brukerService.getResultat(brukerdata.getEpost());
                 //    model.addAttribute("oppgaver", oppgaver);
+                    AdminGodkjenning ag = brukerService.getResultat(brukerdata);
+                    model.addAttribute("bruker", ag);
+                    
+                    System.out.println(ag.getOppgaver());
                     return "gl";
                     
                 case 1: //Studass

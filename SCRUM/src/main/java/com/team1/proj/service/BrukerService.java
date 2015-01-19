@@ -30,6 +30,7 @@ public interface BrukerService {
     public List<Highscore> getHighscore();
     public List<Resultat> getAlleBrukere(); 
     
+    public AdminGodkjenning getResultat(Brukerdata bd);
     public List<AdminGodkjenning> getAdminListe(int fra, int til);
     public List<Integer> getSider(int aktivSide, int linjerPerSide);
 }
