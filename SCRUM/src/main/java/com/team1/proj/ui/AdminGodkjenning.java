@@ -57,6 +57,14 @@ public class AdminGodkjenning {
                 return "";
         }
     }
+    
+    public int getTotalPoeng(){
+        int tot = 0;
+        for (Oppgave o : oppgaver){
+            tot += o.getPoeng();
+        }
+        return tot;
+    }
 
     
 }

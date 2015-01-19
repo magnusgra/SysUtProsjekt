@@ -170,14 +170,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override
     public int getAntBrukere(){
         try {
-            return jdbcTemplateObject.query(sqlHentAntBrukere, 
-                    new RowMapper<Integer>(){
-                        @Override
-                        public Integer mapRow(ResultSet rs, int i) throws SQLException {
-                            return new Integer(rs.getInt("antall"));
-                        }
-                    }
-                ).get(0).intValue();
+            return jdbcTemplateObject.queryForObject(sqlHentAntBrukere, Integer.class).intValue();
             
         } catch (Exception e){
             System.out.println(e);
