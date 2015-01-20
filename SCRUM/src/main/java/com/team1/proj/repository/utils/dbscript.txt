@@ -8,7 +8,7 @@ CREATE TABLE bruker (
     passord VARCHAR(255),
     epost VARCHAR(255),
     PRIMARY KEY(epost)
-);
+)ENGINE=INNODB;
 
 CREATE TABLE resultat (
     epost VARCHAR(255) NOT NULL,
@@ -16,4 +16,4 @@ CREATE TABLE resultat (
     poeng INT,
     PRIMARY KEY(epost,oppgavenr),
     FOREIGN KEY(epost) REFERENCES bruker(epost)
-);
+)ENGINE=INNODB;

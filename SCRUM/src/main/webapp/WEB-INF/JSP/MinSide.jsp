@@ -29,11 +29,11 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="Home">Home</a></li>
-    				<li><a href="Spill">Start Spillet</a></li>
-    				<li><a href="Highscore">Se Highscore</a></li>
-    				<li class="active"><a href="MinSide">Min Side</a></li>
-    				<li><a href="LoggUt">Logg ut</a></li>
+                            <li><a href="<c:url value='/Home'/>">Home</a></li>
+    				<li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
+    				<li class="active"><a href="<c:url value='/MinSide'/>">Min Side</a></li>
+    				<li><a href="<c:url value='/LoggUt'/>">Logg ut</a></li>
     			</ul>
     		</div>
         </div>

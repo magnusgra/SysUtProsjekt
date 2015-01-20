@@ -26,7 +26,8 @@
      
             <h1>Nic and Steven</h1>
             
-            <form:form method="POST" modelAttribute="logindata" action = "Home">
+            <c:url var="action" value="/Home"/>
+            <form:form method="POST" modelAttribute="logindata" action = "${action}">
                 <center><p class="melding ${meldingtype}">
                         <c:if test="${melding==null}">Velkommen</c:if>${melding}</p></center>
                 <form:input type= "email" placeholder="Epost" path="epost" /><br>
@@ -37,7 +38,7 @@
                 <br>
                 <br>
                 <center>
-                    <span> Ny bruker? <a href="RegistreringSide">Registrer deg her!</a></span>
+                    <span> Ny bruker? <a href="<c:url value='/RegistreringSide' />">Registrer deg her!</a></span>
                 </center>
             </form:form>
         </div>
