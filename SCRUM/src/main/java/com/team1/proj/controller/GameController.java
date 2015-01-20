@@ -6,6 +6,7 @@
 package com.team1.proj.controller;
 
 import com.team1.proj.brukerklasser.Brukerdata;
+import com.team1.proj.brukerklasser.Resultat;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +85,11 @@ public class GameController {
         if (brukerdata.isInnlogget()){
             
             //Lagre data
+            Resultat res = new Resultat();
+            res.setEpost(brukerdata.getEpost());
+            res.setOppgavenr(bane);
+            res.setPoeng(poeng);
+            brukerService.leggTilResultat(res);
             
             
             return "spill/kart/kart";

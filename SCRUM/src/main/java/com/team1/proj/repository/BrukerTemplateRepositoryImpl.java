@@ -39,6 +39,9 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?,?)";
     private final String sqlInsertResultat = "insert into resultat values(?, ?, ?)";
+    private final String sqlUpdateResultat = "update resultat set poeng = case when poeng < ? then ? else poeng end where (epost = ? and oppgavenr = ?)";
+    
+    
     private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
@@ -106,13 +109,23 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     }
     @Override
     public void leggTilResultat(Resultat res){
-        
-        jdbcTemplateObject.update(sqlInsertResultat,
-                new Object[]{
-                res.getEpost(),
-                res.getOppgavenr(),
-                res.getPoeng()
-        });
+        try {
+            jdbcTemplateObject.update(sqlInsertResultat,
+                    new Object[]{
+                    res.getEpost(),
+                    res.getOppgavenr(),
+                    res.getPoeng()
+            });
+        } catch (Exception e){
+            jdbcTemplateObject.update(sqlUpdateResultat,
+                    new Object[]{
+                    res.getPoeng(),
+                    res.getPoeng(),
+                    res.getEpost(),
+                    res.getOppgavenr()
+                    
+            });
+        }
         
     }
     public boolean slettResultat(Resultat res){
