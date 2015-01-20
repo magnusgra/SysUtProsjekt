@@ -31,8 +31,8 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="<c:url value='/Home'/>">Home</a></li>
-                                <li class="active"><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li class="active"><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li ><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
     				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
@@ -51,11 +51,7 @@
         </div>
     </div>
                                      
-    <center>  
-      
-        <iframe src="Spill/Kart" width="100%" height="600px" ></iframe> 
-
-    </center>
+    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>

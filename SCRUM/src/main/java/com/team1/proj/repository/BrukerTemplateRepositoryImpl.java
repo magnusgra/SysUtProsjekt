@@ -49,7 +49,7 @@ public class BrukerTemplateRepositoryImpl implements Repository{
 
 
     private final String sqlHentBrukerdataFraTil = "SELECT * FROM bruker ORDER BY etternavn ASC LIMIT ? OFFSET ?;";
-    private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=?";
+    private final String sqlHentOppgaverForBruker = "SELECT * FROM resultat WHERE epost=? ORDER BY oppgavenr ASC";
     private final String sqlHentAntBrukere = "SELECT COUNT(*) AS antall FROM bruker";
     
     private DataSource dataSource;

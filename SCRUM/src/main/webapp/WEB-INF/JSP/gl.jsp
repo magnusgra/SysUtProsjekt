@@ -49,7 +49,7 @@
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     <center>
         
-        <div class="oversikt-container" >
+        <div class="oversikt-container" style="margin-top: -250px;" >
                 <h1>${bruker.brukerdata.fornavn} ${bruker.brukerdata.etternavn}</h1>
                 <h2 class="${bruker.statusClass}">${bruker.status}</h2>
                 <h3>${bruker.brukerdata.epost}</h3>

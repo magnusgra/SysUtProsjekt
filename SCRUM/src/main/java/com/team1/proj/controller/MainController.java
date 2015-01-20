@@ -97,7 +97,16 @@ public class MainController {
     }
 
 
-    
+    @RequestMapping(value="/Spill")
+    public String spill(Model model){
+
+        if(brukerdata.isInnlogget()){
+            return "Spill";
+        }
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login"; 
+        
+    }
 
     
     @RequestMapping(value = "Highscore")
