@@ -157,15 +157,7 @@ public class MainController {
     
 
     
-    @RequestMapping(value="/Spill")
-    public String spill(Model model){
-        System.out.println("******************     UserController.showLogin   ************************");
-        if(brukerdata.isInnlogget()){
-            return "Spill";
-        }
-        model.addAttribute("logindata", new Brukerdata());
-        return "Login/login";
-    }
+
     
     @RequestMapping(value="/LoggUt")
     public String loggUt(Model model){

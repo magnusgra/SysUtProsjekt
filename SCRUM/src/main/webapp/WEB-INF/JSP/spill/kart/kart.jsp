@@ -16,15 +16,7 @@
     </head>
         
     <body>
-        <jsp:useBean id="myBean" scope="session" class="org.geeks.Second" />
-        <jsp:setProperty name="myBean" property="bane" />
-        <jsp:setProperty name="myBean" property="poeng" />
-        <jsp:getProperty name="myBean" property="bane" />
-        <jsp:getProperty name="myBean" property="poeng" />
         
-        <%
-            int a = myBean.store();
-        %>
         
         <div id="spill">
         
