@@ -2,7 +2,9 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ 
+
+
 
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Highscore;
@@ -20,10 +22,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
+*
  *
  * @author Mari
- */
+ 
 public class JUnitTest {
     private static BrukerTemplateRepositoryImpl temp= new BrukerTemplateRepositoryImpl();
     private static Repository repo; 
@@ -249,3 +251,4 @@ public class JUnitTest {
         assertTrue(temp.slettBruker(bruker1));
     }
 }
+*/

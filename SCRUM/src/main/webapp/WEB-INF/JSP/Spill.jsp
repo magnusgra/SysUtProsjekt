@@ -88,8 +88,8 @@
     <img id="nas-bilde" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />
     </div>
     <center><input class = button type="button" value="Start Spillet" /></center>
+  
     
     
-    
-    </body>
+            </body>
 </html>

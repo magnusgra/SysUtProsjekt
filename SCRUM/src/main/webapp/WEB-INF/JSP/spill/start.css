@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19.jan.2015, 11:17:30
+    Author     : microtonickitten
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08.jan.2015, 13:39:57
+    Author     : microtonickitten
+*/
+
+#container {
+    width: 800px;
+    height: 450px;
+}
+ 
+#container {
+    width: 800px;
+    height: 450px;
+    background-image: url("bilder/startskjerm.jpg");
+}
+ 
+ a, a:visited, a:hover{
+     text-decoration: none;
+     color: black;
+ }
+ 
+ #start{
+     width: 90px;
+     height: 25px;
+     position: absolute;
+     margin: auto;
+     left: 0; 
+     right: 0;
+     top: 340px;
+     font-family: sans-serif;
+     font-size: 12pt;
+     text-align: center;
+     border-style: solid;
+     padding: 3px;
+     padding-top: 8px;
+     border-width: thin;
+     background-color: #f3f3f3;
+     border-color: darkgrey;
+     border-radius: 3px;
+     z-index: 1;
+     text-decoration: none;
+ }
+ 
+ #spill{
+     width: 807px;
+     padding-top: 12px;
+     padding-right: 13px;
+ }
+ 
+ #logo{
+     position: absolute;
+     margin: auto;
+     left: 0; 
+     right: 0;
+     top: 65px;
+     width: 137px;
+     height: 106px;
+     background-image: url("bilder/start_logo.png")
+ }
+ 
+ #spilltekst{
+     width: 230px;
+     height: 200px;
+     position: absolute;
+     margin: auto;
+     left: 0; 
+     right: 0;
+     top: 190px;
+     font-size: 9pt;
+ }

@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08.jan.2015, 13:39:57
+    Author     : microtonickitten
+*/
+
+#container {
+    width: 800px;
+    height: 450px;
+}
+
+ #canvas{ 
+    left: 11px;
+    top: 38px;
+    z-index: 1;
+ }
+ 
+#container {
+    width: 800px;
+    height: 450px;
+    background-image: url("../bilder/map.jpg");
+}
+ 
+ #level{
+     position: absolute;
+     left: 830px;
+     height: 494px;
+     top: 7px;
+     padding-top: 26px;
+ }
+ 
+ a, a:visited, a:hover{
+     text-decoration: none;
+     color: black;
+ }
+ 
+ #start{
+     opacity: 0;
+     font-family: sans-serif;
+     font-size: 12pt;
+     border-style: solid;
+     padding: 7px;
+     border-width: thin;
+     background-color: #f3f3f3;
+     border-color: darkgrey;
+     border-radius: 3px;
+     text-decoration: none;
+ }
+ 
+ #spill{
+     width: 1000px;
+ }

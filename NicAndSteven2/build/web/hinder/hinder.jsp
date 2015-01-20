@@ -1,0 +1,74 @@
+<%-- 
+    Document   : hinder
+    Created on : 19.jan.2015, 15:34:16
+    Author     : Magnus
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hinder</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../felles/style.css">
+        <link rel="stylesheet" type="text/css" href="hinder.css">
+        <script src="hinder_side.js"></script>
+    </head>
+
+    <body>
+
+        <div id="spill">
+            
+            <form id="formen" action="../kart/kart.jsp" method="POST">
+                <input id="bane" type="hidden" name="bane" value="" />
+                <input id="poeng" type="hidden" name="poeng" value="" />
+            </form>
+        
+        <section id="content">
+
+            <section class="block">
+                
+                <div id="oppgavetekst">
+                    Her er det noe som er fryktelig galt. <br>
+                    Steven har kludret med html-koden slik at den ikke henger sammen med css-en. <br>
+                    Her skal det være en vei som Nic kan følge. Fiks html-koden slik at den passer med css-en.
+                </div>
+
+                <div id ="container">
+                    <span id="timer"></span>
+                    <div id="soppel">
+                        <img src="../bilder/hinder.png"/>
+                    </div>
+                </div>
+
+                <canvas id="canvas" >
+                    <script src="hinder_spill.js"></script>
+                    <div id="box"></div> 
+                </canvas>
+
+                <div id="codeContainer">  
+                    <section class="block">        
+                        <div class="litenoverskrift">CSS</div>
+                        <textarea class="codeBox" id="cssView"></textarea>
+                    </section>
+
+                    <section class="block">        
+                        <div class="litenoverskrift">HTML (kan ikke redigeres)</div>
+                        <textarea readonly class="codeBox" id="htmlView"></textarea>
+                    </section>
+
+                    <section class="block" id="knapper">    
+                        <input type="button" value="Oppdater" id="viewResult" />
+                        <input type="button" value="Tilbakestill" id="reset" />
+                    </section>
+                </div>
+                
+            </section>
+            
+        </section>
+            
+        </div>
+        
+    </body>
+    
+</html>
