@@ -1,3 +1,6 @@
+var webappName = "/database";
+
+
 (function () {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
@@ -147,7 +150,7 @@ boxes.push({            // Venstre vei etter åttende nivå
 var spillerBilde = new Image();
 spillerBilde.onload = function () {
     spillerKlar = true;
-};spillerBilde.src="../bilder/littlenic.png";
+};spillerBilde.src= webappName + "/resources/spill/bilder/littlenic.png";
     
 canvas.width = width;
 canvas.height = height;
@@ -206,42 +209,42 @@ function update() {
     
     // Level 1
     if (spiller.x > 69 && spiller.x < 80 && spiller.y > 150) {
-        document.getElementById("start").setAttribute("href", "../hinder/hinder.jsp");
+        document.getElementById("start").setAttribute("href", "Hinder");
         $("#start").css("opacity", "100");
     }
     // Level 2
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y < 190) {
-        document.getElementById("start").setAttribute("href", "../liste/liste.jsp");
+        document.getElementById("start").setAttribute("href", "Liste");
         $("#start").css("opacity", "100");
     }
     // Level 3
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y > 310) {
-        document.getElementById("start").setAttribute("href", "../tiger/tiger.jsp");
+        document.getElementById("start").setAttribute("href", "Tiger");
         $("#start").css("opacity", "100");
     }
     // Level 4
     else if (spiller.x > 570 && spiller.x < 610 && spiller.y < 290 && spiller.y > 250) {
-        document.getElementById("start").setAttribute("href", "../mismatch/mismatch.jsp");
+        document.getElementById("start").setAttribute("href", "Mismatch");
         $("#start").css("opacity", "100");
     }
     // Level 5
     else if (spiller.x > 720 && spiller.y > 250 && spiller.y < 290) {
-        document.getElementById("start").setAttribute("href", "../linker/linker.jsp");
+        document.getElementById("start").setAttribute("href", "Linker");
         $("#start").css("opacity", "100");
     }
     // Level 6
     else if (spiller.x > 720 && spiller.y < 30) {
-        document.getElementById("start").setAttribute("href", "../bur/bur.jsp");
+        document.getElementById("start").setAttribute("href", "Bur");
         $("#start").css("opacity", "100");
     }
     // Level 7
     else if (spiller.x > 540 && spiller.x < 580 && spiller.y < 50) {
-        document.getElementById("start").setAttribute("href", "../manus/manus.jsp");
+        document.getElementById("start").setAttribute("href", "Manus");
         $("#start").css("opacity", "100");
     }
     // Level 8
     else if (spiller.x > 380 && spiller.x < 430 && spiller.y < 50) {
-        document.getElementById("start").setAttribute("href", "../form/formLevel.jsp");
+        document.getElementById("start").setAttribute("href", "Form");
         $("#start").css("opacity", "100");
     }
     else {

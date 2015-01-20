@@ -5,19 +5,20 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Liste</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../felles/style.css">
-        <link rel="stylesheet" type="text/css" href="liste.css">
-        <script src="liste_side.js"></script>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/liste/liste.css'/>">
+        <script src="<c:url value='/resources/spill/liste/liste_side.js'/>"></script>
     </head> 
 
     <body>
-        <form id="formen" action="../kart/kart.jsp" method="POST">
+        <form id="formen" action="Kart" method="POST">
                 <input id="bane" type="hidden" name="bane" value="" />
                 <input id="poeng" type="hidden" name="poeng" value="" />
             </form>
@@ -41,7 +42,7 @@
                 </div>
 
                 <canvas id="canvas" >
-                    <script src="liste_spill.js"></script>
+                    <script src="<c:url value='/resources/spill/liste/liste_spill.js'/>"></script>
                     <div id="box"></div>
                 </canvas>
 

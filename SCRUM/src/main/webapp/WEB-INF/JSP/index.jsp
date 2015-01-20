@@ -31,8 +31,8 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li class="active"><a href="<c:url value='/Home'/>">Home</a></li>
-                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+                                <li class="active"><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
     				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
@@ -52,24 +52,9 @@
     </div>
                                      
     <center>  
-        <div class="btn-group">
-                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Knapp <span class="caret"></span>
-                              </button>
-                              <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                            </div> 
-        
-        <div class="progress" style="width: 60%; margin: 25% auto;">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                60%
-            </div>
-        </div>
+      
+        <iframe src="Spill/Kart" width="100%" height="600px" ></iframe> 
+
     </center>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

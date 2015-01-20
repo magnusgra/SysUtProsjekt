@@ -4,22 +4,23 @@
     Author     : Magnus
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Hinder</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../felles/style.css">
-        <link rel="stylesheet" type="text/css" href="hinder.css">
-        <script src="hinder_side.js"></script>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/hinder/hinder.css'/>">
+        <script src="<c:url value='/resources/spill/hinder/hinder_side.js'/>"></script>
     </head>
 
     <body>
 
         <div id="spill">
             
-            <form id="formen" action="../kart/kart.jsp" method="POST">
+            <form id="formen" action="Kart" method="POST">
                 <input id="bane" type="hidden" name="bane" value="" />
                 <input id="poeng" type="hidden" name="poeng" value="" />
             </form>
@@ -37,12 +38,12 @@
                 <div id ="container">
                     <span id="timer"></span>
                     <div id="soppel">
-                        <img src="../bilder/hinder.png"/>
+                        <img src="<c:url value='/resources/spill//bilder/hinder.png'/>"/>
                     </div>
                 </div>
 
                 <canvas id="canvas" >
-                    <script src="hinder_spill.js"></script>
+                    <script src="<c:url value='/resources/spill/hinder/hinder_spill.js'/>"></script>
                     <div id="box"></div> 
                 </canvas>
 

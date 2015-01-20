@@ -85,6 +85,7 @@ public class GameController {
             
             //Lagre data
             
+            
             return "spill/kart/kart";
         }
         

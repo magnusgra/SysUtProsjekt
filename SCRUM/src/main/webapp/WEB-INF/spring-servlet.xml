@@ -20,6 +20,8 @@
     <mvc:annotation-driven/>
     
     
+
+    
         <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
           <property name="prefix">
@@ -28,14 +30,17 @@
           <property name="suffix">
              <value>.jsp</value>
           </property>
-          <property name="order" value="2" />
+          <property name="order" value="1" />
     </bean>
+    
+
        
     <bean id="brukerdata" class ="com.team1.proj.brukerklasser.Brukerdata"/>
     <bean id="brukerService" class ="com.team1.proj.service.BrukerServiceImpl"/>
     <bean id="repository" class ="com.team1.proj.repository.BrukerTemplateRepositoryImpl"/>
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
+   
     
     <bean id="dataSource"
          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
