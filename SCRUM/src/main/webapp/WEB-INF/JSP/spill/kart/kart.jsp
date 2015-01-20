@@ -25,9 +25,16 @@
 
                 <section class="block">
                     
-                    <div id="oppgavetekst">Velg brett!</div>
-
-                    <div id ="container"></div>
+                    <div id ="container">
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn1" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn2" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn3" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn4" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn5" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn6" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn7" />
+                        <img src="<c:url value='/resources/spill/bilder/grontlys.png' />" alt="Grønt lys" class="grontlys" id="gronn8" />
+                    </div>
 
                     <canvas id="canvas" >
 
@@ -39,6 +46,7 @@
                 </section>
                 
                 <div id="level">
+                        <p>Velg brett!</p>
                         <p>Nic er på vei til audition.</p>
                         <p>Beveg Nic med piltastene.</p>
                         <br />
