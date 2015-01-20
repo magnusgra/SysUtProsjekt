@@ -88,7 +88,7 @@ public class BrukerServiceImpl implements BrukerService {
 
     @Override
     public void leggTilResultat(Resultat res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        repo.leggTilResultat(res);
     }
 
     @Override
