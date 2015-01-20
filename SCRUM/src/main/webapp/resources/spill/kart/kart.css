@@ -15,7 +15,7 @@ and open the template in the editor.
 
  #canvas{ 
     left: 11px;
-    top: 38px;
+    top: 17px;
     z-index: 1;
  }
  
@@ -29,8 +29,8 @@ and open the template in the editor.
      position: absolute;
      left: 830px;
      height: 494px;
-     top: 7px;
-     padding-top: 26px;
+     top: 0px;
+     padding-top: 11px;
  }
  
  a, a:visited, a:hover{
@@ -53,4 +53,58 @@ and open the template in the editor.
  
  #spill{
      width: 1000px;
+     padding-top: 13px;
  }
+ 
+ .grontlys{
+position: absolute;
+z-index: 1;
+}
+
+#gronn1{
+top: 231px;
+left: 67px;
+opacity: 1;
+}
+
+#gronn2{
+top: 231px;
+left: 244px;
+opacity: 0;
+}
+
+#gronn3{
+top: 395px;
+left: 244px;
+opacity: 0;
+}
+
+#gronn4{
+top: 332px;
+left: 584px;
+opacity: 0;
+}
+
+#gronn5{
+top: 332px;
+left: 737px;
+opacity: 0;
+}
+
+#gronn6{
+top: 70px;
+left: 736px;
+opacity: 0;
+}
+
+#gronn7{
+top: 69px;
+left: 557px;
+opacity: 0;
+}
+
+#gronn8{
+top: 69px;
+left: 395px;
+opacity: 0;
+}
