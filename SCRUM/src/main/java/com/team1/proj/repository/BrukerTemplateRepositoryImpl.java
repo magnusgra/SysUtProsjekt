@@ -115,8 +115,8 @@ public class BrukerTemplateRepositoryImpl implements Repository{
         });
         
     }
-    public void slettResultat(Resultat res){
-        jdbcTemplateObject.update(sqlDeleteResultat, res.getEpost(), res.getOppgavenr());       
+    public boolean slettResultat(Resultat res){
+        return jdbcTemplateObject.update(sqlDeleteResultat, res.getEpost(), res.getOppgavenr()) == 1;       
        
     }
         

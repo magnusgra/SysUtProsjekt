@@ -99,7 +99,7 @@ public class Brukerdata{
         
         if (other == this) return true; 
         
-        if (this.epost.equals(other.epost) && this.fornavn.equals(other.fornavn)&& other.etternavn.equals(other.etternavn)) {
+        if (this.epost.equals(other.epost)) {
             return true;
         }
         return false;

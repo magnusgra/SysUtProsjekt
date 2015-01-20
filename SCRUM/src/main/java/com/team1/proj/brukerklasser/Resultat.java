@@ -10,14 +10,15 @@ package com.team1.proj.brukerklasser;
  * @author arnecs
  */
 public class Resultat {
+    private String epost;
+    private int oppgavenr;
+     private int poeng; 
     private String fornavn;
     private String etternavn;
-    private String epost;
+    
     private int rettigheter;
     private String status; 
-    private int oppgavenr;
-    private int poeng; 
-
+    
     public Resultat(){    
     }
 
