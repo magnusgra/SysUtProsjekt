@@ -15,7 +15,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="<c:url value='/resources/spill/form/formLevel_side.js' />"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
-        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/formLevel.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/form/formLevel.css'/>">
     </head>
     <body>
         

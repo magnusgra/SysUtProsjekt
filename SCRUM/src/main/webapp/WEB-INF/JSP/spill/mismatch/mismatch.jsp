@@ -12,9 +12,10 @@
         <title>Mismatch</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="<c:url value='/resources/spill/mismatch/mismatch_side.js'/>"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
         <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/mismatch/mismatch.css'/>">
-        <script src="<c:url value='/resources/spill/mismatch/mismatch_side.js'/>"></script>
+        
 
     </head>
 

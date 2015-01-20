@@ -168,7 +168,7 @@ public class GameController {
     @RequestMapping("/Form")
     public String form(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/form/form";
+            return "spill/form/formLevel";
         }
         
         model.addAttribute("logindata", new Brukerdata());

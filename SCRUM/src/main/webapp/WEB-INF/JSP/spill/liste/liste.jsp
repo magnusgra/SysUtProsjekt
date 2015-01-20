@@ -12,9 +12,10 @@
         <title>Liste</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="<c:url value='/resources/spill/liste/liste_side.js'/>"></script>
         <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
         <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/liste/liste.css'/>">
-        <script src="<c:url value='/resources/spill/liste/liste_side.js'/>"></script>
+        
     </head> 
 
     <body>
@@ -22,6 +23,7 @@
                 <input id="bane" type="hidden" name="bane" value="" />
                 <input id="poeng" type="hidden" name="poeng" value="" />
             </form>
+        
         <div id="spill">
             
         <section id="content">

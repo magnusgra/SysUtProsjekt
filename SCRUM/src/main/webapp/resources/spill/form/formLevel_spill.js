@@ -1,3 +1,5 @@
+var webappName = "/database";
+
 (function () {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
@@ -63,14 +65,14 @@ wall2.push({             // Usynlig sperre
 var spillerBilde = new Image();
 spillerBilde.onload = function () {
     spillerKlar = true;
-};spillerBilde.src="../bilder/nic.png";
+};spillerBilde.src= webappName + "/resources/spill/bilder/nic.png";
 
-var bgReady = false;
+/*var bgReady = false;
 var bgImage = new Image();
 bgImage.onload = function () {
 bgReady = true;
 };
-bgImage.src = "../bilder/scene_form.jpg";
+bgImage.src = webappName + "/resources/spill/bilder/scene_form.png";*/
     
 canvas.width = width;
 canvas.height = height;

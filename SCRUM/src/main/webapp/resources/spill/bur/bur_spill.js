@@ -1,3 +1,5 @@
+var webappName = "/database";
+
 (function () {
     var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     window.requestAnimationFrame = requestAnimationFrame;
@@ -76,7 +78,7 @@ wall.push({             // Usynlig sperre
 var spillerBilde = new Image();
 spillerBilde.onload = function () {
     spillerKlar = true;
-};spillerBilde.src="../bilder/nic.png";
+};spillerBilde.src= webappName + "/resources/spill/bilder/nic.png";
 
 canvas.width = width;
 canvas.height = height;
