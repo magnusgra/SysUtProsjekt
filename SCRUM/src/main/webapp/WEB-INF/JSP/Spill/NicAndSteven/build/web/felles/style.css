@@ -1,0 +1,169 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08.jan.2015, 13:39:57
+    Author     : microtonickitten
+*/
+
+//Globale standarder
+
+html, body { 
+    margin: 0px; padding: 0px; border: 0px; 
+} 
+
+body { 
+    font: 1em/1.25 Arial, Helvetica, sans-serif; 
+}  
+
+h1, h2, h3, h4, h5, h6 { 
+    margin: 0; 
+    padding: 0; 
+    font-weight: normal; 
+    font-family: Arial, Helvetica, sans-serif; 
+}  
+
+p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, a, input, select, textarea { 
+    margin: 0; 
+    padding: 0; 
+    font: normal normal normal 1em/1.25 Arial, Helvetica, sans-serif; 
+    
+} blockquote { 
+    margin: 1.25em; padding: 1.25em 
+} 
+
+q { font-style: italic; 
+} 
+
+acronym, abbr { 
+cursor: help; 
+border-bottom: 1px dashed; 
+} 
+
+small { 
+    font-size:.85em; 
+    
+} 
+
+big { 
+    font-size:1.2em; 
+}  /* Links and Images */ 
+
+a, a:link, a:visited, a:active, a:hover { 
+    text-decoration: underline; 
+} 
+
+img { 
+    border: none; 
+}  
+
+table { 
+    margin: 0; 
+    padding: 0; 
+    border: none; 
+}  
+
+form { 
+    margin: 0; 
+    padding: 0; 
+    display: inline; 
+    
+} 
+
+label { 
+    cursor: pointer;
+}  
+
+//Spill
+
+.block {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+            
+.renderedFrame, .codeBox {
+    width: 250px; 
+    height: 139px;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 10pt;
+}
+
+#container {
+    width: 640px;
+    height: 360px;
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+    position: relative;
+    left: 5px;
+}
+
+ #canvas{ 
+    position: absolute;
+    left: 13px;
+    z-index: 1;
+    background: transparent;
+ }
+ 
+ #box{
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    background-color: red;
+ }
+ 
+ #codeContainer {
+     position: absolute;
+     left: 660px;
+     top: 7px;
+     padding-top: 5px;
+ }
+ 
+ #oppgavetekst, #htmlView, #cssView, #knapper, .litenoverskrift {
+     width: 400px;
+     margin-left: 5px;
+     margin-bottom: 5px;
+ }
+ 
+ #oppgavetekst {
+     margin-top: 3px;
+     margin-bottom: 7px;
+     font-size: 11pt;
+     width: 640px;
+ }
+ 
+ .codeBox{
+     padding: 3px;
+     background-color: #f3f3f3;
+     border-style: solid;
+     border-width: thin;
+     border-color: gray;
+ }
+ 
+ #spill {
+     position: relative;
+     top: 5px;
+     left: 5px;
+     height: min-content;
+     width: 1070px;
+     background-color: #eeeeee;
+     padding: 7px;
+     padding-bottom: 16px;
+     border-style: solid;
+     border-width: thin;
+     border-color: lightgray;
+     border-radius: 7px;
+ }
+ 
+ #timer {
+    padding: 2px;
+}
