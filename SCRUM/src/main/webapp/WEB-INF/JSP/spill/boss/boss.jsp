@@ -60,7 +60,7 @@
             </section>
                 
             </section>
-            <!--<audio autoplay="autoplay"><source src="fight.mp3" type="audio/mpeg" /></audio> -->
+            <audio autoplay="autoplay"><source src="fight.mp3" type="audio/mpeg" /></audio>
         </div>
         <form hidden id="formen" action="Kart" method="GET">
         </form>                
