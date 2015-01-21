@@ -28,6 +28,10 @@
             border-bottom: none;
             border-right: none;
         }
+        
+        input#chat:focus {
+            outline: none;
+        }
 
         #console-container {
             width: 100%;
