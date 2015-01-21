@@ -22,7 +22,7 @@ $(document).ready(function() {
                 var startingCss = 
                             "#soppel {\n"+
                             "z-index: 0;\n"+
-                            "margin-top:300px;\n"+
+                            "margin-top:225px;\n"+
                             "}\n";
         
                 var startingHtml = "";
