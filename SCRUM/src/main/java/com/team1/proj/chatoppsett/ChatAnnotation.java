@@ -55,7 +55,7 @@ public class ChatAnnotation {
         
         
         connections.add(this);
-        String message = String.format("* %s %s", nickname, "har blitt med.");
+        String message = String.format("-addUser:"+nickname);
        // broadcast(message);
     }
 
@@ -63,18 +63,26 @@ public class ChatAnnotation {
     @OnClose
     public void end() {
         connections.remove(this);
-        String message = String.format("* %s %s ",
-                nickname, "has left the building.");
-        broadcast(message);
+        String msg = "-setUL:";
+            for (ChatAnnotation ca : connections) {
+                msg += "<p>" + filter(ca.nickname) + "</p>";
+                
+            }
+        broadcast(msg);
     }
 
 
     @OnMessage
     public void incoming(String message) {
         
-        if (message.startsWith("-setName:")){
+        if (message.startsWith("-addUser:")){
             nickname = message.substring(9);
-            broadcast(String.format("* %s %s", nickname, "  har blitt med."));
+            String msg = "-setUL:";
+            for (ChatAnnotation ca : connections) {
+                msg += "<p>" + ca.nickname + "</p>";
+                
+            }
+            broadcast(msg);
         } else {
             // Never trust the client
             String filteredMessage = String.format("%s:%s", nickname,message.toString());
@@ -106,8 +114,7 @@ public class ChatAnnotation {
                 } catch (IOException e1) {
                     // Ignore
                 }
-                String message = String.format("* %s %s",
-                        client.nickname, "has left the building.");
+                String message = "-removeUser:" + client.nickname;
                 broadcast(message);
             }
         }

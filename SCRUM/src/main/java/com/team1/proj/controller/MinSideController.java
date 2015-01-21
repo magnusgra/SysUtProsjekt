@@ -143,8 +143,20 @@ public class MinSideController {
                     try {
                         model.addAttribute("aktivBruker", request.getParameter("aktivBruker"));
                         String epost = request.getParameter("aktivBrukerEpost");
-                        int type = Integer.parseInt(request.getParameter("aktivBrukerType"));
                         
+                        int type = 0;
+                        String nyRettighet = request.getParameter("aktivBrukerType");
+                        if ("Gjør til Student".equals(nyRettighet)) {
+                            type = 0;
+                        } else if ("Gjør til Studentassistent".equals(nyRettighet)) {
+                            type = 1;
+                        } else if ("Gjør til Faglærer".equals(nyRettighet)) {
+                            type = 2;
+                        } 
+                        
+                        
+                      
+                        System.out.println("Type: " + type);
                         Brukerdata bd = new Brukerdata();
                         bd.setEpost(epost);
                         brukerService.endreRettigheter(bd, type);

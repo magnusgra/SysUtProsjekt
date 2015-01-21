@@ -34,37 +34,59 @@
         }
 
         #console-container {
+            position: relative;
             width: 100%;
             height: 350px;
             margin: 0 auto;
-            font-family: "Courier New", Courier, monospace;
-            font-size: 120%;
+            
+            
         }
 
+        #chat-user-list {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0 auto;
+            
+            height: 100%;
+            overflow-y: scroll;
+            
+            float: right;
+            width: 25%;
+            background: #ffffff;
+            color: #555555;
+            text-align: left;
+            
+            border-left: 1px solid #ccc;
+            
+        }
+        
+        
+        
         #console {
             
             margin: 0 auto;
             
             height: 100%;
             overflow-y: scroll;
-            
-            width: 100%;
+            float: left;
+            width: 75%;
             background: #ffffff;
             color: #555555;
             text-align: left;
         }
 
-        #console p {
+        p {
             margin: 0 auto;
             padding: 0 12px;
             
             
         }
         
-        #console p:nth-child(2n) {
+        p:nth-child(2n) {
             background: #fefefe;
         }
-        #console p:nth-child(2n + 1) {
+        p:nth-child(2n + 1) {
             background: #fcfcfc;
         }
         
@@ -90,9 +112,9 @@
             Chat.socket.onopen = function () {
                 //Console.log('Info: WebSocket connection opened.');
                 
-                Chat.socket.send("-setName:${brukerdata.fornavn}");
+                Chat.socket.send("-addUser:${brukerdata.fornavn}");
                 
-                
+              
                 
                 
                 document.getElementById('chat').onkeydown = function(event) {
@@ -100,6 +122,7 @@
                         Chat.sendMessage();
                     }
                 };
+               
             };
 
             Chat.socket.onclose = function () {
@@ -118,11 +141,12 @@
             } else {
                 Chat.connect('wss://' + window.location.host + '/database/chat');
             }
+            Chat.users = [];
         };
 
         Chat.sendMessage = (function() {
             var message = ' ' + document.getElementById('chat').value.trim();
-            if (message != ' ') {
+            if (message !== ' ') {
                 Chat.socket.send(message);
                 document.getElementById('chat').value = '';
             }
@@ -131,15 +155,26 @@
         var Console = {};
 
         Console.log = (function(message) {
-            var console = document.getElementById('console');
-            var p = document.createElement('p');
-            p.style.wordWrap = 'break-word';
-            p.innerHTML = message;
-            console.appendChild(p);
-            while (console.childNodes.length > 25) {
-                console.removeChild(console.firstChild);
+            
+           
+            if (message.substring(0,7) === "-setUL:") {
+                var usernames = message.substring(7, message.length);
+              
+                document.getElementById('chat-user-list').innerHTML = usernames;
+              
+            } else {
+                var console = document.getElementById('console');
+                var p = document.createElement('p');
+                p.style.wordWrap = 'break-word';
+                p.innerHTML = message;
+                console.appendChild(p);
+                
+                
+                while (console.childNodes.length > 25) {
+                    console.removeChild(console.firstChild);
+                }
+                console.scrollTop = console.scrollHeight;
             }
-            console.scrollTop = console.scrollHeight;
         });
 
         Chat.initialize();
@@ -152,6 +187,9 @@
                 noscripts[i].parentNode.removeChild(noscripts[i]);
             }
         }, false);
+        
+
+         
 
     </script>
     
@@ -202,6 +240,7 @@
     <center>
     <div id="console-container">
         <div id="console"></div>
+        <div id="chat-user-list">sd</div>
     </div>
     
         <input type="text" placeholder="Skriv og trykk enter for å chatte" id="chat" />

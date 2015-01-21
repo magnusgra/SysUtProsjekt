@@ -100,16 +100,13 @@
                         <input type="hidden" name="side" value="${aktivSide}" >
                             
                                 <c:if test="${bruker.brukerdata.rettigheter != 0}">
-                                    <input type="hidden" name="aktivBrukerType" value="0" >
-                                     <input type="submit" value="Gjør til Student">
+                                     <input type="submit" name="aktivBrukerType" value="Gjør til Student">
                                 </c:if>
                                 <c:if test="${bruker.brukerdata.rettigheter != 1}">
-                                    <input type="hidden" name="aktivBrukerType" value="1" >
-                                    <input type="submit" value="Gjør til Studentassistent" >
+                                    <input type="submit"name="aktivBrukerType" value="Gjør til Studentassistent" >
                                 </c:if>
                                 <c:if test="${bruker.brukerdata.rettigheter != 2}">
-                                    <input type="hidden" name="aktivBrukerType" value="2" >
-                                    <input type="submit" value="Gjør til Faglærer" >
+                                    <input type="submit" name="aktivBrukerType" title="Faglærer" value="Gjør til Faglærer" >
                                 </c:if>
                                 
                             
