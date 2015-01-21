@@ -7,6 +7,10 @@ package com.team1.proj.repository;
  * Klasser for å hente/lagre/slette  fra DB.
  */
 
+import com.team1.proj.repository.mapper.GodkjenningMapper;
+import com.team1.proj.repository.mapper.HighscoreMapper;
+import com.team1.proj.repository.mapper.OppgaveMapper;
+import com.team1.proj.repository.mapper.BrukerMapper;
 import java.sql.Connection;
 import java.util.List;
 import javax.sql.DataSource;

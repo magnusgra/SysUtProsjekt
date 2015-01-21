@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.team1.proj.repository;
+package com.team1.proj.repository.mapper;
 
 import com.team1.proj.brukerklasser.Brukerdata;
 import com.team1.proj.brukerklasser.Oppgave;

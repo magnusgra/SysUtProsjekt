@@ -8,7 +8,7 @@ package com.team1.proj.controller;
 import com.team1.proj.brukerklasser.Brukerdata; 
 import com.team1.proj.brukerklasser.Highscore;
 import com.team1.proj.ui.HighscoreListe;
-import com.team1.proj.brukerklasser.RegistreringsForm;
+import com.team1.proj.ui.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import java.util.List;

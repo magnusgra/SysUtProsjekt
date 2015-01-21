@@ -1,5 +1,5 @@
 
-package com.team1.proj.repository;
+package com.team1.proj.repository.mapper;
 
 /**
  *

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.team1.proj.brukerklasser.Brukerdata;
-import com.team1.proj.brukerklasser.RegistreringsForm;
+import com.team1.proj.ui.RegistreringsForm;
 import com.team1.proj.service.BrukerService;
 import com.team1.proj.service.BrukerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

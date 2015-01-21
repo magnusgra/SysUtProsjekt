@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.team1.proj.brukerklasser;
+package com.team1.proj.ui;
 
+import com.team1.proj.brukerklasser.Brukerdata;
 import javax.validation.constraints.NotNull;
 
 /**

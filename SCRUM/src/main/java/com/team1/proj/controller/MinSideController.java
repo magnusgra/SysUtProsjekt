@@ -12,7 +12,7 @@ import com.team1.proj.service.BrukerServiceImpl;
 import com.team1.proj.service.HashPassord;
 import com.team1.proj.ui.AdminGodkjenning;
 import com.team1.proj.ui.EndrePassordFormBackingBean;
-import com.team1.proj.ui.ResultatFormBackingBean;
+
 import java.util.Arrays;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
