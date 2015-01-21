@@ -172,7 +172,7 @@ $(document).ready(function () {
 
     $("#reset").click(function () {
         $("#htmlView").val(startingHtml);
-        $("#cssView").val(startingCss);
+        $("#cssView").val(oppgave);
 
     });
 });
