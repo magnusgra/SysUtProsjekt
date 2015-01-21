@@ -60,7 +60,22 @@
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
     
-    
+    <div id="velkomst-container">
+        
+        <h1>Velkommen!</h1>
+        <p>
+            <br />
+            Til Nic & Steven, en øving i spillform. Du får spille et spill, samtidig som du får testet dine ferdigheter i HTML5 og CSS. <br /><br />
+            For å få godkjent øvingen må du fullføre alle 8 brettene i spillet Nic & Steven. For hvert fullførte brett får du en poengscore. Den beste poengscoren får du ved å fullføre hurtigst mulig, og maks poengsum for hvert enkelt brett er 300 poeng. Uansett poengscore får du godkjent øvingen dersom du klarer å fullføre hele spillet.<br /><br />
+            Lykke til!<br /><br />
+            Hilsen Team1<br />
+            <p id="litentekst">
+                Siden ble laget av Team1 vår 2015, som ledd i et prosjekt. Team1 bestod av: Andreas Lersveen Fauske, Mary-Louise Lersveen Fauske, Magnus Grande, Ingrid Horten, Ken Are Meisler, Arne Christian Skarpnes, Kai Skyttä og Mari Andrine Thorsteinsen
+            </p>
+        </p>
+        
+        
+    </div>
     
     
     </body>

@@ -14,8 +14,7 @@ body{
 
 }
 
-
-#endre-passord-container, #highscore-container, #gl-container, .chat-container{
+#endre-passord-container, #highscore-container, #gl-container, .chat-container, #velkomst-container{
   width:400px;
   margin:0 auto;
   margin-top:75px;
@@ -35,7 +34,7 @@ body{
 
 
 
-#endre-passord-container h1, #highscore-container h1, #gl-container h1, .oversikt-container h1, .chat-container h1{
+#endre-passord-container h1, #highscore-container h1, #gl-container h1, .oversikt-container h1, .chat-container h1, #velkomst-container h1{
   margin: 0;
   background:rgb(248, 248, 248);
   padding:20px 0;
@@ -70,6 +69,14 @@ body{
     
     
 }
+#velkomst-container{
+    width: 700px;
+}
+
+#velkomst-container p{
+    padding: 20px;
+}
+
 .gl-header:nth-child(2n) {
     background: #e7e7e7;
 }
@@ -378,5 +385,10 @@ input[type="submit"]:disabled {
     width: 100%;
     padding: 0;
     
+}
+
+#litentekst{
+    font-size: 0.7em;
+    padding: 0px;
 }
 

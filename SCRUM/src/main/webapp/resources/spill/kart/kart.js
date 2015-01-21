@@ -30,75 +30,6 @@ var canvas = document.getElementById("canvas"),
 var boxes = [];
 var wall = [];
 
-if (document.cookie === "bane=1") {
-    spiller.x = 120;
-    spiller.y = 160;
-    $("#gronn1").css("opacity", "1"); 
-}
-if (document.cookie === "bane=2") {
-    spiller.x = 250;
-    spiller.y = 170;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-}
-if (document.cookie === "bane=3") {
-    spiller.x = 250;
-    spiller.y = 330;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-}
-if (document.cookie === "bane=4") {
-    spiller.x = 600;
-    spiller.y = 280;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-}
-if (document.cookie === "bane=5") {
-    spiller.x = 740;
-    spiller.y = 260;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-}
-if (document.cookie === "bane=6") {
-    spiller.x = 720;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-}
-if (document.cookie === "bane=7") {
-    spiller.x = 540;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-}
-if (document.cookie === "bane=8") {
-    spiller.x = 400;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-    $("#gronn8").css("opacity", "1");
-}
-
 // Grenser
 boxes.push({             // Øvre kartgrense
     x: 0,
@@ -214,7 +145,115 @@ boxes.push({            // Venstre vei etter åttende nivå
     width: 10,
     height: 230
 });
-        
+
+wall.push({            // Sperre etter første nivå
+    x: 110,
+    y: 200,
+    width: 10,
+    height: 50
+});
+       
+if (document.cookie === "bane=1") {
+    wall[0].x = 250;
+    wall[0].y = 270;
+    wall[0].width = 50;
+    wall[0].height = 10;
+    spiller.x = 120;
+    spiller.y = 160;
+    $("#gronn1").css("opacity", "1"); 
+}
+if (document.cookie === "bane=2") {
+    wall[0].x = 300;
+    wall[0].y = 360;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 250;
+    spiller.y = 170;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+}
+if (document.cookie === "bane=3") {
+    wall[0].x = 627;
+    wall[0].y = 320;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 250;
+    spiller.y = 330;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+}
+if (document.cookie === "bane=4") {
+    wall[0].x = 730;
+    wall[0].y = 255;
+    wall[0].width = 50;
+    wall[0].height = 10;
+    spiller.x = 600;
+    spiller.y = 280;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+}
+if (document.cookie === "bane=5") {
+    wall[0].x = 730;
+    wall[0].y = 20;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 740;
+    spiller.y = 260;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+}
+if (document.cookie === "bane=6") {
+    wall[0].x = 550;
+    wall[0].y = 20;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 720;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+}
+if (document.cookie === "bane=7") {
+    wall[0].x = 350;
+    wall[0].y = 20;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 540;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+    $("#gronn7").css("opacity", "1");
+}
+if (document.cookie === "bane=8") {
+    wall[0].x = 350;
+    wall[0].y = 20;
+    wall[0].width = 10;
+    wall[0].height = 50;
+    spiller.x = 400;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+    $("#gronn7").css("opacity", "1");
+    $("#gronn8").css("opacity", "1");
+}
+       
 // Laster inn bilde av Nic
 var spillerBilde = new Image();
 spillerBilde.onload = function () {
@@ -275,6 +314,24 @@ function update() {
         }
 
     }
+    
+    for (var i = 0; i < wall.length; i++) {
+        ctx.rect(wall[i].x, wall[i].y, wall[i].width, wall[i].height);
+      
+        if(fargesjekk()==="t"){
+           var vegg = colCheck(spiller, wall[i]);
+           if (vegg === "l" || vegg === "r") {
+            spiller.velX = 0;
+            spiller.jumping = false;
+        } else if (vegg === "b") {
+            spiller.grounded = true;
+            spiller.jumping = false;
+        } else if (vegg === "t") {
+            spiller.velY *= -1;
+        }
+
+        }
+     }
     
     // Level 1
     if (spiller.x > 69 && spiller.x < 80 && spiller.y > 150) {
