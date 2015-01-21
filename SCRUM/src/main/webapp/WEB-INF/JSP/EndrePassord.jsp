@@ -95,8 +95,9 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="<c:url value='/Home'/>">Home</a></li>
-                                <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+    				<li><a href="<c:url value='/Home'/>">Hjem</a></li>
+                                <li><a href="<c:url value='/Spill'/>">Spill</a></li>
+                                <li ><a href="<c:url value='/Chat'/>">Chat</a></li>
     				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>

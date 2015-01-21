@@ -28,8 +28,9 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="../Home">Home</a></li>
-    				<li><a href="../Spill">Start Spillet</a></li>
+    				<li><a href="../Hjem">Hjem</a></li>
+    				<li><a href="../Spill">Spill</a></li>
+                                <li ><a href="../Chat">Chat</a></li>
     				<li><a href="../Highscore">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>

@@ -15,7 +15,7 @@ body{
 }
 
 
-#endre-passord-container, #highscore-container, #gl-container {
+#endre-passord-container, #highscore-container, #gl-container, .chat-container{
   width:400px;
   margin:0 auto;
   margin-top:75px;
@@ -35,7 +35,7 @@ body{
 
 
 
-#endre-passord-container h1, #highscore-container h1, #gl-container h1, .oversikt-container h1{
+#endre-passord-container h1, #highscore-container h1, #gl-container h1, .oversikt-container h1, .chat-container h1{
   margin: 0;
   background:rgb(248, 248, 248);
   padding:20px 0;
@@ -46,6 +46,11 @@ body{
   
   border-bottom: 1px solid rgb(231, 231, 231);
 
+}
+
+.chat-container {
+    width: 750px;
+    
 }
 
 #gl-container {

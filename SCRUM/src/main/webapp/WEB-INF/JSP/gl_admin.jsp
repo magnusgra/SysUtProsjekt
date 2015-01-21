@@ -49,8 +49,9 @@
     			
     			<ul class="nav navbar-nav navbar-right">
     				
-    				<li><a href="<c:url value='/Home'/>">Home</a></li>
+    				<li><a href="<c:url value='/Hjem'/>">Hjem</a></li>
                                 <li><a href="<c:url value='/Spill'/>">Start Spillet</a></li>
+                                <li><a href="<c:url value='/Chat'/>">Chat</a></li>
     				<li><a href="<c:url value='/Highscore'/>">Se Highscore</a></li>
     				<li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Min Side<b class="caret"></b></a>
@@ -97,16 +98,21 @@
                         <input type="hidden" name="aktivBruker" value="${status.index}" >
                         <input type="hidden" name="aktivBrukerEpost" value="${bruker.brukerdata.epost}" >
                         <input type="hidden" name="side" value="${aktivSide}" >
-                            <c:choose>
-                                <c:when test="${bruker.brukerdata.rettigheter == 0}">
-                                    <input type="hidden" name="aktivBrukerType" value="1" >
-                                    <input type="submit" value="Gjør til Studentassistent" >
-                                </c:when>
-                                <c:when test="${bruker.brukerdata.rettigheter == 1}">
+                            
+                                <c:if test="${bruker.brukerdata.rettigheter != 0}">
                                     <input type="hidden" name="aktivBrukerType" value="0" >
                                      <input type="submit" value="Gjør til Student">
-                                </c:when>
-                            </c:choose> 
+                                </c:if>
+                                <c:if test="${bruker.brukerdata.rettigheter != 1}">
+                                    <input type="hidden" name="aktivBrukerType" value="1" >
+                                    <input type="submit" value="Gjør til Studentassistent" >
+                                </c:if>
+                                <c:if test="${bruker.brukerdata.rettigheter != 2}">
+                                    <input type="hidden" name="aktivBrukerType" value="2" >
+                                    <input type="submit" value="Gjør til Faglærer" >
+                                </c:if>
+                                
+                            
                     </form:form>
                 </c:if>
                     <center>

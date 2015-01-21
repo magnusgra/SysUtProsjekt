@@ -35,7 +35,9 @@
     
 
        
-    <bean id="brukerdata" class ="com.team1.proj.brukerklasser.Brukerdata"/>
+    <bean id="brukerdata" class ="com.team1.proj.brukerklasser.Brukerdata" scope="session" >
+        <aop:scoped-proxy/>
+    </bean>
     <bean id="brukerService" class ="com.team1.proj.service.BrukerServiceImpl"/>
     <bean id="repository" class ="com.team1.proj.repository.BrukerTemplateRepositoryImpl"/>
     

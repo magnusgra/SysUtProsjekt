@@ -178,4 +178,20 @@ public class MainController {
         return "Login/login";
     }
       
+    
+    
+        @RequestMapping(value="/Chat")
+    public String chat(Model model){
+        
+        if(brukerdata.isInnlogget()){  
+            
+            model.addAttribute("brukerdata", brukerdata);
+            return "chat";
+        }
+        
+        model.addAttribute("logindata", new Brukerdata());
+        return "Login/login";
+ 
+            
+    }
 }
