@@ -182,8 +182,17 @@ public class GameController {
     }
     
     @RequestMapping("/BossBattle")
-    public String bossBattle(Model model){
+    public String bossBattlePost(Model model, @RequestParam("bane") Integer bane, @RequestParam("poeng") Integer poeng){
         if (brukerdata.isInnlogget()){
+            
+             //Lagre data
+            Resultat res = new Resultat();
+            res.setEpost(brukerdata.getEpost());
+            res.setOppgavenr(bane);
+            res.setPoeng(poeng);
+            brukerService.leggTilResultat(res);
+            
+            
             return "spill/boss/boss";
         }
         

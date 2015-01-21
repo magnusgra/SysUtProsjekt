@@ -99,7 +99,7 @@ $(document).ready(function() {
                                     document.getElementById("kommando").innerHTML = "You win...this time!";
                                     $("#box").css("background-color", "green");
                                     $("#statusboks").css("width", "0px");
-                                    setTimeout(function() {window.location.href = "../kart/kart.html";}, 4000);
+                                    setTimeout(function() {document.getElementById('formen').submit();}, 4000);
                                 }   
                             }
                         }   

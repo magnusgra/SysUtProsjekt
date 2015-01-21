@@ -19,7 +19,7 @@
     </head>
     <body>
         
-        <form id="formen" action="Kart" method="POST">
+        <form id="formen" action="BossBattle" method="POST">
             <input id="bane" type="hidden" name="bane" value="" />
             <input id="poeng" type="hidden" name="poeng" value="" />
         </form>

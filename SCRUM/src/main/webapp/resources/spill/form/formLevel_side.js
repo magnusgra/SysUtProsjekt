@@ -125,6 +125,7 @@ $(document).ready(function() {
             
            function doSomething(){
                alert("Prepare for battle!");
-               window.location.assign("../boss/boss.html");
+               //window.location.assign("BossBattle");
+               document.getElementById('formen').submit();
            } 
             

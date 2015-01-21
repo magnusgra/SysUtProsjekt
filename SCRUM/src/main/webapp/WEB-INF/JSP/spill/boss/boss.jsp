@@ -1,12 +1,14 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>BOSS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../felles/style.css">
-        <link rel="stylesheet" type="text/css" href="boss.css">
-        <script src="boss_side.js"></script>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/felles/style.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/resources/spill/boss/boss.css'/>">
+        <script src="<c:url value='/resources/spill/boss/boss_side.js'/>"></script>
     </head> 
 
     <body>
@@ -32,7 +34,7 @@
                     </div>
 
                     <canvas id="canvas" >
-                        <script src="boss_spill.js"></script>
+                        <script src="<c:url value='/resources/spill/boss/boss_spill.js'/>"></script>
                         <div id="box"></div>
                     </canvas>
 
@@ -60,4 +62,7 @@
             </section>
             <!--<audio autoplay="autoplay"><source src="fight.mp3" type="audio/mpeg" /></audio> -->
         </div>
+        <form hidden id="formen" action="Kart" method="GET">
+        </form>                
+        
 </html>
