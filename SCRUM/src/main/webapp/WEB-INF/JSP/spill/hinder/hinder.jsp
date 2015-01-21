@@ -33,9 +33,7 @@
             <section class="block">
                 
                 <div id="oppgavetekst">
-                    Her er det noe som er fryktelig galt. <br>
-                    Steven har kludret med html-koden slik at den ikke henger sammen med css-en. <br>
-                    Her skal det være en vei som Nic kan følge. Fiks html-koden slik at den passer med css-en.
+                    Steven har laget en hindring for Nic. Fjern hindringen slik at Nic kommer seg forbi.
                 </div>
 
                 <div id ="container">

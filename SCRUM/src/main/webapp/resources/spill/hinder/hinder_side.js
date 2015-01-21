@@ -25,7 +25,7 @@ $(document).ready(function() {
                             "margin-top:225px;\n"+
                             "}\n";
         
-                var startingHtml = "";
+                var startingHtml = "<div id=\"soppel\"></div>";
                 
                 //setRenderedResult($("#solutionFrame"), solutionHtml, solutionCss);
 
