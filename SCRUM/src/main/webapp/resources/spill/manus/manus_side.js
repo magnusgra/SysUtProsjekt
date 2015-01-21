@@ -89,6 +89,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=7;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=7";
                     }
                     else if((bakgrunn.toLowerCase()==="#f8f5f0")&& align.toLowerCase()==="center" && (color1.toLowerCase()==="blue"||color1==="#0000ff") && (color2.toLowerCase()==="blue"||color2==="#0000ff")&&(random===2)){
                        $("#box").css("background-color", "green");
@@ -100,6 +101,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=7;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=7";
                     }
                     
                     else if((bakgrunn.toLowerCase()==="#f8f5f0")&& align.toLowerCase()==="center" && (color1.toLowerCase()==="black"||color1==="#000000") && (color2.toLowerCase()==="black"||color2==="#000000")&&(random===3)){
@@ -112,6 +114,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=7;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=7";
                     }
 
                 });

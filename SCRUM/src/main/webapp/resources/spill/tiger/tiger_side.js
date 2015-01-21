@@ -61,6 +61,8 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=3;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=3";
+                        
                     }
                 });
                 

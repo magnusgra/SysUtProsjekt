@@ -106,6 +106,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=4;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=4";
                     }
                 });
                 

@@ -138,6 +138,7 @@ $(document).ready(function () {
             $("#cage").css("bottom", intStrengen + "px");
             document.getElementById("bane").value=6;
             document.getElementById("poeng").value=count;
+            document.cookie="bane=6";
                         
 
         }
@@ -155,6 +156,7 @@ $(document).ready(function () {
             $("#cage").css("opacity", intStrengen);
             document.getElementById("bane").value=6;
             document.getElementById("poeng").value=count;
+            document.cookie="bane=6";
         }
         else if (random === 3 && ferdigStreng < 0) {
             $("#box").css("background-color", "green");
@@ -167,6 +169,7 @@ $(document).ready(function () {
             $("#cage").css("z-index", intStrengen);
             document.getElementById("bane").value=6;
             document.getElementById("poeng").value=count;
+            document.cookie="bane=6";
         }
 
         else if (random === 1 && ferdigStreng < 10) {
