@@ -122,7 +122,7 @@ public class MinSideController {
         System.out.println("******************     UserController.GL   ************************");
         if(brukerdata.isInnlogget()){
             
-            List<String> banenavn = Arrays.asList(new String[]{"Hinder", "Liste", "Tiger", "Mismatch", "Linker", "Bur", "Manus", "Form", "Boss battle"}); 
+            List<String> banenavn = Arrays.asList(new String[]{"Hinder", "Liste", "Tiger", "Mismatch", "Linker", "Bur", "Manus", "Form"}); 
             model.addAttribute("oppgavenavn", banenavn);
             model.addAttribute("brukerdata", brukerdata);
             
