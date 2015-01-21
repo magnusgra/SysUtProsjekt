@@ -104,6 +104,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=2;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=2";
                     }
                     else if(resultat === svar2){
                         $("#box").css("background-color", "green");
@@ -115,6 +116,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=2;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=2";
                     }
                     else if(resultat === svar3){
                         $("#box").css("background-color", "green");
@@ -126,6 +128,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=2;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=2";
                     }
                    
 

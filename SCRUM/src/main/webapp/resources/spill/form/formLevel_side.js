@@ -104,8 +104,9 @@ $(document).ready(function() {
                             count = 300;
                         }
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
-                        document.getElementById("bane").value=3;
+                        document.getElementById("bane").value=8;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=8";
                     }
                 });
                 

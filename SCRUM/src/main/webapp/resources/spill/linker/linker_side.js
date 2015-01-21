@@ -125,6 +125,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=5;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=5";
                     }
                     else if(((farge.toLowerCase() === "green")||(farge.toLowerCase() === "#00ff00"))&&(random===2)){
                         $("#box").css("background-color", "green");
@@ -136,6 +137,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=5;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=5";
                     }
                     else if(((farge.toLowerCase() === "yellow")||(farge.toLowerCase() === "#ffff00"))&&(random===3)){
                         $("#box").css("background-color", "green");
@@ -147,6 +149,7 @@ $(document).ready(function() {
                         window.alert("Gratulerer! Du fikk: " +count+ " poeng.");
                         document.getElementById("bane").value=5;
                         document.getElementById("poeng").value=count;
+                        document.cookie="bane=5";
                     }
                     
                     

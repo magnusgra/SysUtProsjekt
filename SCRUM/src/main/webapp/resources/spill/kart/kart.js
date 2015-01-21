@@ -30,6 +30,75 @@ var canvas = document.getElementById("canvas"),
 var boxes = [];
 var wall = [];
 
+if (document.cookie === "bane=1") {
+    spiller.x = 120;
+    spiller.y = 160;
+    $("#gronn1").css("opacity", "1"); 
+}
+if (document.cookie === "bane=2") {
+    spiller.x = 250;
+    spiller.y = 170;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+}
+if (document.cookie === "bane=3") {
+    spiller.x = 250;
+    spiller.y = 330;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+}
+if (document.cookie === "bane=4") {
+    spiller.x = 600;
+    spiller.y = 280;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+}
+if (document.cookie === "bane=5") {
+    spiller.x = 740;
+    spiller.y = 260;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+}
+if (document.cookie === "bane=6") {
+    spiller.x = 720;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+}
+if (document.cookie === "bane=7") {
+    spiller.x = 540;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+    $("#gronn7").css("opacity", "1");
+}
+if (document.cookie === "bane=8") {
+    spiller.x = 400;
+    spiller.y = 0;
+    $("#gronn1").css("opacity", "1");
+    $("#gronn2").css("opacity", "1");
+    $("#gronn3").css("opacity", "1");
+    $("#gronn4").css("opacity", "1");
+    $("#gronn5").css("opacity", "1");
+    $("#gronn6").css("opacity", "1");
+    $("#gronn7").css("opacity", "1");
+    $("#gronn8").css("opacity", "1");
+}
+
 // Grenser
 boxes.push({             // Øvre kartgrense
     x: 0,
