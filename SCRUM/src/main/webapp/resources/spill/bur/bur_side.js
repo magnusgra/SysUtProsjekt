@@ -1,5 +1,12 @@
 $(document).ready(function () {
-
+      $("#cssView").keydown(function (e) {
+                if (e.ctrlKey && (e.keyCode === 88 || e.keyCode === 67 || e.keyCode === 86)) {
+                    return false;
+                }
+            });
+            $(document).bind("contextmenu",function(e){
+                e.preventDefault();
+            });
     var count = 310;
     var counter = setInterval(timer, 1000);
 
@@ -172,7 +179,7 @@ $(document).ready(function () {
 
     $("#reset").click(function () {
         $("#htmlView").val(startingHtml);
-        $("#cssView").val(startingCss);
+        $("#cssView").val(oppgave);
 
     });
 });

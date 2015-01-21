@@ -39,7 +39,7 @@ boxes.push({            // Venstre grense
 });
 boxes.push({            // Nedre grense
     x: 0,
-    y: height+20,
+    y: height+10,
     width: width,
     height: 50
 });

@@ -1,5 +1,12 @@
 $(document).ready(function() {
-                
+                      $("#htmlView").keydown(function (e) {
+                if (e.ctrlKey && (e.keyCode === 88 || e.keyCode === 67 || e.keyCode === 86)) {
+                    return false;
+                }
+            });
+            $(document).bind("contextmenu",function(e){
+                e.preventDefault();
+            });
                 var count = 310;
                 var counter = setInterval(timer, 1000);
                 

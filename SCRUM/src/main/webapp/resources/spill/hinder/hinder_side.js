@@ -1,5 +1,12 @@
 $(document).ready(function() {
-                
+                     $("#cssView").keydown(function (e) {
+                if (e.ctrlKey && (e.keyCode === 88 || e.keyCode === 67 || e.keyCode === 86)) {
+                    return false;
+                }
+            });
+            $(document).bind("contextmenu",function(e){
+                e.preventDefault();
+            }); 
                 var count = 310;
                 var counter = setInterval(timer, 1000);
                 
@@ -22,10 +29,10 @@ $(document).ready(function() {
                 var startingCss = 
                             "#soppel {\n"+
                             "z-index: 0;\n"+
-                            "margin-top:300px;\n"+
+                            "margin-top:225px;\n"+
                             "}\n";
         
-                var startingHtml = "";
+                var startingHtml = "<div id=\"soppel\"></div>";
                 
                 //setRenderedResult($("#solutionFrame"), solutionHtml, solutionCss);
 

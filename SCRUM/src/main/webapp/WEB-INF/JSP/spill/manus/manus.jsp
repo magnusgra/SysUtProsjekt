@@ -31,11 +31,6 @@
                     <section class="block">
 
                         <div id="oppgavetekst">
-                            Steven har kludret til manuset.
-                            Han har laget forskjellige farger på alle elementene og høyrestilt teksten. 
-                            Nic får vondt i hodet av å prøve å lese det.
-                            Velg overskrift, paragraf og div, gi alle fargen sort og 
-                            venstrestill på #f8f5f0 bakgrunn, slik at Nic får ro i sjela.
                         </div>
 
                         <div id ="container">
