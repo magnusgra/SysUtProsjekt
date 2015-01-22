@@ -35,7 +35,7 @@
     				<li class="active"><a href="<c:url value='/MinSide'/>">Min Side</a></li>
     				<li><a href="<c:url value='/LoggUt'/>">Logg ut</a></li>
     			</ul>
-                        <a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.jpg' />" width="50" id="histLogo"/></a>
+                        <a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.png' />" width="50" id="histLogo"/></a>
     		</div>
         </div>
     </div>
