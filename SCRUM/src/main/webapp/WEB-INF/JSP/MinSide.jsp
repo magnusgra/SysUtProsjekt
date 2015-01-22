@@ -12,7 +12,7 @@
 <html>
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nick and Steven</title>
+        <title>Nic and Steven</title>
         
          <!-- Bootstrap -->
         <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
@@ -22,7 +22,7 @@
     <body>
     <div class="navbar navbar-default">
     	<div class="container">
-    		<a href="Home" class = "navbar-brand">Nic and Steven</a>
+    		<a href="Home" class = "navbar-brand"></a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
     		<div class="collapse navbar-collapse navHeaderCollapse">
