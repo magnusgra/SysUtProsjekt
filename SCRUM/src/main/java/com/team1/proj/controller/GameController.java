@@ -221,6 +221,10 @@ public class GameController {
             res.setPoeng(poeng);
             brukerService.leggTilResultat(res);
             
+             if (brukerdata.getSisteOppgaveKlart() < bane){
+                brukerdata.setSisteOppgaveKlart(bane);
+            }
+            
             
             return "spill/boss/boss";
         }

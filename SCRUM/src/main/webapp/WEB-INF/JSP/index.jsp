@@ -60,6 +60,7 @@
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
     
     
+    
     <div id="velkomst-container">
         
         <h1>Velkommen!</h1>
@@ -72,11 +73,9 @@
             <p id="litentekst">
                 Siden ble laget av Team1 vår 2015, som ledd i et prosjekt. Team1 bestod av: Andreas Lersveen Fauske, Mary-Louise Lersveen Fauske, Magnus Grande, Ingrid Horten, Ken Are Meisler, Arne Christian Skarpnes, Kai Skyttä og Mari Andrine Thorsteinsen
             </p>
+            <center><a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.png' />" width="50"/></a></center>
         </p>
-        
-        
     </div>
-    
     
     </body>
     
