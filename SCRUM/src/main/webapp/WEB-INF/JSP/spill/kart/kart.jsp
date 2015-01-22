@@ -55,7 +55,9 @@
             </section>
             
         </div>
-        
+        <script>
+            setPlasseringAvSpiller(${brukerdata.sisteOppgaveKlart});
+        </script>
     </body>
     
 </html>

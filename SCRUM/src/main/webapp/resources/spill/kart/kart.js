@@ -152,106 +152,108 @@ wall.push({            // Sperre etter første nivå
     width: 10,
     height: 50
 });
-       
-if (document.cookie === "bane=1") {
-    wall[0].x = 250;
-    wall[0].y = 270;
-    wall[0].width = 50;
-    wall[0].height = 10;
-    spiller.x = 120;
-    spiller.y = 160;
-    $("#gronn1").css("opacity", "1"); 
-}
-if (document.cookie === "bane=2") {
-    wall[0].x = 300;
-    wall[0].y = 360;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 250;
-    spiller.y = 170;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-}
-if (document.cookie === "bane=3") {
-    wall[0].x = 627;
-    wall[0].y = 320;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 250;
-    spiller.y = 330;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-}
-if (document.cookie === "bane=4") {
-    wall[0].x = 730;
-    wall[0].y = 255;
-    wall[0].width = 50;
-    wall[0].height = 10;
-    spiller.x = 600;
-    spiller.y = 280;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-}
-if (document.cookie === "bane=5") {
-    wall[0].x = 730;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 740;
-    spiller.y = 260;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-}
-if (document.cookie === "bane=6") {
-    wall[0].x = 550;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 720;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-}
-if (document.cookie === "bane=7") {
-    wall[0].x = 350;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 540;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-}
-if (document.cookie === "bane=8") {
-    wall[0].x = 350;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 400;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-    $("#gronn8").css("opacity", "1");
+
+function setPlasseringAvSpiller(bane) {
+    if (bane == 1) {
+        wall[0].x = 250;
+        wall[0].y = 270;
+        wall[0].width = 50;
+        wall[0].height = 10;
+        spiller.x = 120;
+        spiller.y = 160;
+        $("#gronn1").css("opacity", "1"); 
+    }
+    if (bane == 2) {
+        wall[0].x = 300;
+        wall[0].y = 360;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 250;
+        spiller.y = 170;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+    }
+    if (bane == 3) {
+        wall[0].x = 627;
+        wall[0].y = 320;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 250;
+        spiller.y = 330;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+    }
+    if (bane == 4) {
+        wall[0].x = 730;
+        wall[0].y = 255;
+        wall[0].width = 50;
+        wall[0].height = 10;
+        spiller.x = 600;
+        spiller.y = 280;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+    }
+    if (bane == 5) {
+        wall[0].x = 730;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 740;
+        spiller.y = 260;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+    }
+    if (bane == 6) {
+        wall[0].x = 550;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 720;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+    }
+    if (bane == 7) {
+        wall[0].x = 350;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 540;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+        $("#gronn7").css("opacity", "1");
+    }
+    if (bane == 8) {
+        wall[0].x = 350;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 400;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+        $("#gronn7").css("opacity", "1");
+        $("#gronn8").css("opacity", "1");
+    }
 }
        
 // Laster inn bilde av Nic

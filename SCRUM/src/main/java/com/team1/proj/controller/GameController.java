@@ -73,6 +73,7 @@ public class GameController {
     @RequestMapping(value = "Kart",  method = RequestMethod.GET)
     public String kartGet(Model model){
         if (brukerdata.isInnlogget()){
+            model.addAttribute("brukerdata", brukerdata);
             return "spill/kart/kart";
         }
         
@@ -91,7 +92,11 @@ public class GameController {
             res.setPoeng(poeng);
             brukerService.leggTilResultat(res);
             
+            if (brukerdata.getSisteOppgaveKlart() < bane){
+                brukerdata.setSisteOppgaveKlart(bane);
+            }
             
+            model.addAttribute("brukerdata", brukerdata);
             return "spill/kart/kart";
         }
         
@@ -102,7 +107,10 @@ public class GameController {
     @RequestMapping("/Hinder")
     public String hinder(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/hinder/hinder";
+            if (brukerdata.getSisteOppgaveKlart() >= 0){
+                return "spill/hinder/hinder";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -112,7 +120,10 @@ public class GameController {
     @RequestMapping("/Liste")
     public String liste(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/liste/liste";
+            if (brukerdata.getSisteOppgaveKlart() >= 1){
+                return "spill/liste/liste";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -122,7 +133,10 @@ public class GameController {
     @RequestMapping("/Tiger")
     public String tiger(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/tiger/tiger";
+            if (brukerdata.getSisteOppgaveKlart() >= 2){
+                return "spill/tiger/tiger";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -132,7 +146,10 @@ public class GameController {
     @RequestMapping("/Mismatch")
     public String mismatch(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/mismatch/mismatch";
+            if (brukerdata.getSisteOppgaveKlart() >= 3){
+                return "spill/mismatch/mismatch";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -142,7 +159,10 @@ public class GameController {
     @RequestMapping("/Linker")
     public String linker(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/linker/linker";
+            if (brukerdata.getSisteOppgaveKlart() >= 4){
+                return "spill/linker/linker";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -152,7 +172,10 @@ public class GameController {
     @RequestMapping("/Bur")
     public String bur(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/bur/bur";
+            if (brukerdata.getSisteOppgaveKlart() >= 5){
+                return "spill/bur/bur";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -163,7 +186,10 @@ public class GameController {
     @RequestMapping("/Manus")
     public String manus(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/manus/manus";
+            if (brukerdata.getSisteOppgaveKlart() >= 6){
+                return "spill/manus/manus";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
@@ -174,14 +200,17 @@ public class GameController {
     @RequestMapping("/Form")
     public String form(Model model){
         if (brukerdata.isInnlogget()){
-            return "spill/form/formLevel";
+            if (brukerdata.getSisteOppgaveKlart() >= 7){
+                return "spill/form/formLevel";
+            }
+            return "spill/kart/kart";
         }
         
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
     
-    @RequestMapping("/BossBattle")
+    @RequestMapping(value="/BossBattle", method=RequestMethod.POST)
     public String bossBattlePost(Model model, @RequestParam("bane") Integer bane, @RequestParam("poeng") Integer poeng){
         if (brukerdata.isInnlogget()){
             

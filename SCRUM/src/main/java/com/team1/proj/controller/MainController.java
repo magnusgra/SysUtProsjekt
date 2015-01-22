@@ -85,7 +85,10 @@ public class MainController {
             this.brukerdata.setEpost(innlogget.getEpost());
             this.brukerdata.setInnlogget(innlogget.isInnlogget());
             this.brukerdata.setRettigheter(innlogget.getRettigheter());
+            this.brukerdata.setSisteOppgaveKlart(innlogget.getSisteOppgaveKlart());
  
+            System.out.println("MainController: Siste Oppgave Klart: " + brukerdata.getSisteOppgaveKlart());
+            
             return "index";
         }
         

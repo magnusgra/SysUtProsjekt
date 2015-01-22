@@ -26,6 +26,8 @@ public class Brukerdata{
     private String epost;
     private boolean innlogget;
     
+    private int sisteOppgaveKlart;
+    
     public Brukerdata(){ 
     }
     
@@ -84,6 +86,16 @@ public class Brukerdata{
         this.epost = epost.toLowerCase();
         
     }
+
+    public int getSisteOppgaveKlart() {
+        return sisteOppgaveKlart;
+    }
+
+    public void setSisteOppgaveKlart(int sisteOppgaveKlart) {
+        this.sisteOppgaveKlart = sisteOppgaveKlart;
+    }
+    
+    
     
     public void formaterNavn(){
         this.fornavn = WordUtils.capitalize(fornavn.toLowerCase());

@@ -38,7 +38,7 @@ public class HighscoreListe {
         int sammeScore = 0;
         
         for (Highscore highscore : higscoreliste) {
-            if (highscore.getTotalsum() < score) {
+            if (highscore.getTotalsum() <= score) {
                 score = highscore.getTotalsum();
                 plass += sammeScore + 1;
                 sammeScore = 0;

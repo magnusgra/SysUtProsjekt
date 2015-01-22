@@ -32,13 +32,12 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class BrukerTemplateRepositoryImpl implements Repository{
     
-    private Connection forbindelse;
+
     private final String sqlDeleteBruker = "Delete from bruker where epost = ?";
-    private final String sqlSelectBruker = "Select * from bruker where etternavn = ?";
     private final String sqlDeleteResultat = "Delete from resultat where epost = ? and oppgavenr = ?";
-    private final String sqlSelectBrukerEpost = "Select * from bruker where epost = ?";
-    private final String sqlSelectBrukerViaEpost = "Select * from bruker where epost = ? and passord = ?";
-    private final String sqlSelectAlleBrukere = "Select brukernavn from bruker";
+    private final String sqlSelectBrukerEpost = "select bruker.*, resultat.oppgavenr from bruker LEFT OUTER join resultat on (resultat.epost = bruker.epost)  where bruker.epost = ? order by oppgavenr DESC limit 1";
+    private final String sqlSelectBrukerViaEpost = "select bruker.*, resultat.oppgavenr from bruker LEFT OUTER join resultat on (resultat.epost = bruker.epost) where bruker.epost = ? and passord = ? order by oppgavenr DESC limit 1";
+
     private final String sqlSelect10Beste = "select bruker.fornavn, TOTALSUM from bruker natural join (select resultat.epost, SUM(resultat.poeng) AS TOTALSUM from resultat group by epost) poengsum order by TOTALSUM DESC LIMIT 10";
     
     private final String sqlInsertBruker = "insert into bruker values(?,?,?,?,?)";
@@ -46,7 +45,6 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     private final String sqlUpdateResultat = "update resultat set poeng = case when poeng < ? then ? else poeng end where (epost = ? and oppgavenr = ?)";
     
     
-    private final String sqlUpdateBruker = "update bruker set passord=?, rettigheter = ?, epost = ? where brukernavn = ?";
     private final String sqlUpdateRettigheter = "update bruker set bruker.RETTIGHETER = ? where bruker.epost = ?";
     private final String sqlEndrePassord = "UPDATE bruker SET passord=? WHERE (epost=? AND passord=?)";
     private final String sqlHentGodkjenning = "select bruker.etternavn, bruker.fornavn, bruker.epost, bruker.rettigheter, (select resultat.POENG from resultat where oppgavenr=8 AND resultat.epost = bruker.epost) status from bruker";

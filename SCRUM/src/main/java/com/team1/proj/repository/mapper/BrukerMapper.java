@@ -21,6 +21,13 @@ public class BrukerMapper implements RowMapper<Brukerdata> {
         bruker.setRettigheter(rs.getInt("rettigheter"));
         bruker.setPassord(rs.getString("passord"));
         bruker.setEpost(rs.getString("epost"));
+        try {
+            bruker.setSisteOppgaveKlart(rs.getInt("oppgavenr"));
+        } catch (SQLException sqle){
+            bruker.setSisteOppgaveKlart(0);
+        }   
+        System.out.println("Siste Oppgave Klart: " + bruker.getSisteOppgaveKlart());
+        
         return bruker;
     }
 }
