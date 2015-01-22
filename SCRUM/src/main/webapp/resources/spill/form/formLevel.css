@@ -3,7 +3,6 @@
     left: 200px;
     top:140px;
     z-index: -1;
-    
 }
 
 #canvas{
@@ -20,4 +19,8 @@
 
 #etternavn {
     width: 83px;
+}
+
+#alder{
+    width: 40px;
 }

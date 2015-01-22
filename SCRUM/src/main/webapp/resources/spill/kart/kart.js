@@ -339,45 +339,54 @@ function update() {
     if (spiller.x > 69 && spiller.x < 80 && spiller.y > 150) {
         document.getElementById("start").setAttribute("href", "Hinder");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler posisjonering";
     }
     // Level 2
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y < 190) {
         document.getElementById("start").setAttribute("href", "Liste");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler uordnet liste";
     }
     // Level 3
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y > 310) {
         document.getElementById("start").setAttribute("href", "Tiger");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler dimensjonering";
     }
     // Level 4
     else if (spiller.x > 570 && spiller.x < 610 && spiller.y < 290 && spiller.y > 250) {
         document.getElementById("start").setAttribute("href", "Mismatch");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler attributter og klasser";
     }
     // Level 5
     else if (spiller.x > 720 && spiller.y > 250 && spiller.y < 290) {
         document.getElementById("start").setAttribute("href", "Linker");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler linker og tekstfarger";
     }
     // Level 6
     else if (spiller.x > 720 && spiller.y < 30) {
         document.getElementById("start").setAttribute("href", "Bur");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler posisjonering og opasitet";
     }
     // Level 7
     else if (spiller.x > 540 && spiller.x < 580 && spiller.y < 50) {
         document.getElementById("start").setAttribute("href", "Manus");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler tekst og bakgrunn";
     }
     // Level 8
     else if (spiller.x > 380 && spiller.x < 430 && spiller.y < 50) {
         document.getElementById("start").setAttribute("href", "Form");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler HTML-forms";
     }
     else {
         $("#start").css("opacity", "0");
         document.getElementById("start").setAttribute("href", "#");
+        document.getElementById("oppgavetittel").innerHTML = "";
     }
     
     if(spiller.grounded){

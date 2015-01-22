@@ -50,6 +50,7 @@
                         <p>Beveg Nic med piltastene.</p>
                         <br />
                         <a href="#" id="start">Start</a>
+                        <p id ="oppgavetittel"></p>
                 </div>
 
             </section>

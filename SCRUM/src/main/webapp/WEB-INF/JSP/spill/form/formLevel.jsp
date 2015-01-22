@@ -45,7 +45,7 @@
                 <form id="form">
                     Fornavn:<input type="text" id="fornavn"  placeholder="Steven?"><br><br>
                     Etternavn:<input type="text" id="etternavn" placeholder="Seagal?"><br><br>
-                    Alder: <input type="number" min="0" max="99"><br><br>
+                    Alder: <input id="alder" type="number" min="0" max="99"><br><br>
                     <input type="button" value="submit" onclick="doSomething()">
                 </form>
 
