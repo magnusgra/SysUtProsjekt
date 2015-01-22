@@ -240,7 +240,7 @@
     <center>
     <div id="console-container">
         <div id="console"></div>
-        <div id="chat-user-list">sd</div>
+        <div id="chat-user-list"></div>
     </div>
     
         <input type="text" placeholder="Skriv og trykk enter for å chatte" id="chat" />
