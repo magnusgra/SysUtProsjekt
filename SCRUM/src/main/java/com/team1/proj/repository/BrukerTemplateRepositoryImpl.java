@@ -147,7 +147,6 @@ public class BrukerTemplateRepositoryImpl implements Repository{
     @Override
     public List<Highscore> getHighscore(){
         try{
-            System.out.println("******************** BrukerTemplateRepositoryImpl.getHighscore()*******************");
              return jdbcTemplateObject.query(sqlSelect10Beste, new HighscoreMapper());
         }catch(EmptyResultDataAccessException e){
            return null;

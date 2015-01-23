@@ -69,7 +69,7 @@ public class GameController {
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
     }
- 
+    //Kart GET
     @RequestMapping(value = "Kart",  method = RequestMethod.GET)
     public String kartGet(Model model){
         if (brukerdata.isInnlogget()){
@@ -81,7 +81,8 @@ public class GameController {
         return "Login/login";
     }
     
-        @RequestMapping(value = "/Kart",  method = RequestMethod.POST)
+    //Kart POST
+    @RequestMapping(value = "/Kart",  method = RequestMethod.POST)
     public String kartPost(Model model, @RequestParam("bane") Integer bane, @RequestParam("poeng") Integer poeng){
         if (brukerdata.isInnlogget()){
             
@@ -92,6 +93,7 @@ public class GameController {
             res.setPoeng(poeng);
             brukerService.leggTilResultat(res);
             
+            //Oppdater siste oppgave klart
             if (brukerdata.getSisteOppgaveKlart() < bane){
                 brukerdata.setSisteOppgaveKlart(bane);
             }
@@ -221,10 +223,10 @@ public class GameController {
             res.setPoeng(poeng);
             brukerService.leggTilResultat(res);
             
-             if (brukerdata.getSisteOppgaveKlart() < bane){
+            //Oppdater siste oppgave klart
+            if (brukerdata.getSisteOppgaveKlart() < bane){
                 brukerdata.setSisteOppgaveKlart(bane);
-            }
-            
+            }            
             
             return "spill/boss/boss";
         }
