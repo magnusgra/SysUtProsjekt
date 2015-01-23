@@ -45,9 +45,8 @@
                 </section>
                 
                 <div id="level">
-                        <p>Velg brett!</p>
                         <p>Nic er på vei til audition.</p>
-                        <p>Beveg Nic med piltastene.</p>
+                        <p>Beveg Nic med piltastene. Brettene låses opp etterhvert som du gjennomfører oppgavene.</p>
                         <br />
                         <a href="#" id="start">Start</a>
                         <p id ="oppgavetittel"></p>
