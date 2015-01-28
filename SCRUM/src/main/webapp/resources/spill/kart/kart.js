@@ -152,106 +152,108 @@ wall.push({            // Sperre etter første nivå
     width: 10,
     height: 50
 });
-       
-if (document.cookie === "bane=1") {
-    wall[0].x = 250;
-    wall[0].y = 270;
-    wall[0].width = 50;
-    wall[0].height = 10;
-    spiller.x = 120;
-    spiller.y = 160;
-    $("#gronn1").css("opacity", "1"); 
-}
-if (document.cookie === "bane=2") {
-    wall[0].x = 300;
-    wall[0].y = 360;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 250;
-    spiller.y = 170;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-}
-if (document.cookie === "bane=3") {
-    wall[0].x = 627;
-    wall[0].y = 320;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 250;
-    spiller.y = 330;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-}
-if (document.cookie === "bane=4") {
-    wall[0].x = 730;
-    wall[0].y = 255;
-    wall[0].width = 50;
-    wall[0].height = 10;
-    spiller.x = 600;
-    spiller.y = 280;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-}
-if (document.cookie === "bane=5") {
-    wall[0].x = 730;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 740;
-    spiller.y = 260;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-}
-if (document.cookie === "bane=6") {
-    wall[0].x = 550;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 720;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-}
-if (document.cookie === "bane=7") {
-    wall[0].x = 350;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 540;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-}
-if (document.cookie === "bane=8") {
-    wall[0].x = 350;
-    wall[0].y = 20;
-    wall[0].width = 10;
-    wall[0].height = 50;
-    spiller.x = 400;
-    spiller.y = 0;
-    $("#gronn1").css("opacity", "1");
-    $("#gronn2").css("opacity", "1");
-    $("#gronn3").css("opacity", "1");
-    $("#gronn4").css("opacity", "1");
-    $("#gronn5").css("opacity", "1");
-    $("#gronn6").css("opacity", "1");
-    $("#gronn7").css("opacity", "1");
-    $("#gronn8").css("opacity", "1");
+
+function setPlasseringAvSpiller(bane) {
+    if (bane == 1) {
+        wall[0].x = 250;
+        wall[0].y = 270;
+        wall[0].width = 50;
+        wall[0].height = 10;
+        spiller.x = 120;
+        spiller.y = 160;
+        $("#gronn1").css("opacity", "1"); 
+    }
+    if (bane == 2) {
+        wall[0].x = 300;
+        wall[0].y = 360;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 250;
+        spiller.y = 170;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+    }
+    if (bane == 3) {
+        wall[0].x = 627;
+        wall[0].y = 320;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 250;
+        spiller.y = 330;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+    }
+    if (bane == 4) {
+        wall[0].x = 730;
+        wall[0].y = 255;
+        wall[0].width = 50;
+        wall[0].height = 10;
+        spiller.x = 600;
+        spiller.y = 280;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+    }
+    if (bane == 5) {
+        wall[0].x = 730;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 740;
+        spiller.y = 260;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+    }
+    if (bane == 6) {
+        wall[0].x = 550;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 720;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+    }
+    if (bane == 7) {
+        wall[0].x = 350;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 540;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+        $("#gronn7").css("opacity", "1");
+    }
+    if (bane == 8) {
+        wall[0].x = 350;
+        wall[0].y = 20;
+        wall[0].width = 10;
+        wall[0].height = 50;
+        spiller.x = 400;
+        spiller.y = 0;
+        $("#gronn1").css("opacity", "1");
+        $("#gronn2").css("opacity", "1");
+        $("#gronn3").css("opacity", "1");
+        $("#gronn4").css("opacity", "1");
+        $("#gronn5").css("opacity", "1");
+        $("#gronn6").css("opacity", "1");
+        $("#gronn7").css("opacity", "1");
+        $("#gronn8").css("opacity", "1");
+    }
 }
        
 // Laster inn bilde av Nic
@@ -337,45 +339,54 @@ function update() {
     if (spiller.x > 69 && spiller.x < 80 && spiller.y > 150) {
         document.getElementById("start").setAttribute("href", "Hinder");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler posisjonering";
     }
     // Level 2
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y < 190) {
         document.getElementById("start").setAttribute("href", "Liste");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler uordnet liste";
     }
     // Level 3
     else if (spiller.x > 230 && spiller.x < 270 && spiller.y > 310) {
         document.getElementById("start").setAttribute("href", "Tiger");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler dimensjonering";
     }
     // Level 4
     else if (spiller.x > 570 && spiller.x < 610 && spiller.y < 290 && spiller.y > 250) {
         document.getElementById("start").setAttribute("href", "Mismatch");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler attributter og klasser";
     }
     // Level 5
     else if (spiller.x > 720 && spiller.y > 250 && spiller.y < 290) {
         document.getElementById("start").setAttribute("href", "Linker");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler linker og tekstfarger";
     }
     // Level 6
     else if (spiller.x > 720 && spiller.y < 30) {
         document.getElementById("start").setAttribute("href", "Bur");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler posisjonering og opasitet";
     }
     // Level 7
     else if (spiller.x > 540 && spiller.x < 580 && spiller.y < 50) {
         document.getElementById("start").setAttribute("href", "Manus");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler tekst og bakgrunn";
     }
     // Level 8
     else if (spiller.x > 380 && spiller.x < 430 && spiller.y < 50) {
         document.getElementById("start").setAttribute("href", "Form");
         $("#start").css("opacity", "100");
+        document.getElementById("oppgavetittel").innerHTML = "Brettet omhandler HTML-forms";
     }
     else {
         $("#start").css("opacity", "0");
         document.getElementById("start").setAttribute("href", "#");
+        document.getElementById("oppgavetittel").innerHTML = "";
     }
     
     if(spiller.grounded){

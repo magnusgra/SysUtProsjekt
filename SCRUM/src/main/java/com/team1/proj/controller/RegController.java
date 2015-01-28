@@ -37,7 +37,7 @@ public class RegController {
     @RequestMapping(value = "RegistreringBruker" , method=RequestMethod.POST)
     public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
         
-         
+        //Valider input
         String email = regForm.getBrukerdata().getEpost();
         String fornavn = regForm.getBrukerdata().getFornavn();
         String etternavn = regForm.getBrukerdata().getEtternavn();
@@ -52,8 +52,10 @@ public class RegController {
             return "Login/RegistreringSide";
         }
         
+        //Prøver å legge til bruker
         String melding = brukerService.leggTilBruker(regForm.getBrukerdata());
         if (melding == null){
+            //Hvis bruker blir registrert
             model.addAttribute(regForm.getBrukerdata());
             Brukerdata logindata = regForm.getBrukerdata();
             logindata.setPassord("");
@@ -62,12 +64,11 @@ public class RegController {
             model.addAttribute("meldingtype", "melding-suksess");
             return "Login/login";
         }
+        
+        //hvis bruker er rigistrert fra før
         model.addAttribute("meldingtype", "melding-error");
         model.addAttribute("melding", melding);
         return "Login/RegistreringSide";
-        
-        
-    }
-
-    
+           
+    } 
 }

@@ -64,7 +64,6 @@ public class MainController {
     
     @RequestMapping(value="/*")
     public String index(Model model){
-        System.out.println("******************     UserController.showLogin   ************************");
         if(brukerdata.isInnlogget()){
             return "index";
         }
@@ -72,20 +71,22 @@ public class MainController {
         return "Login/login"; 
         
     }
+    
+    //Metode for å logge inn
     @RequestMapping(value="Home", method=RequestMethod.POST)
     public String showIndexSide(@ModelAttribute("logindata") Brukerdata logindata,Model model) {
-        System.out.println("******************     UserController.showStartside/index   ************************");
-      
         
+        //Prøv å logge inn
         Brukerdata innlogget = brukerService.loggInn(logindata.getEpost(), logindata.getPassord());
         if (innlogget != null){
-            
+            //hvis innlogget
             this.brukerdata.setFornavn(innlogget.getFornavn());
             this.brukerdata.setEtternavn(innlogget.getEtternavn());
             this.brukerdata.setEpost(innlogget.getEpost());
             this.brukerdata.setInnlogget(innlogget.isInnlogget());
             this.brukerdata.setRettigheter(innlogget.getRettigheter());
- 
+            this.brukerdata.setSisteOppgaveKlart(innlogget.getSisteOppgaveKlart());
+            
             return "index";
         }
         
@@ -96,10 +97,9 @@ public class MainController {
         return "Login/login";
     }
 
-
+    //Spill
     @RequestMapping(value="/Spill")
     public String spill(Model model){
-
         if(brukerdata.isInnlogget()){
             return "Spill";
         }
@@ -108,14 +108,14 @@ public class MainController {
         
     }
 
-    
+    //Highscore
     @RequestMapping(value = "Highscore")
     public String showHighscore(@ModelAttribute HighscoreListe hs, Model model) {
         System.out.println("******************     UserController.Highscore   ************************");
 
         if(brukerdata.isInnlogget()){  
+            //Henter highscoreliste
             hs.setHigscoreliste(brukerService.getHighscore());
-
             return "Highscore";
         }
         
@@ -123,43 +123,20 @@ public class MainController {
         return "Login/login";
     }
     
+    //Registreringsside
     @RequestMapping(value="RegistreringSide")
     public String registreringSide(Model model){
         System.out.println("******************     UserController.showRegistreringSide   ************************");
+        
+        //Lag registreringsform
         model.addAttribute(brukerService.getRegistreringsForm());
         return "Login/RegistreringSide";
     }
     
-    /*
-    @RequestMapping(value="RegistrerBruker", method=RequestMethod.POST)
-    public String registrerBruker(@ModelAttribute(value="registreringsForm") RegistreringsForm regForm, Model model){
-        
-        if (!regForm.isGodtarBrukervilkar()){
-            //Godtar ikke brukervilkår
-            model.addAttribute("melding", "Du må godta brukervilkårene.");
-            return "Login/RegistreringSide";
-        } 
-        String email = regForm.getBrukerdata().getEpost();
-        String navn = regForm.getBrukerdata().getBrukernavn();    
-        if (navn == null || navn.isEmpty() || email == null || email.isEmpty()){
-            return "Login/RegistreringSide";
-        }
-        
-        if (brukerService.leggTilBruker(regForm.getBrukerdata())){
-            
-            model.addAttribute("logindata", new Brukerdata());
-            return "Login/login";
-        }
-        
-        model.addAttribute("logindata", new Brukerdata());
-        return "Login/RegistreringSide";
-        
-        
-    }*/
-    
+    //Hvis brukervilkår
 @RequestMapping(value="/avtale")
     public String avtale(){
-        System.out.println("******************     UserController.showLogin   ************************");
+        System.out.println("******************     UserController.brukervilkår   ************************");
         return "Login/avtale";
     }   
     
@@ -171,6 +148,8 @@ public class MainController {
     @RequestMapping(value="/LoggUt")
     public String loggUt(Model model){
         System.out.println("******************     UserController.showLogin   ************************");
+        
+        //Set innloggen til false
         brukerdata.setInnlogget(false);
         brukerdata.setPassord("");
         
@@ -179,8 +158,8 @@ public class MainController {
     }
       
     
-    
-        @RequestMapping(value="/Chat")
+    //Chat
+    @RequestMapping(value="/Chat")
     public String chat(Model model){
         
         if(brukerdata.isInnlogget()){  

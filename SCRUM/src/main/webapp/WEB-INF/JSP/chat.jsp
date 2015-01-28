@@ -199,7 +199,7 @@
     
     <div class="navbar navbar-default">
     	<div class="container">
-            <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
+            <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" /></a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
     		<div class="collapse navbar-collapse navHeaderCollapse">
@@ -223,6 +223,7 @@
                                 </li>
     				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
     			</ul>
+                        <a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.png' />" width="50" id="histLogo"/></a>
     		</div>
         </div>
     </div>
@@ -240,7 +241,7 @@
     <center>
     <div id="console-container">
         <div id="console"></div>
-        <div id="chat-user-list">sd</div>
+        <div id="chat-user-list"></div>
     </div>
     
         <input type="text" placeholder="Skriv og trykk enter for å chatte" id="chat" />

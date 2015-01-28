@@ -85,7 +85,7 @@ public class ChatAnnotation {
             broadcast(msg);
         } else {
             // Never trust the client
-            String filteredMessage = String.format("%s:%s", nickname,filter(message.toString()));
+            String filteredMessage = String.format("<b>%s:</b>%s", nickname,filter(message.toString()));
             broadcast(filteredMessage);
         }
         

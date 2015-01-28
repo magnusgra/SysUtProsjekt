@@ -166,3 +166,11 @@ body {
  #timer {
     padding: 2px;
 }
+
+#oppgavetittel{
+    font-style: bold;
+    color: darkgrey;
+    margin-top:17px;
+    padding-right: 10px;
+    
+}

@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nick and Steven</title>
+        <title>Nic and Steven</title>
         
          <!-- Bootstrap -->
          <link href="<c:url value='/resources/bootstrap/css/bootstrap.min.css'/>" rel="stylesheet"/>
@@ -24,7 +24,7 @@
     <body>
     <div class="navbar navbar-default">
     	<div class="container">
-            <a href="Home" class = "navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" />Nic and Steven</a>
+            <a href="Home" class ="navbar-brand"><img id="nas-logo" src="<c:url value="/resources/bilder/nicandsteven.png"/>" /></a>
     		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
     		<div class="collapse navbar-collapse navHeaderCollapse">
@@ -48,8 +48,10 @@
                                 </li>
     				<li><a href="<c:url value='/LoggUt' />">Logg ut</a></li>
     			</ul>
+                        <a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.png' />" width="50" id="histLogo"/></a>
     		</div>
-        </div>
+       </div>
+ 
     </div>
                                      
     
@@ -58,6 +60,7 @@
     <script src="<c:url value='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' />"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js' />"></script>
+    
     
     
     <div id="velkomst-container">
@@ -72,11 +75,9 @@
             <p id="litentekst">
                 Siden ble laget av Team1 vår 2015, som ledd i et prosjekt. Team1 bestod av: Andreas Lersveen Fauske, Mary-Louise Lersveen Fauske, Magnus Grande, Ingrid Horten, Ken Are Meisler, Arne Christian Skarpnes, Kai Skyttä og Mari Andrine Thorsteinsen
             </p>
+            <center><a href="http://hist.no"><img src="<c:url value='/resources/bilder/HIST_logo_farge_liten.png' />" width="50"/></a></center>
         </p>
-        
-        
     </div>
-    
     
     </body>
     

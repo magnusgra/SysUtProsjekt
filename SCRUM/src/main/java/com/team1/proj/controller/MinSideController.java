@@ -64,10 +64,10 @@ public class MinSideController {
         return new BrukerServiceImpl();
     }
 
-    
+    //Åpne siden for å endre passord
     @RequestMapping(value="MinSide/EndrePassord")
     public String minSide(Model model){
-        System.out.println("******************     UserController.MinSide   ************************");
+        
         if(brukerdata.isInnlogget()){
             model.addAttribute(new EndrePassordFormBackingBean());
             return "EndrePassord";
@@ -77,10 +77,10 @@ public class MinSideController {
     }
     
     
-    
+    //POST for å endre passord
     @RequestMapping(value="MinSide/EndrePassord", method=RequestMethod.POST)
     public String endrePassord(Model model, @ModelAttribute EndrePassordFormBackingBean epfbb){
-        System.out.println("******************     UserController.endrePassord   ************************");
+        
         if(brukerdata.isInnlogget()){
             model.addAttribute(new EndrePassordFormBackingBean());
             if (!epfbb.passordErLik()){
@@ -102,16 +102,18 @@ public class MinSideController {
             //Hasher og salter gammelt passord som han har skrevet inn: 
             String hashGammeltPassord = HashPassord.getSecurePassword(epfbb.getGammeltPassord(), saltiDB)+ ":"+saltiDB; 
             brukerdata.setPassord(hashGammeltPassord);
+            //Prøver å ender passord i databasen
             if (brukerService.endrePassord(brukerdata, hashNyttPassord)){ 
+                //hvis endret
                 model.addAttribute("meldingtype", "melding-suksess");
                 model.addAttribute("melding", "Passordet er endret");
                 return "EndrePassord";
             } else {
+                //hvis feil gammelt passord
                 model.addAttribute("meldingtype", "melding-error");
                 model.addAttribute("melding", "Gammelt passord er feil.");
                 return "EndrePassord";
             }
-
         }
         model.addAttribute("logindata", new Brukerdata());
         return "Login/login";
@@ -122,14 +124,14 @@ public class MinSideController {
         System.out.println("******************     UserController.GL   ************************");
         if(brukerdata.isInnlogget()){
             
+            //Banenavn
             List<String> banenavn = Arrays.asList(new String[]{"Hinder", "Liste", "Tiger", "Mismatch", "Linker", "Bur", "Manus", "Form"}); 
             model.addAttribute("oppgavenavn", banenavn);
             model.addAttribute("brukerdata", brukerdata);
             
             switch (brukerdata.getRettigheter()){
                 case 0: //Student
-                //    Resultat oppgaver = brukerService.getResultat(brukerdata.getEpost());
-                //    model.addAttribute("oppgaver", oppgaver);
+                    //Henter egne oppgaver
                     AdminGodkjenning ag = brukerService.getResultat(brukerdata);
                     model.addAttribute("bruker", ag);
                     
@@ -165,7 +167,7 @@ public class MinSideController {
                         
                     }
                     
-                    
+                    //velger sidetall
                     String sideString = request.getParameter("side");
                     int side = 1;
                     try {
@@ -174,17 +176,17 @@ public class MinSideController {
                         System.out.println("NFE: " + sideString);
                     }
                     
+                    //Validerer side
                     if (side < 1) {
                         side = 1;
                     }
                     
-                    
                     int antPerSide = 20;
                     int fra = (side - 1) * antPerSide;
                     int til = side * antPerSide;
-                    
                     List<Integer> sider = brukerService.getSider(side,antPerSide);
-
+                    
+                    //Validerer side, går til 1 dersom for høyt sidetall
                     if (sider.size() == 0 || side > sider.get(sider.size() - 1).intValue()) {
                         side = 1;
                         fra = (side - 1) * antPerSide;
@@ -193,15 +195,11 @@ public class MinSideController {
                         sider = brukerService.getSider(side,antPerSide);
                     } 
                     
-                                      boolean sisteSide = false;
+                    //Sjekker om det er siste side
+                    boolean sisteSide = false;
                     if (sider.size() > 0){
                         sisteSide = side >= sider.get(sider.size() - 1).intValue(); 
                     }
-                    
-                    
-                    
-                    
-                    
                     
                     
                     model.addAttribute("sider", sider);
