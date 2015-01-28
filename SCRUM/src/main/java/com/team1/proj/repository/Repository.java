@@ -26,6 +26,8 @@ public interface Repository {
     public List<Resultat> getAlleBrukere(); 
     public boolean endreRettigheter(Brukerdata bd, int rettigheter);
     
+    //dfsfdsfdf
+    
     public Brukerdata loggInn(String epost, String passord);
     
     

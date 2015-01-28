@@ -1,8 +1,7 @@
 
 package com.team1.proj.repository;
 
-/**
- *
+/*
  * @author Kai
  * Klasser for å hente/lagre/slette  fra DB.
  */
