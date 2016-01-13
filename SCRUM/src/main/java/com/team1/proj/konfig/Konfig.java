@@ -71,9 +71,9 @@ public class Konfig extends WebMvcConfigurationSupport {
     @Bean
     public DataSource dataSource(){
         
-        String url = "jdbc:mysql://158.38.48.10:3306/marat";//jdbc:mysql://158.38.48.10:3306/marat
-        String username = "marat";//marat
-        String password = "yQ3eqhAKa47zmDBH";//yQ3eqhAKa47zmDBH
+        String url = "url";
+        String username = "username";
+        String password = "password";
         DriverManagerDataSource dmds = new DriverManagerDataSource(url, username, password);
         dmds.setDriverClassName("com.mysql.jdbc.Driver");//"com.mysql.jdbc.Driver"; 
         try{
